@@ -1,0 +1,102 @@
+configuration {
+  display-drun: "";
+  display-window: "Windows:";
+  drun-display-format: "{icon}  {name}";
+  font: "Fira Sans Semibold 13";
+  modi: "drun";
+  show-icons: true;
+  me-select-entry: "MousePrimary";
+  me-accept-entry: "!MousePrimary";
+}
+
+@theme "/dev/null"
+
+#scrollbar {
+    width:        4px ;
+    border:       0;
+    handle-color: @fg;
+    handle-width: 8px ;
+    padding:      0;
+}
+
+* {
+  bg: #1A1B26;
+  bg-alt: #282A36;
+
+  fg: #FFFFFF;
+  fg-alt: #f5f5f5;
+
+  background-color: @bg;
+  
+  border: 1;
+  border-radius: 6;
+  margin: 0;
+  padding: 0;
+  spacing: 0; 
+}
+
+window {
+  width: 25%;
+  padding: 0;
+  location:   south west;
+  x-offset:   4px;        
+  y-offset:   -4px;
+  scrollbar: true;
+}
+
+element {
+  padding: 8 4;
+  text-color: @fg-alt;
+  margin-left: 4;
+}
+
+element selected {
+  text-color: @fg;
+  padding-left: 4;
+  background-color: @bg-alt;
+  border-radius: 0;
+}
+
+element-text {
+  background-color: inherit;
+  text-color: @fg-alt;
+  vertical-align: 0.5;
+  margin-left: 4;
+}
+
+element-icon {
+  size: 30;
+  margin-right: 4;
+}
+
+entry {
+  background-color: @bg;
+  padding: 12;
+  text-color: @fg;
+  placeholder: "Search";
+  placholder-color: grey;
+}
+
+inputbar {
+  children: [prompt, entry];
+}
+
+listview {
+  padding: 8 12;
+  background-color: @bg;
+  columns: 1;
+  lines: 12;
+  scrollbar: true;
+}
+
+mainbox {
+  background-color: @bg;
+  children: [listview, inputbar];
+}
+
+prompt {
+  background-color: @bg;
+  enabled: true;
+  padding: 12 0 0 12;
+  text-color: @fg;
+}
