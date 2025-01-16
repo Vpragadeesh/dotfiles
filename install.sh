@@ -3,4 +3,4 @@ pacstrap -K /mnt base linux linux-firmware sof-firmware btop nvtop fish fastfetc
 genfstab -U /mnt >> /mnt/etc/fstab
 arch-chroot /mnt 
 umount -lR /mnt
-sudo reboot
+#sudo reboot
