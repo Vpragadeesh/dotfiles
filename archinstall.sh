@@ -43,7 +43,7 @@ pacstrap -K /mnt base base-devel linux linux-firmware sof-firmware networkmanage
 # fstab
 genfstab -U /mnt >> /mnt/etc/fstab
 # Create a file
-filename="/mnt/userinstall.sh"
+filename="/mnt/root/userinstall.sh"
 touch $filename
   echo "useradd -m -g users -G wheel,storage,power,audio,video -s /usr/bin/fish $USER
 passwd $NAME
