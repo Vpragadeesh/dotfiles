@@ -1,6 +1,6 @@
-
 #!/usr/bin/env bash
 
+setfont ter-132n
 echo "Please enter EFI paritition: (example /dev/sda1 or /dev/nvme0n1p1)"
 read EFI
 
