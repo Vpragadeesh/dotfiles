@@ -43,7 +43,7 @@ pacstrap -K /mnt base base-devel linux linux-firmware sof-firmware networkmanage
 # fstab
 genfstab -U /mnt >> /mnt/etc/fstab
 # Create a file
-filename="/mnt/home/$USER/userinstall.sh"
+filename="/mnt/userinstall.sh"
 touch $filename
   echo "useradd -m -g users -G wheel,storage,power,audio,video -s /usr/bin/fish $USER
 passwd $NAME
@@ -72,8 +72,6 @@ systemctl enable NetworkManager bluetooth
 pacman -S grub efibootmgr --noconfirm --needed
 grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id="Linux Boot Manager" --modules="normal test efi_gop efi_uga search echo linux all_video gfxmenu gfxterm_background gfxterm_menu gfxterm loadenv configfile tpm" --disable-shim-lock
 grub-mkconfig -o /boot/grub/grub.cfg
-
-cd /home/$USER
 git clone https://github.com/Vpragadeesh/dotfiles
 " >> $filename
 
