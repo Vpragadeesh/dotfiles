@@ -84,6 +84,10 @@
     "max-length": 10,
     "on-click": "kitty -e nmtui-connect"
   },
+  "storage": {
+    "exec": "~/st.sh",
+    "interval": 60
+  },
   "battery": {
     "interval": 1,
     "states": {

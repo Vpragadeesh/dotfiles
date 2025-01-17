@@ -19,6 +19,8 @@
         ],
         
         "modules-right": [
+                "storage",
+                "custom/sep",
                 "cpu",
                 "custom/sep",
                "memory",

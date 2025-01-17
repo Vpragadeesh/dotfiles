@@ -1,0 +1,18 @@
+sudo pacman -S hyprland nvidia nvidia-utils waybar go lsd w3m npm nvtop btop fish fzf fd bash 
+cd /home/pragadeesh/
+mkdir ex
+mv -r ~/dotfiles/ ~/ex/
+git clone https://github.com/Vpragadeesh/dotfiles
+mkdir -p /home/pragadeesh/.config/hypr/
+mkdir -p /home/pragadeesh/.config/fish/
+mkdir -p /home/pragadeesh/.config/waybar/
+mkdir -p /home/pragadeesh/.config/nvim/
+mkdir -p /home/pragadeesh/.config/rofi/
+
+cp -r ~/dotfiles/hypr/ ~/.config/hypr/
+cp -r ~/dotfiles/fish/ ~/.config/fish/
+cp -r ~/dotfiles/nvim/ ~/.config/nvim/
+cp -r ~/dotfiles/rofi/ ~/.config/rofi/
+cp -r ~/dotfiles/waybar/ ~/.config/waybar/
+
+

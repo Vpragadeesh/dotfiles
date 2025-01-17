@@ -12,6 +12,9 @@
 #
 #oh-my-posh init fish --config ~/.poshthemes/ | source
 
+if test -z "$DISPLAY" -a (tty) = "/dev/tty1"
+    exec Hyprland
+end
 
 set -x LD_LIBRARY_PATH /home/pragadeesh/.local/lib/arch-mojo $LD_LIBRARY_PATH
 set -gx PATH ~/miniconda3/bin $PATH
@@ -64,7 +67,7 @@ alias data="p /home/archlinux/Documents/dataset/dataset.py"
 alias kivi="cdd && cd KiVi_2.0"
 alias :x="exit"
 alias t="tree"
-alias cl="sudo pacman -R $(pacman -Qdtq)"
+alias cl="sudo pacman -R $(pacman -Qdtq) --noconfirm"
 alias yolo="cdd && cd yolo"
 alias nv="nvim"
 alias nvi="nvim"
@@ -77,5 +80,5 @@ alias fl="cd /home/pragadeesh/Documents/sub/fl/"
 alias ml="cd /home/pragadeesh/Documents/sub/ml/"
 alias ppp="cd /home/pragadeesh/Documents/sub/ppp/"
 alias all="source all/bin/activate.fish"
-#zoxide init fish | source
-#alias cd="z"
+zoxide init fish | source
+alias cd="z"
