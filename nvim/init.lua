@@ -1,5 +1,5 @@
-require("lovelin.core")
-require("lovelin.lazy")
+require("pragadeesh.core")
+require("pragadeesh.lazy")
 
 -- LuaRocks paths for Lua 5.4
 package.path = package.path .. ";/usr/share/lua/5.4/?.lua;/usr/share/lua/5.4/?/init.lua"

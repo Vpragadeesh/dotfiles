@@ -1,5 +1,5 @@
-require("lovelin.core.options")
-require("lovelin.core.keymaps")
+require("pragadeesh.core.options")
+require("pragadeesh.core.keymaps")
 
 vim.api.nvim_create_user_command("Comp", function()
   -- Compile the C++ program
