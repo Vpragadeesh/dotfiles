@@ -84,9 +84,16 @@
     "max-length": 10,
     "on-click": "kitty -e nmtui-connect"
   },
-  "storage": {
-    "exec": "~/st.sh",
-    "interval": 60
+  "disk": {
+    "interval": 60,
+    "format": "💾 {percentage_used}% ",
+    "path": "/"
+  },
+  "internet_speed": {
+    "exec": "/home/pragadeesh/sp.sh",
+    "interval": 1,
+    "return-type": "json",
+    "tooltip": true
   },
   "battery": {
     "interval": 1,

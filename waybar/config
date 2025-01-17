@@ -19,7 +19,9 @@
         ],
         
         "modules-right": [
-                "storage",
+                "internet_speed",
+                "custom/sep",
+                "disk",
                 "custom/sep",
                 "cpu",
                 "custom/sep",
