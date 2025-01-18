@@ -89,11 +89,12 @@
     "format": "💾 {percentage_used}% ",
     "path": "/"
   },
-  "internet_speed": {
-    "exec": "/home/pragadeesh/sp.sh",
+  "temperature": {
+    "format": " {temperatureC}°C",
+    "format-critical": " {temperatureC}°C",
     "interval": 1,
-    "return-type": "json",
-    "tooltip": true
+    "critical-threshold": 60,
+    "tooltip": false
   },
   "battery": {
     "interval": 1,

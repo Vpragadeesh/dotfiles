@@ -21,6 +21,8 @@ tooltip label {
   font-size: 16px;
 }
 
+#temperature,
+#disk,
 #custom-appmenu,
 #window,
 #custom-exit,
