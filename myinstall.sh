@@ -1,4 +1,4 @@
-sudo pacman -S hyprland nvidia nvidia-utils waybar go lsd w3m npm nvtop btop fish fzf fd bash 
+sudo pacman -S hyprland nvidia nvidia-utils waybar go lsd w3m npm nvtop btop fish fzf fd bash hostapd dnsmasq rofi 
 cd /home/pragadeesh/
 mkdir ex
 mv -r ~/dotfiles/ ~/ex/
