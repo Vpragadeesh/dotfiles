@@ -1,0 +1,886 @@
+lh
+cp /etc/pacman.conf /home/pragadeesh/dotfiles/
+cd dotfiles/
+:x
+git push origin main
+git commit -m "13"
+git add .
+n allinstall.sh
+n myinstall.sh
+rm archinstall.sh
+n archinstall.sh
+ls
+e
+nmcli dev wifi hotspot ifname wlp0s20f3 ssid archlinux password 12345678
+exit
+su
+rm rm
+cd etc
+cd /
+speedtest-cli --simple
+cd
+fzf
+etc
+speedtest-cli
+speedtest
+c
+rd flatpak
+r flatpak
+me
+cf
+rm -rf ~/.cache/*
+gdu /
+re
+w3m www.google.com
+nmcli dev wifi show-password
+p
+nmtui
+n ex1.py
+p ex1.py
+nx
+s qt6ct
+s qt5ct
+meson compile -C build
+sudo meson install -C build
+
+meson setup build --Ddisable-cinnamon=true
+
+meson setup build
+
+rm -rf build
+
+cd /home/pragadeesh/arc-theme
+
+sudo pacman -S sassc
+
+cd arc-theme
+
+sudo pacman -S meson ninja gtk-engines gtk-engine-murrine
+
+GTK_THEME=Arc gedit
+
+n autogen.sh
+cd arc-theme
+./autogen.sh --prefix=/usr
+sudo make install
+
+cd arc-theme/
+git clone https://github.com/jnsh/arc-theme.git
+
+yay -S arc-gtk-theme
+
+ls /usr/share/themes/Ark/
+
+hyprctl dispatch exit
+
+GTK_THEME=Arc-Dark gedit
+
+exec-once = dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP GTK_THEME
+exec-once = export GTK_THEME=Arc-Dark
+exec-once = export XDG_CURRENT_DESKTOP=Hyprland
+
+exec fish
+echo 'export GTK_THEME=Arc-Dark' >> ~/.config/fish/config.fish
+echo 'export XDG_CURRENT_DESKTOP=Hyprland' >> ~/.config/fish/config.fish
+echo 'export XDG_SESSION_TYPE=wayland' >> ~/.config/fish/config.fish
+echo 'export GTK_THEME=Arc-Dark' >> ~/.bashrc
+echo 'export XDG_CURRENT_DESKTOP=Hyprland' >> ~/.bashrc
+echo 'export XDG_SESSION_TYPE=wayland' >> ~/.bashrc
+
+n ~/.config/gtk-4.0/settings.ini
+n  ~/.config/gtk-3.0/settings.ini
+yay -S arc-gtk-theme papirus-icon-theme --noconfirm
+sudo pacman -S gtk3 gtk4 gtk-engines gtk-engine-murrine
+
+hyprctl monitors
+
+echo $XDG_SESSION_TYPE
+
+hyprctl reload
+hyprctl reload
+
+cat ~/.config/gtk-3.0/settings.ini
+cat ~/.config/gtk-4.0/settings.ini
+
+n ~/.config/gtk-3.0/settings.ini
+gedit --version
+
+GTK_THEME=Ark gedit
+s gedit
+sudo pacman -S gtk3 gtk4
+sudo pacman -S gtk-engines gtk-engine-murrine
+
+echo "export QT_QPA_PLATFORMTHEME=qt5ct" >> ~/.profile
+
+sudo pacman -S qt5ct
+
+exec-once = export GTK_THEME=Ark
+exec-once = export XDG_CURRENT_DESKTOP=Hyprland
+exec-once = export XDG_SESSION_TYPE=wayland
+exec-once = dbus-update-activation-environment --systemd GTK_THEME
+
+sudo pacman -S sway
+sway
+
+journalctl -xe | grep hyprland
+
+sudo pacman -S xorg-xwayland
+
+GTK_THEME=Ark gedit
+
+export GTK_THEME=Ark
+export XDG_CURRENT_DESKTOP=Hyprland
+export XDG_SESSION_TYPE=wayland
+
+ls /usr/share/themes/ | grep Ark
+
+lxappearance
+echo "gtk-theme-name=\"Ark\"
+gtk-icon-theme-name=\"Papirus\"
+gtk-font-name=\"Noto Sans 10\"
+" > ~/.gtkrc-2.0
+
+echo "[Settings]
+gtk-theme-name=Ark
+gtk-icon-theme-name=Papirus
+gtk-font-name=Noto Sans 10
+" > ~/.config/gtk-3.0/settings.ini
+
+sudo pacman -S gtk-engines gtk-engine-murrine
+
+./p
+cdw
+rswap
+./s
+ys spotube-bin
+sudo pacman -R $(pacman -Qdtq)
+cl
+rd gnome-boxes
+ys spotube
+poweroff
+sudo pacman -S gnome-system-monitor  gvfs  gvfs-mtp  nautilus  xdg-user-dirs-gtk
+s gnome-system-monitor-47.0-3  gvfs-1.56.1-1  gvfs-mtp-1.56.1-1  nautilus-47.1-2  xdg-user-dirs-gtk-0.14-1
+rd gnome
+s gnome
+r gnome
+p temp.py
+n temp.py
+5
+1
+1
+2
+1 2
+3
+2 4 6
+4
+1000000000 999999999 999999998 999999997
+10
+3 1 4 1 5 9 2 6 5 3
+
+lsblk
+sudo kdiskmark
+kdiskmark
+btop
+git commit -m "12"
+mv userinstall.sh allinstall.sh
+n userinstall.sh
+n main.py
+cd GeekFolio_Backend/
+cargo run
+./lally --config lally.yml --http_port 4001
+cargo build --release
+cargo build
+cd lally/
+bash actix-web-service-0.0.0.0:3000
+actix-web-service-0.0.0.0:3000
+s cargo
+gl https://github.com/lovelindhoni/lally.git
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+C
+s rust
+cdd
+p ex.py
+nc
+git commit -m "1"
+git restore .
+git status
+n ex.py
+CD
+curl -X POST "http://127.0.0.1:8000/extract" -F "file=@/home/pragadeesh/Downloads/pragadeesh_resume.pdf"
+uvicorn main:app --reload
+uvicorn main:app reload
+source geeks/bin/activate.fish
+all
+git pull
+:X
+s libreoffice-still
+s libre-still
+rd gnom
+rd plasma
+n pragadeesh_resume.pdf
+cw
+mee
+nvim .env
+mv env .env
+nvim env
+mv "pragadeesh's resume.pdf" "pragadeesh_resume.pdf"
+n README.md
+uvicorn main:app --reload
+
+uvicorn server:app --reload
+
+pip install -r requirements.txt
+python -m venv geeks
+n req
+n requirements.txt
+pip install re fastapi uvicorn dotenv
+gl https://github.com/hari-shreehari/GeekFolio_Backend.git
+sudo systemctl restart hostapd
+
+sudo nvim /etc/hostapd/hostapd.conf
+sudo nvim /etc/hostpad/hostapd.conf
+touch
+nvim /etc/hostapd/hostapd.conf
+nvim
+sudo pacman -S hostapd dnsmasq
+
+ip a
+ip -a
+ip
+git commit -m "11"
+sudo nvim
+cd lua
+cd nvim
+~
+cd .config/nvim
+%ip (%speed)
+sudo nvim i3status.conf
+sudo cp -r ~/.config/nvim/* /root/.config/nvim/
+sudo cp -r ~/.config/nvim/ /root/.config/nvim/
+sudo cp -r ~/.config/nvim/* /root/.config/nvim/*
+sudo cp -r ~/.config/nvim /root/.config/nvim
+sudo cd root
+cd root
+axel -n 100 https://channels.nixos.org/nixos-24.11/latest-nixos-minimal-x86_64-linux.iso
+blueman-adapters
+sudo systemctl start bluetooth
+sudo systemctl enable bluetooth
+s openssh
+axel -n 100 https://channels.nixos.org/nixos-24.11/latest-nixos-plasma6-x86_64-linux.iso
+axel -n 50 https://channels.nixos.org/nixos-24.11/latest-nixos-gnome-x86_64-linux.iso
+bash sh <(curl -L https://nixos.org/nix/install) --no-daemon
+bash sh <(curl -L https://nixos.org/nix/install) --daemon
+bash sudo sh <(curl -L https://nixos.org/nix/install) --daemon
+sudo sh <(curl -L https://nixos.org/nix/install) --daemon
+sh <(curl -L https://nixos.org/nix/install) --daemon
+axel -n 50 sh <(curl -L https://nixos.org/nix/install) --daemon
+man axel
+n ~/.config/fish/config.fish
+bash -c "$(wget -qO- https://git.io/v0gMr)"
+ys oh-my-posh
+s oh-my-posh
+bash -c "$(wget -q0- https://git.io/v0gMr)"
+bash -c "$wget -q0- https://git.io/v0gMr)"
+mv 04 - Dheera Dheera (1).flac 04\ -\ Dheera\ Dheera\ .flac
+t
+cd Music/
+;
+s todoist-appimage
+s todoist
+ys todoist-appimage
+ys todoist-appimage.git
+ys todoist-appimage-git
+git commit -m "10"
+nix --help
+nix install fastfetch
+s nix
+s nkg
+systemctl sleep
+s wine
+echo $GTK_THEME
+
+cd ..
+cd themes/
+n .config/gtk-3.0/settings.ini
+export GTK_THEME="Adwaita-dark"
+
+gtk4-broadwayd
+gtk4-update-icon-cache
+
+gtk3-update-icon-cache
+gtk4-update-icon-cache
+
+rm -rf ~/.cache/gtk-3.0/*
+rm -rf ~/.cache/gtk-4.0/*
+
+gnome
+ls /usr/share/themes/
+
+r plasma
+cat ~/.xsession-errors | grep theme
+
+# For GTK2 applications:
+echo "gtk-theme-name=Adwaita-dark" > ~/.gtkrc-2.0
+
+gsettings reset org.gnome.desktop.interface gtk-theme
+gsettings reset org.gnome.desktop.interface gtk-icon-theme
+
+gsettings set org.gnome.desktop.interface gtk-theme "Breeze-Dark"
+gsettings set org.gnome.desktop.interface gtk-theme "adwaita-dark"
+# Add this to set the theme on startup
+exec hyprpaper --theme Adwaita-dark
+s gnome-theme
+s gnome-theme-extra
+s gnome-extra-theme
+s gnome-extra-themes
+s gnome-Adwaita-dark
+ys Adwaita-dark
+s Adwaita-dark
+flatpak list
+dunst
+hypridle
+
+hypridle
+dunst
+
+hypridle
+dunst
+hyprpaper
+
+hypridle
+dunst
+hyprpaper
+wlsunset -t 6000 -T 6500
+hypridle
+dunst
+hyprpaper
+wlsunset -t 6000 -T 6500
+dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+hypridle
+dunst
+hyprpaper
+wlsunset -t 6000 -T 6500
+dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+
+:w
+./ex.sh
+chmod +x ex.sh
+chmod +x t.sh
+n ex.sh
+
+sudo pacman -S ttf-font-awesome
+
+pkill waybar && waybar
+
+./t.sh
+n t.sh
+#!/bin/bash
+sensors | grep -E 'Package id 0:' | awk '{print $4}'
+
+sensors
+sudo sensors-detect
+
+sudo pacman -S lm_sensors
+
+vlc 18-01-25.mp4
+cd Videos/
+wf-recorder -g "$(slurp)" -f ~/Videos/18-01-25.mp4
+cd Videos
+cd videos
+cd video
+vlc output.mp4
+wf-recorder -f output.mp4
+
+sudo pacman -S qt5-wayland pipewire wireplumber
+
+sudo pacman -S wf-recorder
+
+bind = , XF86AudioMicMute, exec, pactl set-source-mute @DEFAULT_SOURCE@ toggle
+
+pactl list sources short
+
+pactl info | grep "Default Source"
+
+sudo gdu /
+sudo systemctl edit getty@tty1
+
+hyprland
+git commit -m "9"
+man fastfetch
+fastfetch --disk
+df -h /
+
+chmod +x sp.sh
+bash sp.sh
+n sp.sh
+ig
+dg
+vnstat --oneline
+
+sudo systemctl enable --now vnstat
+
+sudo pacman -S vnstat
+
+nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits | awk '{print $1}'
+sudo pacman -S intel-gpu-tools jq
+
+ys ifstat
+s ifstat
+sudo pacman -S ifstat
+
+gl https://github.com/Vpragadeesh/dotfiles.git
+cd m1
+mkdir m1
+cd ex
+gl https://github.com/Alexays/Waybar.git
+cd .config/waybar
+s wl-clipboard
+sudo vim i3status.conf
+s i3
+ps aux | grep waybar
+
+./igpu.sh
+chmod +x ~/igpu.sh
+n igpu.sh
+s jq bc
+s jq
+sudo intel_gpu_top
+
+intel_gpu_top
+
+s intel-gpu-tools
+s intel_backlight
+cfc
+git commit -m "8"
+vim lua/pragadeesh/core/init.lua
+grep -rnw '.' -e 'lovelin'
+vim lua/pragadeesh/lazy.lua
+vim init.lua
+..
+mv lovelin/ pragadeesh
+nvim init.lua
+nvim init.lus
+sed
+s sed
+n init.lua
+mv pragadeesh lovelin
+s cmatrix
+pip uninstall nvidia-cublas nvidia-cuda-cupti
+pip list
+pip uninstall nvidia-cublas
+pip uninstall nvidia-cublas nvidia-cuda-*
+pip show
+fcf
+du /home/pragadeesh
+hollywood
+s gnome-system-monitor --noconfirm
+s gnome-system-monitor
+free
+s nautilus
+s gnome-nautilus
+s gnome-files
+s gnome-nautiles
+gl https://github.com/JanDeDobbeleer/oh-my-posh.git
+r alacritty
+bash hyprland.sh
+nvim hyprland.sh
+wlsunset
+vim hyprland.sh
+cd hyprland/
+sudo pacman -S gtk2 gtk3
+
+sudo nvim /etc/environment
+blueman-manager &
+
+sudo pacman -S lxappearance
+lxappearance
+
+rd nano
+r nano
+n ~/.config/gtkrc
+r getty
+export GTK_THEME=YourThemeName
+export GTK2_RC_FILES=$HOME/.gtkrc-2.0
+export GTK3_MODULES=xapp-gtk3-module
+sudo pacman -S arc-gtk-theme
+
+s gtk
+du
+tu
+sudo nvim /etc/pacman.conf
+s speedtest-cli
+code .
+git log
+gitlog
+git reset HARD~1
+git reset --hard 1
+git reset --hard-- 1
+git reset __HARD__ 1
+git reset __hard__ 1
+git revert 1
+git revert HARD 1
+git revert hard 1
+git revert hrad 1
+git revart hrad 1
+git hard revart 1
+man mov-cli
+s man
+mov-cli -v -s youtube linux
+mov-cli -v -s youtube https://www.youtube.com/watch?v=W2D5T5Gkyic
+
+mov-cli -l
+
+n ~/.config/mov-cli/config.toml
+
+mov-cli -s youtube https://www.youtube.com/watch?v=W2D5T5Gkyic
+
+mov-cli -s youtube linux
+mov-cli -s https://www.youtube.com/watch?v=W2D5T5Gkyic
+
+mov-cli play https://www.youtube.com/watch?v=W2D5T5Gkyic
+
+sudo pacman -S yt-dlp mpv
+
+axel
+ytfzf -T linux
+ytfzf -t linux
+yay -S ytfzf
+
+yt-dlp -g "ytsearch:linux" | xargs mpv
+mpv https://www.youtube.com/watch?v=W2D5T5Gkyic
+s mpv yt-dlp
+mov-cli --help
+mov-cli --fzf
+makepkg -si
+
+git clone https://aur.archlinux.org/mov-cli.git
+cd mov-cli
+
+mov-cli -s youtube brodie robertson
+ys mov-cli
+mov-cli
+decibels
+ys decibels
+ys gnome-decibels
+s gnome-decibels
+sudo pacman -R$(pacman -Qdtq)
+yr spotify-tui --noconfirm
+pkill hyprpaper
+hyprpaper &
+
+n hyprpaper.conf
+cd .config/hypr
+s spotify-tui
+ys spotify-tui --noconfirm
+sspotify-tui
+spotify-tui
+ys spotify-tui
+s spotify
+ys todoist-git
+todoist-git
+sudo systemctl start tor
+sudo systemctl enable tor
+s tor
+gpu
+gdu
+kill 16172
+git commit -m "7"
+s fd
+fd
+s nvidia nvidia-utils
+s nvidia
+rm rootinstall.sh
+rm install.sh
+mf
+n intel.sh
+vim nvidia.sh
+bash nvidia.sh
+cd gpu
+cd .dotfiles/
+vim battery.sh
+vim b
+cd i3/scripts/
+gl https://github.com/akileshas/.dotfiles.git
+sudo pacman -Rns waybar
+sudo pacman -S waybar
+
+bash st.sh
+bashst.sh
+./st.sh
+n st.sh
+#!/bin/bash
+df -h / | awk 'NR==2 {print $3 "/" $2 " (" $5 ")"}'
+
+df -h /
+sudo pacman -S util-linux
+
+journalctl -xe | grep waybar
+
+df -h /
+
+sudo pacman -Syu waybar
+
+waybar -l debug
+
+sudo waybar
+
+s plasma
+pacman -S vlc
+fakeroot
+s gnome-boxes --noconfirm
+git commit -m "6"
+sudo docker run -it archlinux
+sudo nvim /etc/sudoers
+sudo nvim /etc/sudo.conf
+cd /root
+sudo cd /root
+cd /rooy
+n install.sh
+n rootinstall.sh
+sudo vim /etc/gdm/custom.conf
+bash hostname
+
+pragadeesh@archlinux
+
+hostname
+
+whoami
+sudo systemctl disable gdm
+sudo systemctl disable sddm
+sudo systemctl disable lightdm
+
+n /etc/gdm/custom.conf
+sudo rm /usr/share/xsessions/plasma.desktop
+sudo rm /usr/share/xsessions/gnome.desktop
+sudo rm /usr/share/wayland-sessions/gnome.desktop
+
+echo "exec Hyprland" > ~/.xinitrc
+
+ls /usr/share/xsessions
+ls /usr/share/wayland-sessions
+
+export GTK_THEME=Breeze-Dark
+export QT_QPA_PLATFORMTHEME=qt5ct
+
+echo $GTK_THEME
+echo $QT_QPA_PLATFORMTHEME
+sudo pacman -S lxappearance
+
+echo $GTK_THEME
+echo $QT_QPA_PLATFORMTHEME
+]
+n ~/.config/gtk-3.0/settings.ini
+
+sudo pacman -S gnome-themes-extra
+
+sudo pacman -S breeze-gtk
+4
+ys breeze-dark-theme
+ys breeze-dark
+s breeze-dark
+nautilus
+:q
+h
+exir
+gdisk
+s gdisk
+s w3m
+a w3n
+w
+ys hollywood --noconfirm
+s gnome --noconfirm
+s partitionmanager
+ys elisa cantata kdiskmark kclock
+s elisa cantata kdiskmark kclock
+s elisa cantata KDiskMark kclock
+s okular
+sudo grub-mkconfig -o /boot/grub/grub.cfg
+
+sudo vim /etc/default/grub
+sudo systemctl status
+s vi
+pacman
+pacman -Syu
+export EDITOR=nvim
+sudo visudo
+export EDITOR=nano
+sudo visudo
+
+sudo visudo
+n sudoers
+n sudo.conf
+cd /etc/
+n sudo
+s fzf
+cd usr/bin/
+cd usr/bin/vi
+pip install requests
+s axel
+killall rofi
+rofi -disable-history -drun-match-fields name -show drun -theme-str '@import \"app.rasi\"'
+n ex.cs
+pip uninstall torch
+s firefox-developer-edition
+s firfox-developer-edition
+s firfox-developer-edtion
+r gnome-boxes
+rm ex.txt
+n ex.txt
+echo "jhvhgchv hg b cb vb bvb bvbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb" >> ex.txt
+./ex
+g++ ex.cpp -o ex
+n ex.cpp
+bash archinstall.sh
+archinstall.sh
+sudo systemctl enable sshd
+sudo systemctl start sshd
+
+yr standardnotes-desktop
+ys standardnotes-desktop
+ys standardnotes
+pip install torch
+pip3 install torch torchvision torchaudio
+pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
+s pip3
+s python-pip3
+pip install torchvision
+pip install numpy pandas matplotlib torch
+gsettings
+n hyprland.sh
+gl https://github.com/sandipsky/dotfiles.git
+mkdir ex
+unzip Fira_Sans.zip
+cd .font/
+sudo pacman -S ttf-dejavu ttf-liberation
+
+s ttf-sans-serif
+s sans-serif
+s Fira-Sans-Semibold Font-Awesome-6-Free-Solid Material-Design-Icon-Desktop-MesloLGS-NF sans-serif
+sudo pacman -Syyu
+ys html css
+s html css
+s firefox vlc mousepad thunar file-roller thunar-archive-plugin tumbler ffmpegthumbnailer gvfs-mtp galculator ristretto
+s hyprland waybar dunst hyprpaper xdg-desktop-portal-hyprland rofi-wayland noto-fonts ttf-fira-sans ttf-font-awesome hyprlock hypridle xdg-user-dirs-gtk lxappearance libadwaita  noto-fonts ttf-fira-sans ttf-font-awesome lxappearance libadwaita brightnessctl hyprlock
+s hyprland waybar dunst hyprpaper xdg-desktop-portal-hyprland rofi-wayland noto-fonts ttf-fira-sans ttf-font-awesome hyprlock hypridle xdg-user-dirs-gtk lxappearance libadwaita gtk noto-fonts ttf-fira-sans ttf-font-awesome lxappearance libadwaita brightnessctl hyprlock
+s hyprland waybar dunst hyprpaper xdg-desktop-portal-hyprland rofi-wayland noto-fonts ttf-fira-sans ttf-font-awesome hyprlock hypridle xdg-user-dirs-gtk lxappearance libadwaita xdg-users-dirs-gtk noto-fonts ttf-fira-sans ttf-font-awesome lxappearance libadwaita brightnessctl hyprlock
+blueman
+git commit -m "5"
+git commit -m "4"
+git commit -m "3"
+git commit -m "2"
+sudo docker pull archlinux
+sudo docker ps
+git commit -m "fi"
+cd os
+z Documents/sub/os/
+cd Documents/sub/os/
+cd]
+os
+sudo rm -rf /var/cache/pacman/pkg/*
+git commit -m "final"
+sudo docker run -it archlinux
+
+git commit -m "l"
+git commit -m "last"
+nmtui-connect
+nautiles
+s archlinux
+newgrp docker
+
+sudo usermod -aG docker pragadeesh
+sudo systemctl start docker
+sudo systemctl enable docker
+
+s docker
+s qbittorrent
+git push -u origin main
+
+git commit -m "install.sh-2"
+git add .
+
+git status
+
+git checkout -b main
+git branch
+git push
+git config --global user.name "Vpragadeesh"
+git config --global user.email "Vpragadeesh@github.com"
+git commit -m "install.sh"
+gh auth login
+ys github-cli
+gh
+github-cli
+s github-cli
+pip install numpy pandas matplotlib
+python -m venv all
+s discord
+sudo systemctl start sddm
+sudo systemctl enable sddm
+s plasma nvidia nvidia-utils cuda --noconfirm
+s plasma nvidia nvidia-utils
+s thunar
+sudo poweroff
+sudo systemctl start gdm
+sudo systemctl enable gdm
+s gnome gdm
+s gnome gdm nvidia nvidia-utils
+s slim
+s lxdm
+s lightdm
+s xfce
+sudo pacman -Scc
+scc
+sudo systemctl enable hyprland
+sudo systemctl start hyprland
+s hollywood
+s docker --noconfirm
+s gnome-boxes
+s gvfs-mtp ristretto
+s gtk gvfs-mtp ristretto
+s gtk gvfs-mtp ristrett
+s tumbler ffmpegthumbnailer
+s tumbler ffmpeg thumbnailer
+s tumbler ffmegthumbnailer
+s slurp grim
+s npm
+s hyprland waybar dunst hyprpaper xdg-desktop-portal-hyprland rofi-wayland noto-fonts ttf-fira-sans ttf-font-awesome hyprlock hypridle xdg-user-dirs-gtk lxappearance libadwaita
+wezterm
+wezterm-git
+ys wezterm-git
+s hyprland waybar dunst hyprpaper xdg-desktop-portal-hyprland rofi-wayland noto-fonts ttf-fira-sans ttf-font-awesome hyprlock
+s gtk2
+s hyprland waybar dunst hyprpaper hypride xdg-desktop-portal-hyprland rofi-wayland noto-fonts ttf-fira-sans ttf-font-awesome hyprlock
+s hyprland waybar dunst hyprpaper hypride xdg-desktop-portal-hyprland xdg-users-dirs-gtk rofi-wayland noto-fonts ttf-fira-sans ttf-font-awesome hyprlock
+ys wezterm-git --noconfirm
+yr wezterm --noconfirm
+ys wezterm --noconfirm
+ys wlogout --noconfirm
+ys wlogout
+sudo pacman -S --needed git base-devel
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si
+s rofi swaybg
+s rofi
+s kitty
+s blueman
+s blueman-adptaer
+s playerctl swaybg
+s brightnessctl
+s z zoxide
+sudo pacman -S kitty firefox
+fastfetch
+sudo pacman -S gdm
+sudo systemctl start NetworkManager
+sudo pacman -S waybar hyprland gnome
+clear
+sudo pacman -S sof-firmware
+nvtop
+sudo pacman -S lsd git btop nvtop go firefox vlc gdu ncdu github-cli intel-ucode
+sudo pacman -S lsd git btop nvtop go firefox vlc gdu ncdu github-cli intel-ucode intel-tools
+sudo nmtui
+sudo pacman -Syu
+sudo systemctl enable NetworkManager
+ping google.com
+pacman -Syyu

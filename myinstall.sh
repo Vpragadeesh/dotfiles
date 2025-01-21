@@ -15,4 +15,4 @@ cp -r ~/dotfiles/nvim/ ~/.config/nvim/
 cp -r ~/dotfiles/rofi/ ~/.config/rofi/
 cp -r ~/dotfiles/waybar/ ~/.config/waybar/
 
-
+# sudo nvim /etc/systemd/system/getty@tty1.service.d/override.conf
