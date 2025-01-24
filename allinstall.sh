@@ -1,10 +1,25 @@
 echo "--------------------------------------"
 echo "-- INSTALLING Base Arch Linux --"
 echo "--------------------------------------"
-pacstrap /mnt base base-devel linux linux-firmware linux-headers networkmanager wireless_tools nano intel-ucode bluez bluez-utils git --noconfirm --needed
+echo ""
+read -sp "your cpu is amd or intel" igpu
+echo
+if [ "$igpu" = "intel"]; then
+  pacstrap /mnt base base-devel linux linux-firmware sof-firmware networkmanager intel-ucode neovim bluez bluez-utils git --noconfirm --needed
+else 
+  pacstrap /mnt base base-devel linux linux-firmware sof-firmware networkmanager amd-ucode neovim bluez bluez-utils git --noconfirm --needed
+fi
 
 # fstab
 genfstab -U /mnt >> /mnt/etc/fstab
+
+echo "getting user info"
+echo "Please provide details for the new user:"
+read -p "Enter username: " username
+read -p "Enter full name: " fullname
+read -sp "Enter password: " userpassword
+echo
+
 cat <<REALEND > /mnt/next.sh
 useradd -m $USER
 usermod -c "${NAME}" $USER
