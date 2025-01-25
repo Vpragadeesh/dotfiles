@@ -1,4 +1,13 @@
+setfont ter-120n
+echo "Please set all thing /mnt and /mnt/boot"
+echo "I use /boot only not /boot/efi"
 
+
+
+echo "Install Archlinux-keyring"
+pacman -Sy archlinux-keyring
+
+echo "This install will install only base install "
 echo "--------------------------------------"
 echo "-- INSTALLING Base Arch Linux --"
 echo "--------------------------------------"

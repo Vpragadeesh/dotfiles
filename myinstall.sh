@@ -15,4 +15,10 @@ cp -r ~/dotfiles/nvim/ ~/.config/nvim/
 cp -r ~/dotfiles/rofi/ ~/.config/rofi/
 cp -r ~/dotfiles/waybar/ ~/.config/waybar/
 
+echo "install yay"
+sudo pacman -S --needed git base-devel
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si
 sudo nvim /etc/systemd/system/getty@tty1.service.d/override.conf
+
