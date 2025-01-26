@@ -17,9 +17,9 @@ echo
 
 # Install base packages
 if [ "$igpu" = "intel" ]; then
-  pacstrap /mnt base base-devel linux linux-firmware sof-firmware networkmanager intel-ucode neovim bluez bluez-utils git --noconfirm --needed
+  pacstrap /mnt base base-devel linux linux-firmware sof-firmware networkmanager intel-ucode neovim bluez bluez-utils git fish --noconfirm --needed
 else 
-  pacstrap /mnt base base-devel linux linux-firmware sof-firmware networkmanager amd-ucode neovim bluez bluez-utils git --noconfirm --needed
+  pacstrap /mnt base base-devel linux linux-firmware sof-firmware networkmanager amd-ucode neovim bluez bluez-utils git fish --noconfirm --needed
 fi
 
 # Generate fstab
