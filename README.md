@@ -1,1 +1,1 @@
-For install archlinux use only archinstall.sh
+For install archlinux use archinstall.sh only
