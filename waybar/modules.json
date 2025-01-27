@@ -82,8 +82,8 @@
     "format-disconnected": "󰖪 ",
     "tooltip-format-disconnected": "Disconnected",
     "format-alt": "<span foreground='#99ffdd'> {bandwidthDownBytes}</span> <span foreground='#ffcc66'> {bandwidthUpBytes}</span>",
-    "interval": 2,
-    "on-click": "kitty -e nmtui-connect"
+    "interval": 1,
+    "on-click-right": "kitty -e nmtui-connect"
   },
   "disk": {
     "interval": 60,
@@ -128,10 +128,12 @@
     "format": "<span color=\"#7aa2f7\"></span>  On",
     "format-disabled": "<span color=\"#fff\"></span>  Off",
     "format-connected": "<span color=\"#7aa2f7\"></span>  {device_alias}",
-    "format-off": "",
+    "format-off": "<span color=\"#555\"></span>  Off",
     "interval": 1,
     "max-length": 5,
     "on-click": "export GTK_THEME=Adwaita:dark && blueman-manager",
+    "on-scroll-up": "bluetoothctl power on",
+    "on-scroll-down": "bluetoothctl power off",
     "format-no-controller": ""
   },
   "backlight": {
