@@ -73,21 +73,22 @@
     "max-length": 10
   },
   "network": {
-    "format": "{ifname}",
-    "format-wifi": "<span color=\"#4DD0E1\"></span>  {essid}",
-    "format-ethernet": "  {ifname}",
-    "format-disconnected": "Disconnected",
-    "tooltip-format": " {ifname} via {gwaddri}",
-    "tooltip-format-wifi": "  {ifname} @ {essid}\nIP: {ipaddr}\nStrength: {signalStrength}%\nFreq: {frequency}MHz\nUp: {bandwidthUpBits} Down: {bandwidthDownBits}",
-    "tooltip-format-ethernet": " {ifname}\nIP: {ipaddr}\n up: {bandwidthUpBits} down: {bandwidthDownBits}",
+    "tooltip": true,
+    "format-wifi": " ",
+    "rotate": 0,
+    "format-ethernet": "󰈀 ",
+    "tooltip-format": "Network: <big><b>{essid}</b></big>\nSignal strength: <b>{signaldBm}dBm ({signalStrength}%)</b>\nFrequency: <b>{frequency}MHz</b>\nInterface: <b>{ifname}</b>\nIP: <b>{ipaddr}/{cidr}</b>\nGateway: <b>{gwaddr}</b>\nNetmask: <b>{netmask}</b>",
+    "format-linked": "󰈀 {ifname} (No IP)",
+    "format-disconnected": "󰖪 ",
     "tooltip-format-disconnected": "Disconnected",
-    "max-length": 10,
+    "format-alt": "<span foreground='#99ffdd'> {bandwidthDownBytes}</span> <span foreground='#ffcc66'> {bandwidthUpBytes}</span>",
+    "interval": 2,
     "on-click": "kitty -e nmtui-connect"
   },
   "disk": {
     "interval": 60,
     "format": "💾 {percentage_used}% ",
-    "path": "/"
+    "path": "/home/pragadeesh/"
   },
   "temperature": {
     "format": " {temperatureC}°C",
@@ -99,7 +100,7 @@
   "battery": {
     "interval": 1,
     "states": {
-      "warning": 30,
+      "warning": 80,
       "critical": 15
     },
     "format": "<span color=\"#9ece6a\">{icon}</span>{capacity}% | {health}",
@@ -111,7 +112,7 @@
   "pulseaudio": {
     "format": "{icon} {volume}%",
     "format-bluetooth": "{icon} {volume}% {format_source}",
-    "format-bluetooth-muted": " Muted",
+    "format-bluetooth-muted": "   Muted",
     "format-muted": " Muted",
     "format-source": "",
     "format-source-muted": "",
@@ -130,7 +131,7 @@
     "format-off": "",
     "interval": 1,
     "max-length": 5,
-    "on-click": "blueman-manager",
+    "on-click": "export GTK_THEME=Adwaita:dark && blueman-manager",
     "format-no-controller": ""
   },
   "backlight": {
