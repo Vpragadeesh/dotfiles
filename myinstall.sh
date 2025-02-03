@@ -1,4 +1,11 @@
-sudo pacman -S hyprland nvidia nvidia-utils waybar go lsd w3m npm nvtop btop fish fzf fd bash hostapd dnsmasq rofi 
+echo "Install all Things"
+sudo pacman -S hyprland hyprlock hyprpaper nvidia nvidia-utils waybar go lsd w3m npm nvtop btop fish fzf fd bash hostapd dnsmasq rofi playerctl brightnessctl intel_backlight intel-gpu-tools swaybg
+echo "Have been install all thing (yay) "
+echo "Starting Network and Bluetooth"
+sudo systemctl enable NetworkManager
+sudo systemctl enable bluetooth
+sudo systemctl start NetworkManager
+sudo systemctl start bluetooth
 cd /home/pragadeesh/
 mkdir ex
 mv -r ~/dotfiles/ ~/ex/
@@ -21,4 +28,3 @@ git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -si
 sudo nvim /etc/systemd/system/getty@tty1.service.d/override.conf
-

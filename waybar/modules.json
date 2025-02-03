@@ -12,7 +12,7 @@
       "default": ""
     },
     "persistent-workspaces": {
-      "*": 2
+      "*": 1
     }
   },
   "hyprland/window": {
@@ -83,7 +83,7 @@
     "tooltip-format-disconnected": "Disconnected",
     "format-alt": "<span foreground='#99ffdd'> {bandwidthDownBytes}</span> <span foreground='#ffcc66'> {bandwidthUpBytes}</span>",
     "interval": 1,
-    "on-click-right": "kitty -e nmtui-connect"
+    "on-click-right": "wezterm -e nmtui-connect"
   },
   "disk": {
     "interval": 60,
@@ -101,10 +101,10 @@
     "interval": 1,
     "states": {
       "warning": 80,
-      "critical": 15
+      "critical": 50
     },
-    "format": "<span color=\"#9ece6a\">{icon}</span>{capacity}% | {health}",
-    "format-charging": "<span color=\"#9ece6a\"></span>  {capacity}%",
+    "format": "<span color=\"#9ece6a\">{icon}</span>{capacity}%|{health}",
+    "format-charging": "<span color=\"#9ece6a\"></span>{capacity}%",
     "format-plugged": "  {capacity}%",
     "format-alt": "{icon}  {time}",
     "format-icons": ["󰁺 ", "󰁼 ", "󰁿 ", "󰂁 ", "󰁹 "]
@@ -112,8 +112,8 @@
   "pulseaudio": {
     "format": "{icon} {volume}%",
     "format-bluetooth": "{icon} {volume}% {format_source}",
-    "format-bluetooth-muted": "   Muted",
-    "format-muted": " Muted",
+    "format-bluetooth-muted": "   M",
+    "format-muted": " M",
     "format-source": "",
     "format-source-muted": "",
     "format-icons": {
@@ -132,8 +132,8 @@
     "interval": 1,
     "max-length": 5,
     "on-click": "export GTK_THEME=Adwaita:dark && blueman-manager",
-    "on-scroll-up": "bluetoothctl power on",
-    "on-scroll-down": "bluetoothctl power off",
+    "on-scroll-up": "bluetoothctl power off",
+    "on-scroll-down": "bluetoothctl power on",
     "format-no-controller": ""
   },
   "backlight": {

@@ -15,8 +15,7 @@
                 "hyprland/workspaces",
                 "custom/sep",
                 "hyprland/window"
-        ],
-        
+        ],       
         "modules-right": [
                 "temperature",
                 "custom/sep",

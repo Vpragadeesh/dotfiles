@@ -8,7 +8,7 @@ pacman -Sy archlinux-keyring
 echo "This install will install only base install "
 echo "--------------------------------------"
 echo "-- INSTALLING Base Arch Linux --"
-echo "--------------------------------------"
+echo "--------------------------------------"#!/bin/bash
 echo ""
 
 # CPU Selection
@@ -17,9 +17,9 @@ echo
 
 # Install base packages
 if [ "$igpu" = "intel" ]; then
-  pacstrap /mnt base base-devel linux linux-firmware sof-firmware networkmanager intel-ucode neovim bluez bluez-utils git fish --noconfirm --needed
+  pacstrap /mnt base base-devel linux linux-firmware sof-firmware networkmanager intel-ucode neovim bluez bluez-utils git fish bash --noconfirm --needed
 else 
-  pacstrap /mnt base base-devel linux linux-firmware sof-firmware networkmanager amd-ucode neovim bluez bluez-utils git fish --noconfirm --needed
+  pacstrap /mnt base base-devel linux linux-firmware sof-firmware networkmanager amd-ucode neovim bluez bluez-utils git fish bash --noconfirm --needed
 fi
 
 # Generate fstab
