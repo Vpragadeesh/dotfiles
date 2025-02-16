@@ -1,113 +1,104 @@
 #!/bin/bash
 
+set -e
+set -o pipefail
+
 setfont ter-120n
 echo "Please set everything to /mnt and /mnt/boot"
 echo "I use /boot only, not /boot/efi"
 
+# Update keyring
 echo "Installing Archlinux-keyring"
 pacman -Sy archlinux-keyring --noconfirm
 
-echo "This install will install only base install "
 echo "--------------------------------------"
 echo "-- INSTALLING Base Arch Linux --"
 echo "--------------------------------------"
 
 # CPU Selection
-read -p "Is your CPU AMD or Intel? " igpu
+read -p "Is your CPU AMD or Intel? " cpu_type
 
 # Install base packages
-if [[ "$igpu" == "intel" ]]; then
-  pacstrap /mnt base base-devel linux linux-firmware sof-firmware networkmanager intel-ucode neovim bluez bluez-utils git fish bash pipewire pipewire-pulse --noconfirm --needed
-else 
-  pacstrap /mnt base base-devel linux linux-firmware sof-firmware networkmanager amd-ucode neovim bluez bluez-utils git fish bash pipewire pipewire-pulse --noconfirm --needed
-fi
+base_packages=(base base-devel linux linux-firmware sof-firmware networkmanager neovim bluez bluez-utils git fish bash pipewire pipewire-pulse)
+[[ "$cpu_type" == "intel" ]] && base_packages+=(intel-ucode) || base_packages+=(amd-ucode)
 
-# Generate fstab
+pacstrap /mnt "${base_packages[@]}" --noconfirm --needed
+
+echo "Generating fstab"
 genfstab -U /mnt >> /mnt/etc/fstab
 
-# Prompt for user details
+# User setup
 echo "Please provide details for the new user:"
 read -p "Enter username: " username
 read -p "Enter full name: " fullname
-read -s -p "Enter password: " userpassword
-echo
+read -p "Enter password: " userpassword
 read -p "Enter hostname: " hostname
 read -p "Enter the default shell for the user (e.g., /bin/bash, /usr/bin/fish): " usershell
 
-# Additional Software Selection
-read -p "Do you want to install a Desktop Environment (Hyprland/KDE/GNOME)? (yes/no): " install_de
-
-# Bootloader Selection
+# Bootloader selection
 read -p "Do you want to install GRUB or systemd-boot? (grub/systemd-boot): " bootloader
 
 # Check for NVIDIA GPU
 gpu_vendor=$(lspci | grep -i VGA | grep -i nvidia)
-if [[ ! -z "$gpu_vendor" ]]; then
+if [[ -n "$gpu_vendor" ]]; then
     echo "NVIDIA GPU detected. Installing drivers..."
     pacstrap /mnt nvidia nvidia-utils nvidia-settings --noconfirm --needed
 fi
 
-# Write next.sh with dynamic inputs
-cat <<REALEND > /mnt/next.sh
+# Write post-installation script
+cat <<EOF > /mnt/next.sh
 #!/bin/bash
+set -e
+set -o pipefail
 
-# Add user with the specified shell
+# User setup
 useradd -m -s "$usershell" "$username"
 usermod -c "$fullname" "$username"
 usermod -aG wheel,storage,power,audio,video "$username"
 echo "$username:$userpassword" | chpasswd
 
-# Sudoers setup
-sed -i 's/^# %wheel ALL=(ALL:ALL) ALL/%wheel ALL=(ALL:ALL) ALL/' /etc/sudoers
-sed -i 's/^%wheel ALL=(ALL:ALL) ALL/%wheel ALL=(ALL:ALL) NOPASSWD: ALL/' /etc/sudoers
+# Enable sudo for wheel group
+sed -i 's/^# %wheel ALL=(ALL:ALL) ALL/%wheel ALL=(ALL:ALL) NOPASSWD: ALL/' /etc/sudoers
 
-# Locale and timezone
-echo "-------------------------------------------------"
-echo "Setup Language to US and set locale"
-echo "-------------------------------------------------"
+# Locale and timezone setup
 sed -i 's/^#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen
 locale-gen
 echo "LANG=en_US.UTF-8" > /etc/locale.conf
-
 ln -sf /usr/share/zoneinfo/Asia/Kolkata /etc/localtime
 hwclock --systohc
 
-# Hostname and hosts file
+# Hostname and networking setup
 echo "$hostname" > /etc/hostname
-cat <<EOF > /etc/hosts
-127.0.0.1	localhost
-::1		localhost
-127.0.1.1	$hostname.localdomain	$hostname
-EOF
+cat <<HOSTS > /etc/hosts
+127.0.0.1   localhost
+::1         localhost
+127.0.1.1   $hostname.localdomain  $hostname
+HOSTS
 
-# Enable services
 systemctl enable NetworkManager bluetooth
-echo "NetworkManager and Bluetooth enabled"
 
 # Bootloader installation
-echo "--------------------------------------"
-echo "-- Bootloader Installation --"
-echo "--------------------------------------"
+if [[ "$bootloader" == "grub" ]]; then
     pacman -S grub efibootmgr --noconfirm --needed
     grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id="Linux Boot Manager"
     grub-mkconfig -o /boot/grub/grub.cfg
 elif [[ "$bootloader" == "systemd-boot" ]]; then
     bootctl install
-    cat <<EOF > /boot/loader/loader.conf
+    cat <<LOADER > /boot/loader/loader.conf
 default arch
 timeout 5
 editor 0
-EOF
-
-    cat <<EOF > /boot/loader/entries/arch.conf
+LOADER
+    cat <<ENTRY > /boot/loader/entries/arch.conf
 title   Arch Linux
 linux   /vmlinuz-linux
 initrd  /initramfs-linux.img
-options root=PARTUUID=$(blkid -s PARTUUID -o value /dev/sdX) rw
-EOF
+options root=PARTUUID=\$(blkid -s PARTUUID -o value /dev/sdX) rw
+ENTRY
 fi
 
-# Install a Desktop Environment if selected
+# Desktop Environment installation
+read -p "Do you want to install a Desktop Environment (Hyprland/KDE/GNOME)? (yes/no): " install_de
 if [[ "$install_de" == "yes" ]]; then
     read -p "Choose Desktop Environment (Hyprland/KDE/GNOME): " de
     case "$de" in
@@ -128,7 +119,7 @@ if [[ "$install_de" == "yes" ]]; then
     esac
 fi
 
-# Reboot option
+# Reboot prompt
 read -p "Do you want to reboot now? (yes/no): " reboot_now
 if [[ "$reboot_now" == "yes" ]]; then
     reboot
@@ -137,10 +128,11 @@ fi
 echo "-------------------------------------------------"
 echo "Installation Complete! Reboot your system."
 echo "-------------------------------------------------"
-REALEND
+EOF
 
 # Make script executable
 chmod +x /mnt/next.sh
 
-# Chroot into the installed system and run the script
+# Chroot and run the next setup script
+echo "Entering chroot and continuing setup..."
 arch-chroot /mnt bash /next.sh

@@ -1,6 +1,6 @@
 echo "Install all Things"
 sudo pacman -S hyprland hyprlock hyprpaper nvidia nvidia-utils waybar go lsd w3m npm nvtop btop fish fzf fd bash hostapd dnsmasq rofi playerctl brightnessctl intel_backlight intel-gpu-tools swaybg
-echo "Have been install all thing (yay) "
+echo "Have been install all thing"
 echo "Starting Network and Bluetooth"
 sudo systemctl enable NetworkManager
 sudo systemctl enable bluetooth
