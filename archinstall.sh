@@ -4,6 +4,30 @@ set -e
 set -o pipefail
 
 setfont ter-120n
+
+# Partition formatting and mounting
+echo "--------------------------------------------------"
+echo "-- Partition Setup: Formatting and Mounting     --"
+echo "--------------------------------------------------"
+read -p "Enter your root partition (e.g., /dev/sda2): " root_partition
+read -p "Enter your boot partition (e.g., /dev/sda1): " boot_partition
+
+echo "Formatting root partition ($root_partition) as ext4..."
+mkfs.ext4 "$root_partition"
+
+echo "Formatting boot partition ($boot_partition) as FAT32..."
+mkfs.fat -F32 "$boot_partition"
+
+echo "Mounting root partition to /mnt..."
+mount "$root_partition" /mnt
+
+echo "Creating /mnt/boot and mounting boot partition..."
+mkdir -p /mnt/boot
+mount "$boot_partition" /mnt/boot
+
+echo "Partitions formatted and mounted successfully."
+echo "--------------------------------------------------"
+
 echo "Please ensure everything is set to /mnt and /mnt/boot"
 echo "I use /boot only, not /boot/efi"
 
@@ -12,12 +36,16 @@ echo "Updating Archlinux-keyring"
 pacman -Sy archlinux-keyring --noconfirm
 
 echo "--------------------------------------"
-echo "-- INSTALLING Base Arch Linux --"
+echo "-- INSTALLING Base Arch Linux       --"
 echo "--------------------------------------"
 
 # CPU Selection with default to Intel
 read -p "Is your CPU AMD or Intel? (Default: Intel) " cpu_type
-cpu_type=${cpu_type:-intel}
+cpu_type=${cpu_type,,}  # Convert to lowercase
+if [[ "$cpu_type" != "amd" && "$cpu_type" != "intel" ]]; then
+    echo "Invalid CPU type. Defaulting to Intel."
+    cpu_type="intel"
+fi
 
 # Install base packages
 base_packages=(base base-devel linux linux-firmware sof-firmware networkmanager neovim bluez bluez-utils git fish bash)
@@ -42,7 +70,11 @@ usershell=${usershell:-/usr/bin/fish}
 
 # Bootloader selection with default to systemd-boot
 read -p "Do you want to install GRUB or systemd-boot? (Default: systemd-boot) " bootloader
-bootloader=${bootloader:-systemd-boot}
+bootloader=${bootloader,,}  # Convert to lowercase
+if [[ "$bootloader" != "grub" && "$bootloader" != "systemd-boot" ]]; then
+    echo "Invalid bootloader choice. Defaulting to systemd-boot."
+    bootloader="systemd-boot"
+fi
 
 # Check for NVIDIA GPU
 gpu_vendor=$(lspci | grep -i VGA | grep -i nvidia)
@@ -90,7 +122,7 @@ cat <<HOSTS > /etc/hosts
 127.0.1.1   $hostname.localdomain  $hostname
 HOSTS
 
-systemctl enable NetworkManager bluetooth
+sudo systemctl enable NetworkManager bluetooth
 
 # Bootloader installation
 if [[ "$bootloader" == "grub" ]]; then
@@ -104,7 +136,7 @@ default arch
 timeout 5
 editor 0
 LOADER
-    root_uuid=\$(blkid -s UUID -o value /dev/sdX)
+    root_uuid=\$(blkid -s UUID -o value \$(findmnt -n -o SOURCE /))
     cat <<ENTRY > /boot/loader/entries/arch.conf
 title   Arch Linux
 linux   /vmlinuz-linux
@@ -115,11 +147,11 @@ fi
 
 # Desktop Environment installation
 read -p "Do you want to install a Desktop Environment? (Default: no) " install_de
-install_de=${install_de:-no}
-if [[ "$install_de" == "yes" ]]; then
+install_de=\${install_de:-no}
+if [[ "\$install_de" == "yes" ]]; then
     read -p "Choose Desktop Environment (Hyprland/KDE/GNOME, Default: KDE): " de
-    de=${de:-kde}
-    case "$de" in
+    de=\${de:-kde}
+    case "\$de" in
         hyprland)
             pacman -S hyprland waybar rofi wofi alacritty grim slurp xdg-desktop-portal-hyprland --noconfirm --needed
             ;;
