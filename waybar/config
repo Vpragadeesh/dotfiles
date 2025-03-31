@@ -17,6 +17,8 @@
                 "hyprland/window"
         ],       
         "modules-right": [
+                "custom/gpu",
+                "custom/sep",
                 "temperature",
                 "custom/sep",
                 "disk",
