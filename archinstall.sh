@@ -11,7 +11,7 @@ echo "-- INSTALLING Base Arch Linux with DE --"
 echo "--------------------------------------"
 
 # CPU Selection
-read -sp "Is your CPU AMD or Intel? " igpu
+read -p "Is your CPU AMD or Intel? " igpu
 echo
 
 # Prompt for Desktop Environment selection:
