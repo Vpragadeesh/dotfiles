@@ -1,13 +1,18 @@
 * {
-  font-family: "Fira Sans Semibold", "Font Awesome 6 Free Solid",
-    "Material Design Icons Desktop", "MesloLGS NF", sans-serif;
+  font-family:
+    "Fira Sans Semibold", "Font Awesome 6 Free Solid",
+    "Material Design Icons Desktop", "MesloLGS NF", "sans-serif";
   border: none;
   border-radius: 0px;
   font-size: 14px;
+  margin: 0;
+  padding: 0;
 }
 
 window#waybar {
   background: #000000;
+  margin: 0;
+  padding: 0;
 }
 
 tooltip {
@@ -21,7 +26,12 @@ tooltip label {
   font-size: 16px;
 }
 
-#temperature,
+#temperature.critical {
+  color: red;
+}
+#temperature {
+  color: #fff;
+}
 #disk,
 #custom-appmenu,
 #window,
@@ -37,11 +47,9 @@ tooltip label {
   padding: 6px 8px;
   color: #fff;
 }
-
 /* -----------------------------------------------------
  * Workspaces 
  * ----------------------------------------------------- */
-
 #workspaces {
   font-weight: bold;
   font-style: normal;

@@ -1,8 +1,8 @@
 {
-        "layer": "bottom",
-	"position": "bottom",
-        "margin-top": 0,
-        "margin-bottom": 0,
+        "layer": "top",
+        "position": "top",
+        "margin-top": 5,
+        "margin-bottom": 5,
         "margin-left": 0,
         "margin-right": 10,
         "spacing": 0,
@@ -14,18 +14,21 @@
                 "custom/sep",
                 "hyprland/workspaces",
                 "custom/sep",
-                "hyprland/window"
-        ],       
+                "hyprland/window",
+                "custom/sep",
+                "temperature"
+        ],
+        "modules-center":[
+        "clock"
+        ],
         "modules-right": [
                 "custom/gpu",
-                "custom/sep",
-                "temperature",
                 "custom/sep",
                 "disk",
                 "custom/sep",
                 "cpu",
                 "custom/sep",
-               "memory",
+                "memory",
                 "custom/sep",
                 "bluetooth",
                 "custom/sep",
@@ -36,8 +39,6 @@
                 "pulseaudio",
                 "custom/sep",
                 "backlight",
-                "custom/sep",
-                "clock",
                 "custom/sep",
                 "custom/exit"
         ]

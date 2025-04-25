@@ -39,7 +39,7 @@
   },
   "clock": {
     "interval": 1,
-    "format": "<span color=\"#6D8895\"></span>  {:%H:%M:%S, %a, %d %b %Y}",
+    "format": "<span color=\"#6D8895\"></span>  {:%H:%M:%S  %a, %d %b %Y}",
     "tooltip-format": "<tt><big>{calendar}</big></tt>",
     "format-alt": "<span color=\"#fff\">󰃭</span>  {:%Y-%m-%d, %a}",
     "calendar": {
@@ -65,11 +65,13 @@
   "cpu": {
     "interval": 1,
     "format": "<span color=\"#f7768e\"></span> {usage}%",
+    "on-click": "kitty -e btop",
     "max-length": 10
   },
   "memory": {
     "interval": 1,
     "format": "<span color=\"#FBC02D\"></span> {used} G",
+    "on-click": "kitty -e btop",
     "max-length": 10
   },
   "network": {
@@ -81,14 +83,15 @@
     "format-linked": "󰈀 {ifname} (No IP)",
     "format-disconnected": "󰖪 ",
     "tooltip-format-disconnected": "Disconnected",
-    "format-alt": "<span foreground='#99ffdd'> {bandwidthDownBytes}</span>",
+    "format-alt": "<span foreground='#99ffdd'> {bandwidthDownBytes}</span>  <span foreground='#ffcc66'> {bandwidthUpBytes}</span>",
     "interval": 1,
     "on-click-right": "kitty -e nmtui-connect",
-    "max-length": 15
+    "max-length": 25
   },
   "disk": {
     "interval": 60,
     "format": "💾{percentage_used}% ",
+    "on-click": "kitty -e gdu /",
     "path": "/"
   },
   "temperature": {
@@ -105,10 +108,10 @@
       "critical": 50
     },
     "format": "<span color=\"#9ece6a\">{icon}</span>{capacity}%|{health}",
-    "format-charging": "<span color=\"#9ece6a\"></span>{capacity}%",
+    "format-charging": "<span color=\"#9ece6a\"></span>{capacity}%  {time}",
     "format-plugged": "  {capacity}%",
-    "format-alt": "{icon}  {time}"
-    //"format-icons": ["󰁺 ", "󰁼 ", "󰁿 ", "󰂁 ", "󰁹 "]
+    "format-alt": "{icon}  {time} {status}",
+    "format-icons": ["󰁺 ", "󰁼 ", "󰁿 ", "󰂁 ", "󰁹 "]
   },
   "pulseaudio": {
     "format": "{icon} {volume}%",
@@ -138,14 +141,17 @@
     "format-no-controller": ""
   },
   "custom/gpu": {
-    "exec": "nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits | awk '{print \"<span color=\\\"#ffffff\\\">󰾆 \"$1\"%</span>\"}'",
+    "exec": "nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits | awk '{print \"<span color=\\\"#ffffff\\\">󰾆 \"$1\"%</span> \"} '",
     "interval": 1,
     "format": "{}",
+    "on-click": "kitty -e watch -n 0.5 nvidia-smi",
     "tooltip": false
   },
   "backlight": {
     "device": "intel_backlight",
     "format": "<span color=\"#e0af68\">{icon}</span> {percent}%",
+    "on-scroll-down": "brightnessctl -q s +10%",
+    "on-scroll-up": "brightnessctl -q s 10%-",
     "format-icons": ["󰃠", "󰃠"]
   }
 }
