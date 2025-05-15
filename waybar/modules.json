@@ -135,7 +135,7 @@
     "format-off": "<span color=\"#555\"></span>  Off",
     "interval": 1,
     "max-length": 5,
-    "on-click": "export GTK_THEME=Adwaita:dark && blueman-manager",
+    "on-click": "blueman-manager",
     "on-scroll-up": "bluetoothctl power off",
     "on-scroll-down": "bluetoothctl power on",
     "format-no-controller": ""
