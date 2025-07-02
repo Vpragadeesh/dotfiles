@@ -1,6 +1,6 @@
 {
-        "layer": "top",
-        "position": "top",
+        "layer":    "bottom",
+        "position": "bottom",
         "margin-top": 5,
         "margin-bottom": 5,
         "margin-left": 0,
@@ -16,9 +16,11 @@
                 "custom/sep",
                 "hyprland/window",
                 "custom/sep",
-                "temperature"
+                "bluetooth"
         ],
         "modules-center":[
+        "temperature",
+        // "custom/sep",
         "clock"
         ],
         "modules-right": [
@@ -29,8 +31,6 @@
                 "cpu",
                 "custom/sep",
                 "memory",
-                "custom/sep",
-                "bluetooth",
                 "custom/sep",
                 "battery",
                 "custom/sep",

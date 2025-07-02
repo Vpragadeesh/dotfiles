@@ -27,7 +27,7 @@
   },
   "custom/exit": {
     "format": "",
-    "on-click": "wlogout",
+    "on-click": "",
     "tooltip": false
   },
   "custom/sep": {
@@ -89,14 +89,14 @@
     "max-length": 25
   },
   "disk": {
-    "interval": 60,
-    "format": "💾{percentage_used}% ",
+    "interval": 2,
+    "format": "💾 {used} ",
     "on-click": "kitty -e gdu /",
-    "path": "/"
+    "path": "/home/pragadeesh/"
   },
   "temperature": {
-    "format": " {temperatureC}°C",
-    "format-critical": " {temperatureC}°C",
+    "format": " {temperatureC}°C  ",
+    "format-critical": " {temperatureC}°C  ",
     "interval": 1,
     "critical-threshold": 60,
     "tooltip": false
@@ -110,7 +110,7 @@
     "format": "<span color=\"#9ece6a\">{icon}</span>{capacity}%|{health}",
     "format-charging": "<span color=\"#9ece6a\"></span>{capacity}%  {time}",
     "format-plugged": "  {capacity}%",
-    "format-alt": "{icon}  {time} {status}",
+    "format-alt": "{icon}  {time}",
     "format-icons": ["󰁺 ", "󰁼 ", "󰁿 ", "󰂁 ", "󰁹 "]
   },
   "pulseaudio": {
@@ -135,7 +135,7 @@
     "format-off": "<span color=\"#555\"></span>  Off",
     "interval": 1,
     "max-length": 5,
-    "on-click": "blueman-manager",
+    "on-click": "export GTK_THEME=Adwaita:dark && blueman-manager",
     "on-scroll-up": "bluetoothctl power off",
     "on-scroll-down": "bluetoothctl power on",
     "format-no-controller": ""

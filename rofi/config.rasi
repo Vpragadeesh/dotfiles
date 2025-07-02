@@ -36,9 +36,9 @@ configuration {
 }
 
 window {
-  width: 25%;
+  width: 50%;
   padding: 0;
-  location:   south west;
+  location:   center;
   x-offset:   4px;        
   y-offset:   -4px;
   scrollbar: true;
