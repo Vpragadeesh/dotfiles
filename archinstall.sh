@@ -1,7 +1,6 @@
 #!/bin/bash
 
 # Configuration Variables
-TARGET_DISK="/dev/sda" # Change this to your target disk
 HOSTNAME="archlinux"
 USERNAME="user"
 USER_PASSWORD="password"
@@ -9,8 +8,6 @@ ROOT_PASSWORD="rootpassword"
 TIMEZONE="Asia/Kolkata"
 LOCALE="en_US.UTF-8"
 KEYMAP="us"
-SWAP_SIZE="2G"
-BOOT_SIZE="512M"
 FILESYSTEM="ext4" # Options: ext4, btrfs, xfs
 DESKTOP_ENVIRONMENT="gnome" # Options: gnome, plasma, xfce, none
 
@@ -52,6 +49,17 @@ confirm_operation() {
     echo -e "$ERROR Operation aborted."
     exit 1
   fi
+}
+
+prompt_disk_and_partitions() {
+  echo -e "$INFO Detecting available disks..."
+  lsblk -d -n -o NAME,SIZE
+  read -p "$INFO Enter the target disk (e.g., sda, nvme0n1): " TARGET_DISK
+  TARGET_DISK="/dev/$TARGET_DISK"
+
+  echo -e "$INFO Specify partitions for $TARGET_DISK:"
+  read -p "$INFO Enter the size for /boot partition (e.g., 512M): " BOOT_SIZE
+  read -p "$INFO Enter the size for swap partition (e.g., 2G): " SWAP_SIZE
 }
 
 partition_disk() {
@@ -152,6 +160,7 @@ main() {
   check_root
   check_internet
   update_system_clock
+  prompt_disk_and_partitions
   partition_disk
   format_partitions
   mount_partitions
