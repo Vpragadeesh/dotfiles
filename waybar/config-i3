@@ -1,24 +1,25 @@
 {
         "layer":    "bottom",
         "position": "bottom",
-        "margin-top":    0,
-        "margin-bottom": 0,
-        "margin-left":  0,
-        "margin-right": 0,
+        "margin-top": 5,
+        "margin-bottom": 5,
+        "margin-left": 0,
+        "margin-right": 10,
         "spacing": 0,
         "include": [
-                "~/.config/waybar/modules.json"
+                "~/.config/waybar/modules-i3.json"
         ],
         "modules-left": [
                 "custom/appmenu",
                 "custom/sep",
-                "hyprland/workspaces",
+                "sway/workspaces",
                 "custom/sep",
-                "hyprland/window"
+                "sway/window",
+                "custom/sep",
+                "bluetooth"
         ],
         "modules-center":[
         "temperature",
-        // "custom/sep",
         "clock"
         ],
         "modules-right": [
@@ -32,12 +33,12 @@
                 "custom/sep",
                 "battery",
                 "custom/sep",
+                "network",
+                "custom/sep",
                 "pulseaudio",
                 "custom/sep",
                 "backlight",
                 "custom/sep",
-                "custom/exit",
-                "custom/sep",
-                "tray"
+                "custom/exit"
         ]
 }
