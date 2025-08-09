@@ -1,0 +1,153 @@
+{
+  "sway/workspaces": {
+    "on-click": "activate",
+    "active-only": false,
+    "all-outputs": true,
+    "format": "{}",
+    "format-icons": {
+      "urgent": "",
+      "focused": "",
+      "default": ""
+    }
+  },
+  "sway/window": {
+    "format": "{class}",
+    "separate-outputs": true,
+    "max-length": 50
+  },
+  "custom/appmenu": {
+    "format": "",
+    "on-click": "rofi -disable-history -drun-match-fields name -show drun",
+    "on-click-right": "killall rofi",
+    "tooltip": false
+  },
+  "custom/exit": {
+    "format": "",
+    "on-click": "i3-nagbar -t warning -m 'Exit i3?' -B 'Yes' 'i3-msg exit'",
+    "tooltip": false
+  },
+  "custom/sep": {
+    "format": "|"
+  },
+  "tray": {
+    "icon-size": 21,
+    "spacing": 10
+  },
+  "clock": {
+    "interval": 1,
+    "format": "<span color=\"#6D8895\"></span>  {:%H:%M:%S  %a, %d %b %Y}",
+    "tooltip-format": "<tt><big>{calendar}</big></tt>",
+    "format-alt": "<span color=\"#fff\">󰃭</span>  {:%Y-%m-%d, %a}",
+    "calendar": {
+      "mode": "month",
+      "mode-mon-col": 4,
+      "weeks-pos": "none",
+      "on-scroll": 1,
+      "format": {
+        "months": "<span color='#ffead3'><b>{}</b></span>",
+        "days": "<span color='#ecc6d9'><b>{}</b></span>",
+        "weeks": "<span color='#99ffdd'><b>W{}</b></span>",
+        "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+        "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
+      }
+    },
+    "actions": {
+      "on-click-forward": "tz_up",
+      "on-click-backward": "tz_down",
+      "on-scroll-up": "shift_up",
+      "on-scroll-down": "shift_down"
+    }
+  },
+  "cpu": {
+    "interval": 1,
+    "format": "<span color=\"#f7768e\"></span> {usage}%",
+    "on-click": "kitty -e btop",
+    "max-length": 10
+  },
+  "memory": {
+    "interval": 1,
+    "format": "<span color=\"#FBC02D\"></span> {used} G",
+    "on-click": "kitty -e btop",
+    "max-length": 10
+  },
+  "network": {
+    "tooltip": true,
+    "format-wifi": "  {essid}",
+    "rotate": 0,
+    "format-ethernet": "󰈀 ",
+    "tooltip-format": "Network: <big><b>{essid}</b></big>\nSignal strength: <b>{signaldBm}dBm ({signalStrength}%)</b>\nFrequency: <b>{frequency}MHz</b>\nInterface: <b>{ifname}</b>\nIP: <b>{ipaddr}/{cidr}</b>\nGateway: <b>{gwaddr}</b>\nNetmask: <b>{netmask}</b>",
+    "format-linked": "󰈀 {ifname} (No IP)",
+    "format-disconnected": "󰖪 ",
+    "tooltip-format-disconnected": "Disconnected",
+    "format-alt": "<span foreground='#99ffdd'> {bandwidthDownBytes}</span>  <span foreground='#ffcc66'> {bandwidthUpBytes}</span>",
+    "interval": 1,
+    "on-click-right": "kitty -e nmtui-connect",
+    "max-length": 25
+  },
+  "disk": {
+    "interval": 2,
+    "format": "💾 {used} ",
+    "on-click": "kitty -e gdu /",
+    "path": "/home/pragadeesh/"
+  },
+  "temperature": {
+    "format": " {temperatureC}°C  ",
+    "format-critical": " {temperatureC}°C  ",
+    "interval": 1,
+    "critical-threshold": 60,
+    "tooltip": false
+  },
+  "battery": {
+    "interval": 1,
+    "states": {
+      "warning": 80,
+      "critical": 50
+    },
+    "format": "<span color=\"#9ece6a\">{icon}</span>{capacity}%|{health}",
+    "format-charging": "<span color=\"#9ece6a\"></span>{capacity}%  {time}",
+    "format-plugged": "  {capacity}%",
+    "format-alt": "{icon}  {time}",
+    "format-icons": ["󰁺 ", "󰁼 ", "󰁿 ", "󰂁 ", "󰁹 "]
+  },
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-bluetooth": "{icon} {volume}% {format_source}",
+    "format-bluetooth-muted": "   M",
+    "format-muted": " M",
+    "format-source": "",
+    "format-source-muted": "",
+    "format-icons": {
+      "headphone": " ",
+      "hands-free": " ",
+      "headset": " ",
+      "default": [" ", " ", " "]
+    },
+    "on-click": "pactl set-sink-mute 0 toggle"
+  },
+  "bluetooth": {
+    "format": "<span color=\"#7aa2f7\"></span>  On",
+    "format-disabled": "<span color=\"#fff\"></span>  Off",
+    "format-connected": "<span color=\"#7aa2f7\"></span>  {device_alias}",
+    "format-off": "<span color=\"#555\"></span>  Off",
+    "interval": 1,
+    "max-length": 5,
+    "on-click": "export GTK_THEME=Adwaita:dark && blueman-manager",
+    "on-scroll-up": "bluetoothctl power off",
+    "on-scroll-down": "bluetoothctl power on",
+    "format-no-controller": ""
+  },
+  "custom/gpu": {
+    "exec": "nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits | awk '{print \"<span color=\\\"#ffffff\\\">󰾆 \"$1\"%</span> \"} '",
+    "interval": 1,
+    "format": "{}",
+    "on-click": "kitty -e watch -n 0.5 nvidia-smi",
+    "tooltip": false
+  },
+  "backlight": {
+    "device": "intel_backlight",
+    "format": "<span color=\"#e0af68\">{icon}</span> {percent}%",
+    "on-scroll-down": "brightnessctl -q s +10%",
+    "on-scroll-up": "brightnessctl -q s 10%-",
+    "format-icons": ["󰃠", "󰃠"]
+  }
+}
