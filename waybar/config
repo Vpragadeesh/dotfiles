@@ -14,7 +14,13 @@
                 "custom/sep",
                 "hyprland/workspaces",
                 "custom/sep",
-                "hyprland/window"
+                "hyprland/window",
+                "custom/sep",
+                "pulseaudio",
+                "custom/sep",
+                "disk",
+                "custom/sep",
+                "custom/gpu"
         ],
         "modules-center":[
         "temperature",
@@ -22,21 +28,15 @@
         "clock"
         ],
         "modules-right": [
-                "custom/gpu",
-                "custom/sep",
-                "disk",
-                "custom/sep",
                 "cpu",
                 "custom/sep",
                 "memory",
                 "custom/sep",
                 "battery",
                 "custom/sep",
-                "pulseaudio",
-                "custom/sep",
                 "backlight",
                 "custom/sep",
-                "custom/exit",
+                "network",
                 "custom/sep",
                 "tray"
         ]

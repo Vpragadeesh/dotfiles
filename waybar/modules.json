@@ -39,7 +39,7 @@
   },
   "clock": {
     "interval": 1,
-    "format": "<span color=\"#6D8895\"> </span>  {:%H:%M:%S  %a, %d %b %Y}",
+    "format": "<span color=\"#6D8895\"> </span>  {:%H:%M:%S  %a, %d %b %y}",
     "tooltip-format": "<tt><big>{calendar}</big></tt>",
     "format-alt": "<span color=\"#fff\">󰃭 </span>  {:%Y-%m-%d, %a}",
     "calendar": {
@@ -76,17 +76,17 @@
   },
   "network": {
     "tooltip": true,
-    "format-wifi": "  {essid}",
+    "format-alt-wifi": "  {essid}",
     "rotate": 0,
-    "format-ethernet": "󰈀 ",
+    "format-alt-ethernet": "󰈀 ",
     "tooltip-format": "<big><b>{essid}</b></big>\nSignal strength: <b>{signaldBm}dBm ({signalStrength}%)</b>\nFrequency: <b>{frequency}MHz</b>\nInterface: <b>{ifname}</b>\nIP: <b>{ipaddr}/{cidr}</b>\nGateway: <b>{gwaddr}</b>\nNetmask: <b>{netmask}</b>",
     "format-linked": "󰈀 {ifname} (No IP)",
     "format-disconnected": "󰖪 ",
     "tooltip-format-disconnected": "Disconnected",
-    "format-alt": "<span foreground='#99ffdd'> {bandwidthDownBytes}</span>  <span foreground='#ffcc66'> {bandwidthUpBytes}</span>",
+    "format": "<span foreground='#99ffdd'> {bandwidthDownBytes}</span>  <span foreground='#ffcc66'> {bandwidthUpBytes}</span> <span foreground='#ccccff'> {ipaddr}</span>",
     "interval": 1,
     "on-click-right": "kitty -e nmtui-connect",
-    "max-length": 25
+    "max-length": 45
   },
   "disk": {
     "interval": 2,
@@ -142,10 +142,10 @@
     "format-no-controller": ""
   },
   "custom/gpu": {
-    "exec": "nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits | awk '{print \"<span color=\\\"#ffffff\\\">󰾆 \"$1\"%</span> \"} '",
+    "exec": "nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits | awk '{print \"<span color=\\\"#ffffff\\\"> 󰾆 \"$1\"%</span> \"} '",
     "interval": 1,
     "format": "{}",
-    "on-click": "kitty -e watch -n 0.5 nvidia-smi",
+    "on-click": "kitty -e watch -n 0.5 nvidia-smi && nvtop",
     "tooltip": false
   },
   "backlight": {
