@@ -83,9 +83,9 @@
     "format-linked": "󰈀 {ifname} (No IP)",
     "format-disconnected": "󰖪 ",
     "tooltip-format-disconnected": "Disconnected",
-    "format": "<span foreground='#99ffdd'> {bandwidthDownBytes}</span>  <span foreground='#ffcc66'> {bandwidthUpBytes}</span> <span foreground='#ccccff'> {ipaddr}</span>",
+    "format": "<span foreground='#99ffdd'>   {bandwidthDownBytes}</span>  <span foreground='#ffcc66'>   {bandwidthUpBytes}</span> <span foreground='#ccccff'>   {ipaddr}</span>",
     "interval": 1,
-    "on-click-right": "kitty -e nmtui-connect",
+    "on-click-right": "kitty -e nmtui",
     "max-length": 45
   },
   "disk": {
@@ -93,6 +93,7 @@
     "format": "💾 {used} ",
     "on-click": "kitty -e gdu /",
     "path": "/home/pragadeesh/"
+    // "path": "/"
   },
   "temperature": {
     "format": " {temperatureC}°C  ",
@@ -108,7 +109,6 @@
       "critical": 50
     },
     "format": "<span color=\"#9ece6a\">{icon}</span>{capacity}%|{health}",
-    // "format": "<span color=\"#9ece6a\">{icon}</span>{health}%",
     "format-charging": "<span color=\"#9ece6a\"></span>{capacity}%  {time}",
     "format-plugged": "  {capacity}%",
     "format-alt": "{icon}  {time}",
@@ -142,10 +142,11 @@
     "format-no-controller": ""
   },
   "custom/gpu": {
-    "exec": "nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits | awk '{print \"<span color=\\\"#ffffff\\\"> 󰾆 \"$1\"%</span> \"} '",
+    "exec": "nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits | awk '{print \"<span color=\\\"#ffffff\\\"> 󰾆  \"$1\"%</span> \"} '",
     "interval": 1,
     "format": "{}",
-    "on-click": "kitty -e watch -n 0.5 nvidia-smi && nvtop",
+    // "on-click": "kitty -e watch -n 0.5 nvidia-smi",
+    "on-click": "kitty -e nvtop",
     "tooltip": false
   },
   "backlight": {
@@ -155,4 +156,8 @@
     "on-scroll-up": "brightnessctl -q s 10%-",
     "format-icons": ["󰃠 ", "󰃠 "]
   }
+//   "custom/status": {
+//     "exec": "~/.config/waybar/status.sh",
+//     "interval": 1
+// }
 }

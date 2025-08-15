@@ -138,7 +138,7 @@ opt.sessionoptions = {
 }
 
 -- shell
-opt.shell = "/bin/bash"
+opt.shell = "/usr/bin/fish"
 opt.shellcmdflag = "-c"
 opt.shellquote = ""
 opt.shellxquote = ""

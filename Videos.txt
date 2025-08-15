@@ -1,0 +1,31 @@
+drwxr-xr-x pragadeesh users  12 KB Fri Aug 15 15:37:47 2025 .
+drwx---r-x pragadeesh users 140 KB Fri Aug 15 14:52:31 2025 ..
+.rwxr-xr-x pragadeesh users 4.2 MB Tue May 13 13:49:04 2025 2025-05-13_13-48-21.mp4
+.rwxr-x--x pragadeesh users 125 MB Sun May 25 07:05:46 2025 4 Methods of Prompt Engineering(1080P_HD).mp4
+.rwxr-x--x pragadeesh users  57 MB Sun May 25 07:05:11 2025 AI Agents_ Clearly Explained(1080P_HD).mp4
+drwx------ pragadeesh users 4.0 KB Sun Aug 10 20:54:03 2025 AnyDesk
+.rwxr-xr-x pragadeesh users  83 MB Mon May  5 21:41:24 2025 Avante_Turn_NeoVim_Into_Cursor_1080P_60FPS.mp4
+drwxr-xr-x pragadeesh users 4.0 KB Wed Jan 15 08:49:58 2025 Camera
+.rwxr----- pragadeesh users 8.4 GB Fri Aug 15 08:14:17 2025 Coolie (2025) Tamil HQ HDTS - 1080p - x264 - HQ Clean Audio - AAC - 8GB.mkv
+.rw-r--r-- pragadeesh users  28 GB Wed Aug  6 07:00:13 2025 Death-Note-Complete-Enhanced.mp4
+.rwxr-xr-x pragadeesh users 173 MB Thu May 22 12:45:56 2025 Ela Machi Machi - 4K Video Song ｜ Anbe Sivam  ｜ ஏலே மசசி மசசி ｜ Kamal Hassan ｜ Madhavan ｜Vidyasagar.mp4
+.rw-r--r-- pragadeesh users 1.6 GB Fri Aug 15 13:23:51 2025 Kadhalar Dhinam (1999) Tamil in HD.mp4
+.rw-r--r-- pragadeesh users 3.1 GB Thu Aug 14 16:22:37 2025 KGF-2-Tamil-HDRip.mkv
+.rw-r--r-- pragadeesh users 2.9 GB Thu Aug 14 16:18:41 2025 KGF-Chapter-1-2018-Tamil-1080p-AMZN-WEB-DL-x265.mkv
+.rwxr-xr-x pragadeesh users 240 MB Sun Jun  1 05:37:33 2025 Mini Cloud CTF SOLVED _ Beau Bullock(720P_HD).mp4
+.rwxr----- pragadeesh users 6.9 MB Wed Aug 13 11:45:49 2025 NLP For Machine Learning.pdf
+.rwxr-xr-x pragadeesh users 108 MB Fri Apr  4 19:40:53 2025 Pathala_Pathala_Video_VIKRAM_Kamal_Haasan_Anirudh_Ravichander_Lokesh_Kanagaraj_4K_HD.mp4
+.rwxr-xr-x pragadeesh users  45 MB Sat May 31 15:55:19 2025 Pragadeesh V && Sudharshan R (Dual connect project demo video).mp4
+.rwxr-x--x pragadeesh users  77 MB Sun May 25 07:05:03 2025 Prompt engineering essentials_ Getting better results from LLMs _ Tutorial(1080P_HD).mp4
+.rwxr-xr-x pragadeesh users 6.1 MB Thu Jun 26 13:34:28 2025 recording-2025-06-26--13-33-42.mp4
+.rwxr-xr-x pragadeesh users  17 MB Thu Jun 26 13:35:54 2025 recording-2025-06-26--13-34-51.mp4
+.rw-r--r-- pragadeesh users 1.8 MB Mon Aug  4 18:57:42 2025 recording-2025-08-04--18-57-40.mp4
+.rw-r--r-- pragadeesh users 409 KB Mon Aug  4 19:11:20 2025 recording-2025-08-04--19-11-10.mp4
+.rw-r--r-- pragadeesh users 8.1 MB Mon Aug  4 19:12:39 2025 recording-2025-08-04--19-11-55.mp4
+.rw-r--r-- pragadeesh users 799 B  Tue Aug 12 17:18:26 2025 run.py
+drwxr-xr-x pragadeesh users 4.0 KB Mon Aug  4 19:01:30 2025 Screencasts
+.rwxr-xr-x pragadeesh users  58 MB Sat May 17 21:52:41 2025 trashed-1733674986-VID_20241108_215159mp4.0.mp4
+.rwxr-x--x pragadeesh users  12 MB Wed Jan  1 09:12:08 2020 VID-20200101-WA0051.mp4
+.rw-r--r-- pragadeesh users   0 B  Fri Aug 15 15:37:47 2025 Videos.txt
+.rwxr----- pragadeesh users 639 MB Sun Jul 27 18:36:32 2025 Vikram (2022) 2160p 10bit X265 UN_CUT HEVC Multi DDP ATMOS 5.1 MSUB ~AF - Join Telegram @AfEnCoDeR.mp4
+.rwxr----- pragadeesh users 172 MB Sun Jul 27 18:36:10 2025 vikram.mp4

@@ -18,6 +18,8 @@
                 "custom/sep",
                 "pulseaudio",
                 "custom/sep",
+                "backlight",
+                "custom/sep",
                 "disk",
                 "custom/sep",
                 "custom/gpu"
@@ -28,16 +30,19 @@
         "clock"
         ],
         "modules-right": [
+                //"custom/status",
+                //"custom/sep",
                 "cpu",
                 "custom/sep",
                 "memory",
                 "custom/sep",
                 "battery",
                 "custom/sep",
-                "backlight",
-                "custom/sep",
                 "network",
                 "custom/sep",
                 "tray"
         ]
 }
+
+"modules-right": [
+]

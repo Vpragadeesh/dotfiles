@@ -48,7 +48,7 @@ tooltip label {
   color: #fff;
 }
 /* -----------------------------------------------------
- * Workspaces 
+ * Workspaces
  * ----------------------------------------------------- */
 #workspaces {
   font-weight: bold;
@@ -75,4 +75,10 @@ tooltip label {
   border: none;
   box-shadow: inherit;
   text-shadow: inherit;
+}
+
+
+#custom-status {
+    padding: 6px 8px;
+    color: #fff;
 }
