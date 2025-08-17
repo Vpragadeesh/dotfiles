@@ -31,7 +31,8 @@
         ],
         "modules-right": [
                 //"custom/status",
-                //"custom/sep",
+                "mpris",
+                "custom/sep",
                 "cpu",
                 "custom/sep",
                 "memory",
@@ -43,6 +44,3 @@
                 "tray"
         ]
 }
-
-"modules-right": [
-]

@@ -26,7 +26,7 @@
     "tooltip": false
   },
   "custom/exit": {
-    "format": " ",
+    "format": " ",
     "on-click": "",
     "tooltip": false
   },
@@ -39,7 +39,7 @@
   },
   "clock": {
     "interval": 1,
-    "format": "<span color=\"#6D8895\"> </span>  {:%H:%M:%S  %a, %d %b %y}",
+    "format": "<span color=\"#6D8895\"> </span>  {:%H:%M:%S  %a, %d %b %y}",
     "tooltip-format": "<tt><big>{calendar}</big></tt>",
     "format-alt": "<span color=\"#fff\">󰃭 </span>  {:%Y-%m-%d, %a}",
     "calendar": {
@@ -76,7 +76,7 @@
   },
   "network": {
     "tooltip": true,
-    "format-alt-wifi": "  {essid}",
+    "format-alt-wifi": "  {essid}",
     "rotate": 0,
     "format-alt-ethernet": "󰈀 ",
     "tooltip-format": "<big><b>{essid}</b></big>\nSignal strength: <b>{signaldBm}dBm ({signalStrength}%)</b>\nFrequency: <b>{frequency}MHz</b>\nInterface: <b>{ifname}</b>\nIP: <b>{ipaddr}/{cidr}</b>\nGateway: <b>{gwaddr}</b>\nNetmask: <b>{netmask}</b>",
@@ -93,7 +93,6 @@
     "format": "💾 {used} ",
     "on-click": "kitty -e gdu /",
     "path": "/home/pragadeesh/"
-    // "path": "/"
   },
   "temperature": {
     "format": " {temperatureC}°C  ",
@@ -108,9 +107,9 @@
       "warning": 80,
       "critical": 50
     },
-    "format": "<span color=\"#9ece6a\">{icon}</span>{capacity}%|{health}",
-    "format-charging": "<span color=\"#9ece6a\"></span>{capacity}%  {time}",
-    "format-plugged": "  {capacity}%",
+    "format": "<span color=\"#9ece6a\">{icon}</span>{capacity}% | {health}",
+    "format-charging": "<span color=\"#9ece6a\"></span>{capacity}%  {time}",
+    "format-plugged": "  {capacity}%",
     "format-alt": "{icon}  {time}",
     "format-icons": ["󰁺 ", "󰁼 ", "󰁿 ", "󰂁 ", "󰁹 "]
   },
@@ -129,11 +128,47 @@
     },
     "on-click": "pactl set-sink-mute 0 toggle"
   },
+  // this the old config
+  //"mpris": {
+  //    "format": "{player_icon} {status_icon}",
+  //    "format-paused": "{player_icon} {status_icon}",
+  //    "player-icons": {
+  //      "default": "",
+  //      "mpv": "🎬",
+  //      "spotify": ""
+  //    },
+  //    "status-icons": {
+  //      "playing": "▶ ",
+  //      "paused": "⏸ "
+  //    },
+  //    "title-len": 25,
+  //    "max-length": 60,
+  //    "on-click": "playerctl play-pause"
+  //},
+"mpris": {
+  "format": "{player} {player_icon} {status_icon} ",
+  "format-paused": "{player} {player_icon} {status_icon} ",
+  "player-icons": {
+    "default": "",
+    "mpv": "🎬",
+    "spotify": "",
+    "firefox": "🌐",
+    "chrome": "🌐",
+    "chromium": "🌐"
+  },
+  "status-icons": {
+    "playing": "▶",
+    "paused": "⏸"
+  },
+  "title-len": 25,
+  "max-length": 60,
+  "on-click": "playerctl play-pause"
+},
   "bluetooth": {
-    "format": "<span color=\"#7aa2f7\"></span>  On",
-    "format-disabled": "<span color=\"#fff\"></span>  Off",
-    "format-connected": "<span color=\"#7aa2f7\"></span>  {device_alias}",
-    "format-off": "<span color=\"#555\"></span>  Off",
+    "format": "<span color=\"#7aa2f7\"></span>  On",
+    "format-disabled": "<span color=\"#fff\"></span>  Off",
+    "format-connected": "<span color=\"#7aa2f7\"></span>  {device_alias}",
+    "format-off": "<span color=\"#555\"></span>  Off",
     "interval": 1,
     "max-length": 5,
     "on-click": "export GTK_THEME=Adwaita:dark && blueman-manager",
@@ -145,7 +180,6 @@
     "exec": "nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits | awk '{print \"<span color=\\\"#ffffff\\\"> 󰾆  \"$1\"%</span> \"} '",
     "interval": 1,
     "format": "{}",
-    // "on-click": "kitty -e watch -n 0.5 nvidia-smi",
     "on-click": "kitty -e nvtop",
     "tooltip": false
   },
@@ -155,9 +189,15 @@
     "on-scroll-down": "brightnessctl -q s +10%",
     "on-scroll-up": "brightnessctl -q s 10%-",
     "format-icons": ["󰃠 ", "󰃠 "]
+  },
+  "custom/visualizer": {
+    "exec": "cava -p ~/.config/cava/waybar_config",
+    "return-type": "raw",
+    "interval": "1",
+    "format": "{}"
+  },
+  "custom/status": {
+    "exec": "~/.config/waybar/status.sh",
+    "interval": 1
   }
-//   "custom/status": {
-//     "exec": "~/.config/waybar/status.sh",
-//     "interval": 1
-// }
 }
