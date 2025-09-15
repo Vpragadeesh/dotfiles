@@ -1,27 +1,13 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
-SETUVAR --export --path CPATH:/opt/cuda/include\x1e/usr/local/cuda/include
-SETUVAR --export CRYPTOGRAPHY_OPENSSL_NO_LEGACY:1
-SETUVAR --export CUDA_HOME:/opt/cuda
-SETUVAR --export GTK_ICON_THEME:Your\x2dIcon\x2dTheme
-SETUVAR --export GTK_THEME:Adwaita\x3adark
-SETUVAR --export --path LD_LIBRARY_PATH:/usr/local/cuda/lib64\x1e/usr/local/cuda/lib64\x1e/usr/local/cuda/lib64\x1e/usr/local/cuda/lib64\x1e/usr/local/cuda/lib64\x1e/usr/local/cuda/lib64\x1e/usr/local/cuda/lib64\x1e/usr/local/cuda/lib64\x1e/usr/local/cuda/lib64\x1e/usr/local/cuda/lib64\x1e/usr/local/cuda/lib64\x1e/usr/local/cuda/lib64\x1e/usr/local/cuda/lib64\x1e/usr/local/cuda/lib64\x1e/usr/local/cuda/lib64\x1e/usr/local/cuda/lib64\x1e/usr/local/cuda/lib64\x1e/usr/local/cuda/lib64\x1e/usr/local/cuda/lib64\x1e/usr/local/cuda/lib64\x1e/usr/local/cuda/lib64\x1e/usr/local/cuda/lib64\x1e/usr/local/cuda/lib64\x1e/usr/local/cuda/lib64\x1e/usr/local/cuda/lib64\x1e/usr/local/cuda/lib64\x1e/usr/local/cuda/lib64\x1e/usr/local/cuda/lib64\x1e/opt/cuda/lib64\x1e/usr/local/cuda/lib64\x1e/usr/lib/oracle/23\x2e6/client64/lib\x1e/opt/cuda/lib64
-SETUVAR --export --path LIBRARY_PATH:/opt/cuda/lib64\x1e/usr/local/cuda/lib64
-SETUVAR --export OLLAMA_HOST:127\x2e0\x2e0\x2e1
-SETUVAR --export OPENAI_API_KEY:sk\x2dproj\x2d6KHclCy6jgolcR1XxgxkdiJIyixLUw2LpK9ie6VCpBI7_C7mV_ihKa4GET2gb78WpdqHnDLf8dT3BlbkFJB4AggStwsENIYgMXCw9bHJbezz\x2dqaDdz2pchZM\x2dpFwpbSZoMUcDfzwJHjt45PTby\x2dnJTdZB7wA
-SETUVAR --export --path PATH:/home/pragadeesh/\x2epyenv/bin\x1e/var/lib/snapd/snap/bin\x1e/home/pragadeesh/\x2enpm\x2dglobal/bin\x1e/opt/miniconda3/bin\x1e/home/pragadeesh/\x2enix\x2dprofile/bin\x1e/nix/var/nix/profiles/default/bin\x1e/home/pragadeesh/\x2elocal/bin\x1e/usr/local/sbin\x1e/usr/local/bin\x1e/usr/bin\x1e/usr/bin/site_perl\x1e/usr/bin/vendor_perl\x1e/usr/bin/core_perl\x1e/opt/cuda/bin\x1e/opt/cuda/nsight_compute\x1e/opt/cuda/nsight_systems/bin\x1e/var/lib/flatpak/exports/bin\x1e/usr/lib/jvm/default/bin\x1e/opt/cuda/bin
-SETUVAR --export PYENV_ROOT:/home/pragadeesh/\x2epyenv
-SETUVAR --export VCPKG_ROOT:/home/pragadeesh/vcpkg
+SETUVAR --export ANDROID_HOME:/home/pragadeesh/Android/Sdk
+SETUVAR --export ANDROID_SDK_ROOT:/home/pragadeesh/Android/Sdk
+SETUVAR --export --path PATH:/home/pragadeesh/base/bin\x1e/opt/cuda/bin\x1e/home/pragadeesh/\x2epyenv/bin\x1e/home/pragadeesh/\x2elocal/share/pnpm\x1e/home/pragadeesh/\x2elocal/bin\x1e/usr/local/sbin\x1e/usr/local/bin\x1e/usr/bin\x1e/usr/bin/site_perl\x1e/usr/bin/vendor_perl\x1e/usr/bin/core_perl\x1e\x24scrPath\x1e/home/pragadeesh/Android/Sdk/cmdline\x2dtools/latest/bin\x1e/home/pragadeesh/Android/Sdk/platform\x2dtools
+SETUVAR --export SYSTEMD_EDITOR:nvim
 SETUVAR __fish_initialized:3800
-SETUVAR _fisher_edc_2F_bass_files:\x7e/\x2econfig/fish/functions/__bass\x2epy\x1e\x7e/\x2econfig/fish/functions/bass\x2efish
-SETUVAR _fisher_franciscolourenco_2F_done_files:\x7e/\x2econfig/fish/conf\x2ed/done\x2efish
-SETUVAR _fisher_jorgebucaran_2F_fisher_files:\x7e/\x2econfig/fish/functions/fisher\x2efish\x1e\x7e/\x2econfig/fish/completions/fisher\x2efish
-SETUVAR _fisher_patrickf1_2F_fzf_2E_fish_files:\x7e/\x2econfig/fish/functions/_fzf_configure_bindings_help\x2efish\x1e\x7e/\x2econfig/fish/functions/_fzf_extract_var_info\x2efish\x1e\x7e/\x2econfig/fish/functions/_fzf_preview_changed_file\x2efish\x1e\x7e/\x2econfig/fish/functions/_fzf_preview_file\x2efish\x1e\x7e/\x2econfig/fish/functions/_fzf_report_diff_type\x2efish\x1e\x7e/\x2econfig/fish/functions/_fzf_report_file_type\x2efish\x1e\x7e/\x2econfig/fish/functions/_fzf_search_directory\x2efish\x1e\x7e/\x2econfig/fish/functions/_fzf_search_git_log\x2efish\x1e\x7e/\x2econfig/fish/functions/_fzf_search_git_status\x2efish\x1e\x7e/\x2econfig/fish/functions/_fzf_search_history\x2efish\x1e\x7e/\x2econfig/fish/functions/_fzf_search_processes\x2efish\x1e\x7e/\x2econfig/fish/functions/_fzf_search_variables\x2efish\x1e\x7e/\x2econfig/fish/functions/_fzf_wrapper\x2efish\x1e\x7e/\x2econfig/fish/functions/fzf_configure_bindings\x2efish\x1e\x7e/\x2econfig/fish/conf\x2ed/fzf\x2efish\x1e\x7e/\x2econfig/fish/completions/fzf_configure_bindings\x2efish
-SETUVAR _fisher_plugins:jorgebucaran/fisher\x1epatrickf1/fzf\x2efish\x1efranciscolourenco/done\x1eedc/bass
-SETUVAR _fisher_upgraded_to_4_4:\x1d
 SETUVAR fish_color_autosuggestion:brblack
 SETUVAR fish_color_cancel:\x2dr
-SETUVAR fish_color_command:blue
+SETUVAR fish_color_command:normal
 SETUVAR fish_color_comment:red
 SETUVAR fish_color_cwd:green
 SETUVAR fish_color_cwd_root:red
@@ -47,4 +33,4 @@ SETUVAR fish_pager_color_description:yellow\x1e\x2di
 SETUVAR fish_pager_color_prefix:normal\x1e\x2d\x2dbold\x1e\x2d\x2dunderline
 SETUVAR fish_pager_color_progress:brwhite\x1e\x2d\x2dbackground\x3dcyan
 SETUVAR fish_pager_color_selected_background:\x2dr
-SETUVAR fish_user_paths:/var/lib/snapd/snap/bin\x1e/home/pragadeesh/\x2enpm\x2dglobal/bin\x1e/opt/miniconda3/bin
+SETUVAR fish_user_paths:/home/pragadeesh/\x2elocal/bin

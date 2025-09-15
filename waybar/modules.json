@@ -31,7 +31,7 @@
     "tooltip": false
   },
   "custom/sep": {
-    "format": "|"
+    "format": " | "
   },
   "tray": {
     "icon-size": 20,
@@ -83,7 +83,7 @@
     "format-linked": "󰈀 {ifname} (No IP)",
     "format-disconnected": "󰖪 ",
     "tooltip-format-disconnected": "Disconnected",
-    "format": "<span foreground='#99ffdd'>   {bandwidthDownBytes}</span>  <span foreground='#ffcc66'>   {bandwidthUpBytes}</span> <span foreground='#ccccff'>   {ipaddr}</span>",
+    "format": "<span foreground='#99ffdd'>  {bandwidthDownBytes}</span>  <span foreground='#ffcc66'>   {bandwidthUpBytes}</span> <span foreground='#ccccff'>   {ipaddr}</span>",
     "interval": 1,
     "on-click-right": "kitty -e nmtui",
     "max-length": 45
@@ -108,9 +108,9 @@
       "critical": 50
     },
     "format": "<span color=\"#9ece6a\">{icon}</span>{capacity}% | {health}",
-    "format-charging": "<span color=\"#9ece6a\"></span>{capacity}%  {time}",
-    "format-plugged": "  {capacity}%",
-    "format-alt": "{icon}  {time}",
+    "format-charging": "<span color=\"#9ece6a\"></span>{capacity}%{time}",
+    "format-plugged": "{capacity}%",
+    "format-alt": "{icon}{time} {health}",
     "format-icons": ["󰁺 ", "󰁼 ", "󰁿 ", "󰂁 ", "󰁹 "]
   },
   "pulseaudio": {
@@ -128,42 +128,27 @@
     },
     "on-click": "pactl set-sink-mute 0 toggle"
   },
-  // this the old config
-  //"mpris": {
-  //    "format": "{player_icon} {status_icon}",
-  //    "format-paused": "{player_icon} {status_icon}",
-  //    "player-icons": {
-  //      "default": "",
-  //      "mpv": "🎬",
-  //      "spotify": ""
-  //    },
-  //    "status-icons": {
-  //      "playing": "▶ ",
-  //      "paused": "⏸ "
-  //    },
-  //    "title-len": 25,
-  //    "max-length": 60,
-  //    "on-click": "playerctl play-pause"
-  //},
-"mpris": {
-  "format": "{player} {player_icon} {status_icon} ",
-  "format-paused": "{player} {player_icon} {status_icon} ",
-  "player-icons": {
-    "default": "",
-    "mpv": "🎬",
-    "spotify": "",
-    "firefox": "🌐",
-    "chrome": "🌐",
-    "chromium": "🌐"
-  },
+ "mpris": {
+ "format": "<span color='#FF9400'>{player_icon}</span>  {player} {status_icon}",
+ "format-paused": "{player_icon}  {player} {status_icon}",
+ "player-icons": {
+   "default": "",
+   "mpv": "🎬",
+   "vlc": "🎬",
+   "spotify": "",
+   "firefox": "🦊",
+   "zen": "🦊",
+   "chrome": "🌐",
+   "chromium": "🌐"
+ },
   "status-icons": {
-    "playing": "▶",
-    "paused": "⏸"
+    "playing": "⏸",
+    "paused": "▶"
   },
   "title-len": 25,
   "max-length": 60,
   "on-click": "playerctl play-pause"
-},
+  },
   "bluetooth": {
     "format": "<span color=\"#7aa2f7\"></span>  On",
     "format-disabled": "<span color=\"#fff\"></span>  Off",
@@ -180,7 +165,7 @@
     "exec": "nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits | awk '{print \"<span color=\\\"#ffffff\\\"> 󰾆  \"$1\"%</span> \"} '",
     "interval": 1,
     "format": "{}",
-    "on-click": "kitty -e nvtop",
+    "on-click": "kitty -e watch -n 0.5 nvidia-smi",
     "tooltip": false
   },
   "backlight": {
