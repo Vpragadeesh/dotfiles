@@ -110,7 +110,7 @@
     "format": "<span color=\"#9ece6a\">{icon}</span>{capacity}% | {health}",
     "format-charging": "<span color=\"#9ece6a\"></span>{capacity}%{time}",
     "format-plugged": "{capacity}%",
-    "format-alt": "{icon}{time} {health}",
+    "format-alt": "{icon} {time} {health}",
     "format-icons": ["󰁺 ", "󰁼 ", "󰁿 ", "󰂁 ", "󰁹 "]
   },
   "pulseaudio": {
@@ -135,7 +135,7 @@
    "default": "",
    "mpv": "🎬",
    "vlc": "🎬",
-   "spotify": "",
+  "spotify": "<span color=\"#1DB954\"></span>",
    "firefox": "🦊",
    "zen": "🦊",
    "chrome": "🌐",
