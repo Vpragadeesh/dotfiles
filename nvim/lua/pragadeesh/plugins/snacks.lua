@@ -4,26 +4,55 @@ local log = vim.log
 local v = vim.v
 
 -- dashboard header
-local dashboard_header = [[
-   ____________________________________
-  /    cook your code with precision,   \
-  |    spice it with logic,              |
-  |    and serve it with clarity,        |
-  |    so that no reviewer,              |
-  |    dares to reject your              |
-  \    masterpiece !!!                  /
-  -------------------------------------
-\
-  \
-   \
-        ___
-       (.. |
-       (<> |
-       / __  \
-       ( /  \ /|
-      _/\ __)/_)
-      \/-_____\/
-]]
+local dashboard_header = (function()
+    local user = fn.getenv("USER") or fn.getenv("USERNAME") or "user"
+    local osname = (vim.loop.os_uname() and vim.loop.os_uname().sysname) or "OS"
+    local ver = vim.version()
+    local nvim_ver = string.format("%d.%d.%d", ver.major, ver.minor, ver.patch)
+    local when = os.date("%Y-%m-%d %H:%M")
+
+    local ascii = [[
+      .--.
+       |o_o |
+       |:_/ |
+      //   \ \
+     (|     | )
+    /'\_   _/`\
+    \___)=(___/
+
+     L I N U X
+    ]]
+
+    local function trim(s)
+        if not s then return "" end
+        return s:gsub("^%s+", ""):gsub("%s+$", "")
+    end
+
+    local cwd = fn.getcwd()
+    local cwd_display = pcall(fn.fnamemodify, cwd, ":~") and fn.fnamemodify(cwd, ":~") or cwd
+
+    -- try to get git branch for the cwd (if any)
+    local git_branch = ""
+    do
+        local ok, out = pcall(fn.system, { "git", "-C", cwd, "rev-parse", "--abbrev-ref", "HEAD" })
+        if ok then
+            out = trim(out)
+            if out ~= "" and out ~= "HEAD" then
+                git_branch = out
+            end
+        end
+    end
+
+    local buf_count = #api.nvim_list_bufs()
+    local win_count = #api.nvim_list_wins()
+    local tab_count = #api.nvim_list_tabpages()
+
+    local info = string.format("    %s@%s  •  nvim %s  •  %s", user, osname, nvim_ver, when)
+    local extra = string.format("    cwd: %s  •  branch: %s", cwd_display, (git_branch ~= "" and git_branch) or "—")
+    local counts = string.format("    buffers: %d  •  windows: %d  •  tabs: %d", buf_count, win_count, tab_count)
+
+    return ascii .. "\n" .. info .. "\n" .. extra .. "\n" .. counts .. "\n"
+end)()
 
 -- plugin dependencies
 local dependencies = {}
@@ -314,130 +343,6 @@ local opts = {
 
 -- plugin keys
 local keys = {
-    -- git keymaps
-    {
-        "<leader>gbl",
-        mode = { "n" },
-        function ()
-            Snacks.git.blame_line()
-        end,
-        noremap = true,
-        silent = true,
-        desc = "blame the current line",
-    },
-    {
-        "<leader>gB",
-        mode = { "n" },
-        function ()
-            Snacks.picker.git_branches({
-                all = true,
-            })
-        end,
-        noremap = true,
-        silent = true,
-        desc = "find the git branches",
-    },
-    {
-        "<leader>go",
-        mode = { "n", "x" },
-        function ()
-            Snacks.gitbrowse.open()
-        end,
-        noremap = true,
-        silent = true,
-        desc = "open the current buffer in the browser",
-    },
-    {
-        "<leader>gl",
-        mode = { "n" },
-        function ()
-            Snacks.picker.git_log()
-        end,
-        noremap = true,
-        silent = true,
-        desc = "find the git log",
-    },
-    {
-        "<leader>gL",
-        mode = { "n" },
-        function ()
-            Snacks.picker.git_log_line()
-        end,
-        noremap = true,
-        silent = true,
-        desc = "find the git log for the current line",
-    },
-    {
-        "<leader>gf",
-        mode = { "n" },
-        function ()
-            Snacks.picker.git_log_file()
-        end,
-        noremap = true,
-        silent = true,
-        desc = "find the git log for the current file",
-    },
-    {
-        "<leader>gs",
-        mode = { "n" },
-        function ()
-            Snacks.picker.git_status()
-        end,
-        noremap = true,
-        silent = true,
-        desc = "find the git status",
-    },
-    {
-        "<leader>gS",
-        mode = { "n" },
-        function ()
-            Snacks.picker.git_stash()
-        end,
-        noremap = true,
-        silent = true,
-        desc = "find the git stash",
-    },
-    {
-        "<leader>gd",
-        mode = { "n" },
-        function ()
-            Snacks.picker.git_diff()
-        end,
-        noremap = true,
-        silent = true,
-        desc = "find the git diff",
-    },
-    {
-        "<leader>ggo",
-        mode = { "n" },
-        function ()
-            Snacks.lazygit.open()
-        end,
-        noremap = true,
-        silent = true,
-        desc = "open lazygit",
-    },
-    {
-        "<leader>ggl",
-        mode = { "n" },
-        function ()
-            Snacks.lazygit.log()
-        end,
-        noremap = true,
-        silent = true,
-        desc = "open lazygit with log view",
-    },
-    {
-        "<leader>ggf",
-        mode = { "n" },
-        function ()
-            Snacks.lazygit.log_file()
-        end,
-        noremap = true,
-        silent = true,
-        desc = "open lazygit with the log of the current file",
-    },
-
     -- find files keymaps
     {
         "<leader>fb",

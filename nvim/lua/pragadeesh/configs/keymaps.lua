@@ -202,4 +202,103 @@ keymap.set({ "i", "s" }, "<S-Tab>", "<S-Tab>", {
     desc = "overwrite the jump to previous snippet",
 })
 
+-- git keymaps
+keymap.set({ "n" }, "<leader>ggo", function ()
+    require("snacks").lazygit.open()
+end, {
+    noremap = true,
+    silent = true,
+    desc = "open lazygit",
+})
+
+keymap.set({ "n" }, "<leader>ggl", function ()
+    require("snacks").lazygit.log()
+end, {
+    noremap = true,
+    silent = true,
+    desc = "open lazygit with log view",
+})
+
+keymap.set({ "n" }, "<leader>ggf", function ()
+    require("snacks").lazygit.log_file()
+end, {
+    noremap = true,
+    silent = true,
+    desc = "open lazygit with the log of the current file",
+})
+
+keymap.set({ "n" }, "<leader>gbl", function ()
+    require("snacks").git.blame_line()
+end, {
+    noremap = true,
+    silent = true,
+    desc = "blame the current line",
+})
+
+keymap.set({ "n" }, "<leader>gB", function ()
+    require("snacks").picker.git_branches({
+        all = true,
+    })
+end, {
+    noremap = true,
+    silent = true,
+    desc = "find the git branches",
+})
+
+keymap.set({ "n", "x" }, "<leader>go", function ()
+    require("snacks").gitbrowse.open()
+end, {
+    noremap = true,
+    silent = true,
+    desc = "open the current buffer in the browser",
+})
+
+keymap.set({ "n" }, "<leader>gl", function ()
+    require("snacks").picker.git_log()
+end, {
+    noremap = true,
+    silent = true,
+    desc = "find the git log",
+})
+
+keymap.set({ "n" }, "<leader>gL", function ()
+    require("snacks").picker.git_log_line()
+end, {
+    noremap = true,
+    silent = true,
+    desc = "find the git log for the current line",
+})
+
+keymap.set({ "n" }, "<leader>gf", function ()
+    require("snacks").picker.git_log_file()
+end, {
+    noremap = true,
+    silent = true,
+    desc = "find the git log for the current file",
+})
+
+keymap.set({ "n" }, "<leader>gs", function ()
+    require("snacks").picker.git_status()
+end, {
+    noremap = true,
+    silent = true,
+    desc = "find the git status",
+})
+
+keymap.set({ "n" }, "<leader>gS", function ()
+    require("snacks").picker.git_stash()
+end, {
+    noremap = true,
+    silent = true,
+    desc = "find the git stash",
+})
+
+keymap.set({ "n" }, "<leader>gd", function ()
+    require("snacks").picker.git_diff()
+end, {
+    noremap = true,
+    silent = true,
+    desc = "find the git diff",
+})
+
 return {}
