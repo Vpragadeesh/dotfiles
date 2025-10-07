@@ -57,6 +57,12 @@ local dependencies = {
     {
         "moyiz/blink-emoji.nvim",
     },
+    {
+        "giuxtaposition/blink-cmp-copilot",
+    },
+    {
+        "zbirenbaum/copilot.lua",
+    },
 }
 
 -- plugin init function
@@ -159,6 +165,7 @@ local opts = {
         default = {
             "lazydev",
             "lsp",
+            "copilot",
             "omni",
             "emoji",
             "snippets",
@@ -171,6 +178,13 @@ local opts = {
                 enabled = true,
                 module = "lazydev.integrations.blink",
                 score_offset = 100,
+            },
+            copilot = {
+                name = "copilot",
+                enabled = true,
+                module = "blink-cmp-copilot",
+                score_offset = 98,
+                async = true,
             },
             lsp = {
                 name = "lsp",
