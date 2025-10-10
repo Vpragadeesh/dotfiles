@@ -172,5 +172,4 @@ main() {
   install_desktop_environment
   echo -e "$INFO Installation complete. You can reboot now."
 }
-
 main
