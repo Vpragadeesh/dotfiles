@@ -102,18 +102,6 @@ local opts = {
                 end
             end,
         },
-        basedpyright = {
-            settings = {
-                basedpyright = {
-                    analysis = {
-                        typeCheckingMode = "basic",
-                        autoSearchPaths = true,
-                        useLibraryCodeForTypes = true,
-                        diagnosticMode = "workspace",
-                    },
-                },
-            },
-        },
     },
 }
 

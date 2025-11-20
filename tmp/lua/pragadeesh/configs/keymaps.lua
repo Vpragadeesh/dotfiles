@@ -261,19 +261,6 @@ end, {
     desc = "find the git log",
 })
 
--- open the oh-my-posh theme referenced in ~/.config/fish
-keymap.set({ "n" }, "<leader>op", function()
-    local path = "/usr/share/oh-my-posh/themes/wholespace.omp.json"
-    if vim.fn.filereadable(path) == 1 then
-        vim.cmd("edit " .. path)
-    else
-        vim.notify("oh-my-posh theme not found: " .. path, vim.log.levels.WARN)
-    end
-end, {
-    noremap = true,
-    silent = true,
-    desc = "open oh-my-posh theme in editor",
-})
 keymap.set({ "n" }, "<leader>gL", function ()
     require("snacks").picker.git_log_line()
 end, {

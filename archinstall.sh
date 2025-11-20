@@ -78,6 +78,7 @@ format_partitions() {
   mkswap "${TARGET_DISK}2"
   swapon "${TARGET_DISK}2"
   mkfs."$FILESYSTEM" "${TARGET_DISK}3"
+
 }
 
 mount_partitions() {
