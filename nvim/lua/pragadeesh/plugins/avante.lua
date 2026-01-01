@@ -168,7 +168,7 @@ local keys = {
 return {
     "yetone/avante.nvim",
     version = false,
-    enabled = true,
+    enabled = false,  -- Disabled: using CopilotChat instead
     lazy = false,
     event = "VeryLazy",
     cmd = {

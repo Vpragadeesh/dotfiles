@@ -55,9 +55,6 @@ local dependencies = {
         "folke/lazydev.nvim",
     },
     {
-        "moyiz/blink-emoji.nvim",
-    },
-    {
         "giuxtaposition/blink-cmp-copilot",
     },
     {
@@ -167,7 +164,6 @@ local opts = {
             "lsp",
             "copilot",
             "omni",
-            "emoji",
             "snippets",
             "path",
             "buffer",

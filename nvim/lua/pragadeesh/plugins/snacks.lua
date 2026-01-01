@@ -813,7 +813,7 @@ local keys = {
         "<C-x>",
         mode = { "n" },
         function ()
-            Snacks.terminal.toggle("bash")
+            Snacks.terminal.toggle("fish")
         end,
         noremap = true,
         silent = true,

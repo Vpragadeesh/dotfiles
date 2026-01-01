@@ -13,8 +13,6 @@ clickhouse
 countdown
 create_ap
 cursor-bin
-davinci-resolve
-deadbeef
 dia-git
 dia-git-debug
 dirb
@@ -24,7 +22,6 @@ esound
 extension-manager
 fern-wifi-cracker
 flite1
-floorp
 gcc11
 gcc11-debug
 gcc11-fortran

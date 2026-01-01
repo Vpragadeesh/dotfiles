@@ -42,7 +42,7 @@ local keys = {
 return {
     "rebelot/kanagawa.nvim",
     version = "*",
-    enabled = true,
+    enabled = false,  -- Disabled: using tokyonight only
     lazy = false,
     priority = 1000,
     dependencies = dependencies,

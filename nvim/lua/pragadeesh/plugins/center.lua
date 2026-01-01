@@ -35,9 +35,7 @@ return {
     version = "*",
     enabled = true,
     lazy = true,
-    event = {
-        "VeryLazy",
-    },
+    event = { "BufReadPost" },
     cmd = {},
     ft = {},
     build = {},

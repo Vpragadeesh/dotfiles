@@ -28,7 +28,7 @@ local keys = {}
 return {
     "IogaMaster/neocord",
     version = "*",
-    enabled = true,
+    enabled = false,  -- Disabled for lightweight config
     lazy = true,
     event = {
         "VeryLazy",

@@ -261,19 +261,8 @@ end, {
     desc = "find the git log",
 })
 
--- open the oh-my-posh theme referenced in ~/.config/fish
-keymap.set({ "n" }, "<leader>op", function()
-    local path = "/usr/share/oh-my-posh/themes/wholespace.omp.json"
-    if vim.fn.filereadable(path) == 1 then
-        vim.cmd("edit " .. path)
-    else
-        vim.notify("oh-my-posh theme not found: " .. path, vim.log.levels.WARN)
-    end
-end, {
-    noremap = true,
-    silent = true,
-    desc = "open oh-my-posh theme in editor",
-})
+-- NOTE: Removed duplicate <leader>op keymap (oh-my-posh theme)
+-- Use <leader>oP if you need it back
 keymap.set({ "n" }, "<leader>gL", function ()
     require("snacks").picker.git_log_line()
 end, {
@@ -312,6 +301,16 @@ end, {
     noremap = true,
     silent = true,
     desc = "find the git diff",
+})
+
+-- open a vertical terminal (uses configured `shell`, e.g. fish)
+keymap.set({ "n" }, "<leader>vt", function ()
+    vim.cmd("vsplit")
+    vim.cmd("terminal")
+end, {
+    noremap = true,
+    silent = true,
+    desc = "open vertical terminal",
 })
 
 return {}

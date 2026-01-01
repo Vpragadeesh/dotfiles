@@ -302,7 +302,7 @@ return {
     branch = "main",
     enabled = true,
     lazy = true,
-    event = {},
+    event = { "VeryLazy" },
     cmd = {
         "CopilotChat",
         "CopilotChatOpen",

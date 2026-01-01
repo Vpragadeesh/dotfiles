@@ -18,6 +18,7 @@ return {
     {
         "moyiz/blink-emoji.nvim",
         lazy = true,
+        enabled = false,  -- Disabled for lightweight config
     },
     {
         "giuxtaposition/blink-cmp-copilot",

@@ -252,7 +252,7 @@ return {
     "folke/trouble.nvim",
     version = "*",
     enabled = true,
-    lazy = true,
+    lazy = true,  -- Loads on keys/cmd only
     event = {},
     cmd = {
         "Trouble",
