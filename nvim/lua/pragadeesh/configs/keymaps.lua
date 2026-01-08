@@ -312,5 +312,35 @@ end, {
     silent = true,
     desc = "open vertical terminal",
 })
+-- Copilot: accept suggestion with Tab (VS Code style)
+-- If a Copilot suggestion is visible, accept it; otherwise send normal Tab
+keymap.set({ "i" }, "<Tab>", function()
+    local ok, suggestion = pcall(require, "copilot.suggestion")
+    if ok and suggestion and suggestion.is_visible() then
+        suggestion.accept()
+        return
+    end
+    -- fallback: send normal Tab
+    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('<Tab>', true, false, true), 'n', true)
+end, {
+    noremap = true,
+    silent = true,
+    desc = "Accept Copilot suggestion or Tab",
+})
+
+-- Copilot: alternative accept with Ctrl-y (backup if Tab conflicts with something)
+keymap.set({ "i" }, "<C-y>", function()
+    local ok, suggestion = pcall(require, "copilot.suggestion")
+    if ok and suggestion and suggestion.is_visible() then
+        suggestion.accept()
+        return
+    end
+    -- fallback: send the original key
+    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('<C-y>', true, false, true), 'n', true)
+end, {
+    noremap = true,
+    silent = true,
+    desc = "Accept Copilot suggestion (alt)",
+})
 
 return {}

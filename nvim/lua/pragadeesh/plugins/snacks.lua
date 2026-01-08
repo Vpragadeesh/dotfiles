@@ -112,7 +112,7 @@ local opts = {
         },
     },
     debug = {
-        enabled = true,
+        enabled = false,
     },
     dim = {
         enabled = true,

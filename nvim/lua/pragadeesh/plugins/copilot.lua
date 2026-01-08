@@ -91,7 +91,19 @@ local opts = {
         enabled = false,
     },
     suggestion = {
-        enabled = false,
+        enabled = true,
+        auto_trigger = true,
+        hide_during_completion = true,
+        debounce = 75,
+        keymap = {
+            -- We handle Tab separately in keymaps.lua for fallback behavior
+            accept = false,
+            accept_word = "<M-w>",
+            accept_line = "<M-l>",
+            next = "<M-]>",
+            prev = "<M-[>",
+            dismiss = "<C-]>",
+        },
     },
     filetypes = {
         ["*"] = true,

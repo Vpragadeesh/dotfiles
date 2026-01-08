@@ -191,7 +191,17 @@ local opts = {
             omni = {
                 name = "omni",
                 enabled = function ()
-                    return bo.omnifunc ~= "v:lua.vim.lsp.omnifunc"
+                    -- Disable omni source for LSP omnifunc and problematic built-in omnifuncs
+                    local dominated_by_lsp = bo.omnifunc == "v:lua.vim.lsp.omnifunc"
+                    local problematic = vim.tbl_contains({
+                        "python3complete#Complete",
+                        "pythoncomplete#Complete",
+                        "ccomplete#Complete",
+                        "htmlcomplete#CompleteTags",
+                        "csscomplete#CompleteCSS",
+                        "javascriptcomplete#CompleteJS",
+                    }, bo.omnifunc)
+                    return not dominated_by_lsp and not problematic
                 end,
                 module = "blink.cmp.sources.complete_func",
                 score_offset = 90,
@@ -199,15 +209,6 @@ local opts = {
                     complete_func = function ()
                         return bo.omnifunc
                     end,
-                },
-            },
-            emoji = {
-                name = "emoji",
-                enabled = true,
-                module = "blink-emoji",
-                score_offset = 85,
-                opts = {
-                    insert = true,
                 },
             },
             snippets = {

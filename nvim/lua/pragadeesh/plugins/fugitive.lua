@@ -11,14 +11,16 @@ local opts = {}
 local config = function (_, opts) end
 
 -- plugin keys
+-- NOTE: <leader>gs and <leader>gl are used by Snacks picker (git_status, git_log)
+-- Using <leader>Gs and <leader>Gl for fugitive versions to avoid conflict
 local keys = {
     {
-        "<leader>gs",
+        "<leader>Gs",
         mode = { "n" },
         "<cmd>Git<CR>",
         noremap = true,
         silent = true,
-        desc = "open git status",
+        desc = "fugitive: git status",
     },
     {
         "<leader>gb",
@@ -26,15 +28,15 @@ local keys = {
         "<cmd>Git blame<CR>",
         noremap = true,
         silent = true,
-        desc = "open git blame",
+        desc = "fugitive: git blame",
     },
     {
-        "<leader>gl",
+        "<leader>Gl",
         mode = { "n" },
         "<cmd>Git log<CR>",
         noremap = true,
         silent = true,
-        desc = "open git log",
+        desc = "fugitive: git log",
     },
 }
 
