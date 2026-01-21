@@ -343,4 +343,38 @@ end, {
     desc = "Accept Copilot suggestion (alt)",
 })
 
+
+-- Copilot Chat / Agent global keymaps
+keymap.set({ "n" }, "<leader>aw", "<cmd>CopilotAgent<CR>", {
+    noremap = true,
+    silent = true,
+    desc = "Copilot Agent (@workspace)",
+})
+
+keymap.set({ "n" }, "<leader>ai", "<cmd>CopilotChatToggle<CR>", {
+    noremap = true,
+    silent = true,
+    desc = "Toggle Copilot Chat",
+})
+
+keymap.set({ "n", "x" }, "<leader>aa", "<cmd>CopilotQuickChat<CR>", {
+    noremap = true,
+    silent = true,
+    desc = "Quick Copilot chat (buffer/selection)",
+})
+
+-- Convenience: map <C-k> to act as Enter/confirm in pickers and as a general "select" key.
+-- This helps terminals where Enter/CR isn't sent reliably.
+keymap.set({ "n" }, "<C-k>", function()
+    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('<CR>', true, false, true), 'n', true)
+end, { noremap = true, silent = true, desc = "Confirm / select (CR) substitute" })
+
+-- Map <C-k> to <CR> inside common picker prompts (buffer-local)
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = { "TelescopePrompt", "snacks_picker_input" },
+    callback = function()
+        vim.keymap.set("i", "<C-k>", "<CR>", { buffer = true, noremap = true, silent = true, desc = "Confirm picker selection" })
+    end,
+})
+
 return {}

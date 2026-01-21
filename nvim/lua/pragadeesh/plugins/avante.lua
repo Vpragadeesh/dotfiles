@@ -120,50 +120,6 @@ local config = function (_, opts)
     require("avante").setup(opts)
 end
 
--- plugin keys
-local keys = {
-    {
-        "<leader>aa",
-        mode = { "n", "v" },
-        function ()
-            require("avante.api").ask()
-        end,
-        noremap = true,
-        silent = true,
-        desc = "avante: ask AI",
-    },
-    {
-        "<leader>ar",
-        mode = { "v" },
-        function ()
-            require("avante.api").refresh()
-        end,
-        noremap = true,
-        silent = true,
-        desc = "avante: refresh",
-    },
-    {
-        "<leader>ae",
-        mode = { "n", "v" },
-        function ()
-            require("avante.api").edit()
-        end,
-        noremap = true,
-        silent = true,
-        desc = "avante: edit selection",
-    },
-    {
-        "<leader>ao",
-        mode = { "n" },
-        function ()
-            require("avante").toggle()
-        end,
-        noremap = true,
-        silent = true,
-        desc = "avante: toggle sidebar",
-    },
-}
-
 -- plugin configurations
 return {
     "yetone/avante.nvim",
@@ -185,5 +141,4 @@ return {
     init = init,
     opts = opts,
     config = config,
-    keys = keys,
 }
