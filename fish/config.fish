@@ -1,7 +1,7 @@
 ﻿oh-my-posh init fish --config /usr/share/oh-my-posh/themes/montys.omp.json | source
 # Auto-start X only on TTY1
 if test -z "$DISPLAY"; and string match -q "/dev/tty1" (tty)
-    exec hyprland
+    exec start-hyprland
 end
 export GTK_THEME=Breeze-Dark
 set -x QT_QPA_PLATFORMTHEME qt5ct
@@ -20,37 +20,36 @@ set -x NEXT_DISABLE_DEV_SSR true
 zoxide init fish | source
 alias c="clear"
 alias e="exit"
-alias f="fastfetch --logo alpine"
+alias f="fastfetch"
 alias cf="c && f"
 alias np="nvim ./ex.py"
 alias n="nvim"
 alias v="vim"
 alias nf="nvim ~/.config/fish/config.fish"
 alias gl="git clone "
-alias lg="git pull && lazygit && echo 'take a backup.7z'"
-alias s="sudo pacman -S --noconfirm"
-alias r="sudo pacman -Rns --noconfirm"
+alias lg="lazygit && echo 'take a backup.7z'"
 alias rd="sudo pacman -Rdd "
 alias cdd="cd && cd Documents"
 alias cdw="cd && cd Downloads"
-alias me="sudo pacman -Syu --noconfirm && yay -Syu --noconfirm && sudo pacman -Scc --noconfirm && yay -Scc --noconfirm && clear && fastfetch --logo alpine"
+alias me="sudo pacman -Syu --noconfirm && yay -Syu --noconfirm && sudo pacman -Scc --noconfirm && yay -Scc --noconfirm && clear && fastfetch"
 alias p="python3"
+alias nano="sudo nvim"
 alias nx="cdd && nvim ex.py"
 alias gpu="wezterm start nvtop & wezterm start watch -n 0.5 nvidia-smi & exit"
 alias dg="nvidia-smi"
 alias ig="sudo intel_gpu_top"
 alias h="history"
 alias re="sudo reboot"
-alias ls="lsd -a"
+alias ls="lsd -la"
 alias rswap="sudo swapoff /dev/zram0 && sudo swapon /dev/zram0"
 alias :q="exit"
 alias co="code --disable-gpu . && exit"
 alias ..="cd .."
-alias ys="yay -S --noconfirm "
+alias s="yay -S --noconfirm "
 alias g="g -i"
-alias yr="yay -Rns"
+alias r="yay -Rns"
 alias :x="exit"
-alias t="tree"
+alias t="erd"
 alias nv="nvim"
 alias nvi="nvim"
 alias q="exit"
@@ -69,7 +68,10 @@ alias gp="git pull"
 alias gs="git status"
 alias prd="pnpm run dev"
 alias u="uv pip install"
-
+alias crm="./crm.sh"
+alias sp="sudo pkill "
+alias torrent="cd ~/extra/torrent-downloader/ && source .venv/bin/activate && python3 ex.py"
+alias net="cd ~/extra/net/  && ./net"
 # function
 # ai-crm-assistant
 function ai-crm-assistant
@@ -87,3 +89,7 @@ set -Ux ANDROID_SDK_ROOT /home/pragadeesh/Android/Sdk
 set -Ux PATH $PATH /home/pragadeesh/Android/Sdk/cmdline-tools/latest/bin /home/pragadeesh/Android/Sdk/platform-tools
 set -x GOOGLE_API_KEY "AIzaSyB-lAqyix3zCN4LbGNldpe_UjE5fAALZCc"
 set -x GEMINI_API_TOKEN $GOOGLE_API_KEY
+
+# opencode
+fish_add_path /home/pragadeesh/.opencode/bin
+# starship init fish | source

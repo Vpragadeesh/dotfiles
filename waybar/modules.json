@@ -108,7 +108,8 @@
       "critical": 50
     },
     "format": "<span color=\"#9ece6a\">{icon}</span>{capacity}% | {health}",
-    "format-charging": "<span color=\"#9ece6a\"></span>{capacity}%{time}",
+
+    "format-charging": "<span color=\"#9ece6a\"></span>{capacity}% {time}",
     "format-plugged": "{capacity}%",
     "format-alt": "{icon} {time} {health}",
     "format-icons": ["󰁺 ", "󰁼 ", "󰁿 ", "󰂁 ", "󰁹 "]
@@ -135,7 +136,7 @@
    "default": "",
    "mpv": "🎬",
    "vlc": "🎬",
-  "spotify": "<span color=\"#1DB954\"></span>",
+  "spotify": "<span color=\"#1DB954\"> </span>",
    "firefox": "🦊",
    "zen": "🦊",
    "chrome": "🌐",
@@ -184,5 +185,12 @@
   "custom/status": {
     "exec": "~/.config/waybar/status.sh",
     "interval": 1
+  },
+  "custom/clipboard": {
+    "format": "󰅌 ",
+    "on-click": "cliphist list | rofi -dmenu | cliphist decode | wl-copy",
+    "on-click-right": "cliphist wipe",
+    "tooltip-format": "Clipboard History",
+    "tooltip": true
   }
 }

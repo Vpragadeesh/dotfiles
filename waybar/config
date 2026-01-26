@@ -22,7 +22,9 @@
                 "custom/sep",
                 "disk",
                 "custom/sep",
-                "custom/gpu"
+                "custom/gpu",
+                "custom/sep",
+                "custom/clipboard"
         ],
         "modules-center":[
         "temperature",
