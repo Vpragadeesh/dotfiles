@@ -70,7 +70,7 @@
   },
   "memory": {
     "interval": 1,
-    "format": "<span color=\"#FBC02D\"> </span> {used} G",
+    "format": "<span color=\"#FBC02D\"></span>{used} G",
     "on-click": "kitty -e btop",
     "max-length": 10
   },
@@ -83,10 +83,10 @@
     "format-linked": "󰈀 {ifname} (No IP)",
     "format-disconnected": "󰖪 ",
     "tooltip-format-disconnected": "Disconnected",
-    "format": "<span foreground='#99ffdd'>  {bandwidthDownBytes}</span>  <span foreground='#ffcc66'>   {bandwidthUpBytes}</span> <span foreground='#ccccff'>   {ipaddr}</span>",
+    "format": "<span foreground='#99ffdd'> {bandwidthDownBytes}</span> <span foreground='#ffcc66'>  {bandwidthUpBytes}</span> <span foreground='#ccccff'>  {ipaddr}</span> <span foreground='#ccccff'> {essid}</span>",
     "interval": 1,
     "on-click-right": "kitty -e nmtui",
-    "max-length": 45
+    "max-length": 50
   },
   "disk": {
     "interval": 2,
@@ -108,7 +108,7 @@
       "critical": 50
     },
     "format": "<span color=\"#9ece6a\">{icon}</span>{capacity}% | {health}",
-
+    // "format": "<span color=\"#9ece6a\">{icon}</span>{health}%",
     "format-charging": "<span color=\"#9ece6a\"></span>{capacity}% {time}",
     "format-plugged": "{capacity}%",
     "format-alt": "{icon} {time} {health}",
@@ -121,6 +121,7 @@
     "format-muted": " M",
     "format-source": "",
     "format-source-muted": "",
+    "interval":1,
     "format-icons": {
       "headphone": " ",
       "hands-free": " ",

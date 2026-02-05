@@ -1,7 +1,11 @@
 ﻿oh-my-posh init fish --config /usr/share/oh-my-posh/themes/montys.omp.json | source
 # Auto-start X only on TTY1
 if test -z "$DISPLAY"; and string match -q "/dev/tty1" (tty)
-    exec start-hyprland
+    # exec start-hyprland
+    # export XDG_SESSION_TYPE=wayland
+    # export XDG_CURRENT_DESKTOP=niri
+    # export XDG_SESSION_DESKTOP=niri
+    # exec niri
 end
 export GTK_THEME=Breeze-Dark
 set -x QT_QPA_PLATFORMTHEME qt5ct
@@ -66,12 +70,14 @@ alias nr="cdd && nvim ex.rs"
 alias dls="docker ps -a"
 alias gp="git pull"
 alias gs="git status"
-alias prd="pnpm run dev"
+alias brd="bun run dev"
 alias u="uv pip install"
 alias crm="./crm.sh"
 alias sp="sudo pkill "
-alias torrent="cd ~/extra/torrent-downloader/ && source .venv/bin/activate && python3 ex.py"
+# alias torrent="cd ~/extra/torrent-downloader/ && source .venv/bin/activate.fish && python3 ex.py"
+alias torrent="cd ~/extra/torrent-downloader/fast-chunk-downloader/ && ./fastdown --magnet "
 alias net="cd ~/extra/net/  && ./net"
+alias ble="sudo systemctl start bluetooth"
 # function
 # ai-crm-assistant
 function ai-crm-assistant
@@ -93,3 +99,10 @@ set -x GEMINI_API_TOKEN $GOOGLE_API_KEY
 # opencode
 fish_add_path /home/pragadeesh/.opencode/bin
 # starship init fish | source
+
+# pnpm
+set -gx PNPM_HOME "/home/pragadeesh/.local/share/pnpm"
+if not string match -q -- $PNPM_HOME $PATH
+  set -gx PATH "$PNPM_HOME" $PATH
+end
+# pnpm end

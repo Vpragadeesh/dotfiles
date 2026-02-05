@@ -3,7 +3,7 @@
 SETUVAR --export ANDROID_HOME:/home/pragadeesh/Android/Sdk
 SETUVAR --export ANDROID_SDK_ROOT:/home/pragadeesh/Android/Sdk
 SETUVAR --export JAVA_HOME:/usr/lib/jvm/java\x2d17\x2dopenjdk
-SETUVAR --export --path PATH:/home/pragadeesh/base/bin\x1e/opt/cuda/bin\x1e/home/pragadeesh/\x2epyenv/bin\x1e/home/pragadeesh/\x2elocal/share/pnpm\x1e/home/pragadeesh/\x2eopencode/bin\x1e/home/pragadeesh/\x2elocal/bin\x1e/home/pragadeesh/\x2edeno/bin\x1e/usr/local/sbin\x1e/usr/local/bin\x1e/usr/bin\x1e/usr/bin/site_perl\x1e/usr/bin/vendor_perl\x1e/usr/bin/core_perl\x1e\x24scrPath\x1e/home/pragadeesh/Android/Sdk/cmdline\x2dtools/latest/bin\x1e/home/pragadeesh/Android/Sdk/platform\x2dtools
+SETUVAR --export --path PATH:/home/pragadeesh/base/bin\x1e/opt/cuda/bin\x1e/home/pragadeesh/\x2epyenv/bin\x1e/home/pragadeesh/\x2elocal/share/pnpm\x1e/home/pragadeesh/\x2eopencode/bin\x1e/home/pragadeesh/\x2elocal/bin\x1e/home/pragadeesh/\x2edeno/bin\x1e/usr/local/sbin\x1e/usr/local/bin\x1e/usr/bin\x1e/opt/cuda/bin\x1e/usr/lib/jvm/default/bin\x1e/usr/bin/site_perl\x1e/usr/bin/vendor_perl\x1e/usr/bin/core_perl\x1e/snap/bin/\x1e/home/pragadeesh/Android/Sdk/cmdline\x2dtools/latest/bin\x1e/home/pragadeesh/Android/Sdk/platform\x2dtools
 SETUVAR --export SYSTEMD_EDITOR:nvim
 SETUVAR __fish_initialized:4300
 SETUVAR fish_user_paths:/home/pragadeesh/\x2eopencode/bin\x1e/home/pragadeesh/\x2elocal/bin
