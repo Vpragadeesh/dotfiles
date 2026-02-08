@@ -20,7 +20,7 @@
     "separate-outputs": true
   },
   "custom/appmenu": {
-    "format": " ",
+    "format": "<span color=\"#1793D1\"> </span>",
     "on-click": "rofi -disable-history -drun-match-fields name -show drun -theme-str '@import \"app.rasi\"'",
     "on-click-right": "killall rofi",
     "tooltip": false
@@ -111,7 +111,7 @@
     // "format": "<span color=\"#9ece6a\">{icon}</span>{health}%",
     "format-charging": "<span color=\"#9ece6a\"></span>{capacity}% {time}",
     "format-plugged": "{capacity}%",
-    "format-alt": "{icon} {time} {health}",
+    "format-alt": "{icon}{time}{health}",
     "format-icons": ["󰁺 ", "󰁼 ", "󰁿 ", "󰂁 ", "󰁹 "]
   },
   "pulseaudio": {
@@ -132,7 +132,7 @@
   },
  "mpris": {
  "format": "<span color='#FF9400'>{player_icon}</span>  {player} {status_icon}",
- "format-paused": "{player_icon}  {player} {status_icon}",
+ "format-paused": "{player_icon} {player} {status_icon}",
  "player-icons": {
    "default": "",
    "mpv": "🎬",
