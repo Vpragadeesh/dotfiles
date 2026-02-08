@@ -21,7 +21,7 @@
   },
   "custom/appmenu": {
     "format": "<span color=\"#1793D1\"> </span>",
-    "on-click": "rofi -disable-history -drun-match-fields name -show drun -theme-str '@import \"app.rasi\"'",
+    "on-click": "",
     "on-click-right": "killall rofi",
     "tooltip": false
   },
