@@ -40,7 +40,7 @@ output "eDP-1" {
 // ================================
 layout {
     gaps 0
-    
+
     border {
         width 1
         active-color "#4c7899"
@@ -76,7 +76,7 @@ animations {
 // ================================
 binds {
     // ========== APPLICATIONS ==========
-    
+
     // Terminal
     Mod+Return {
         spawn "wezterm"
@@ -116,7 +116,7 @@ binds {
     }
 
     // ========== CONFIG EDITING ==========
-    
+
     Mod+Shift+Z {
         spawn "kitty" "-e" "nvim" "/home/pragadeesh/.config/hypr/hyprland.conf"
     }
@@ -134,7 +134,7 @@ binds {
     }
 
     // ========== VOLUME CONTROLS ==========
-    
+
     Alt+0 {
         spawn "pactl" "set-sink-volume" "@DEFAULT_SINK@" "0%"
     }
@@ -152,7 +152,7 @@ binds {
     }
 
     // ========== APP LAUNCHERS ==========
-    
+
     Mod+D {
         spawn "rofi" "-disable-history" "-drun-match-fields" "name" "-show" "drun"
     }
@@ -166,7 +166,7 @@ binds {
     }
 
     // ========== WINDOW MANAGEMENT ==========
-    
+
     // Close window
     Mod+Q {
         close-window
@@ -187,7 +187,7 @@ binds {
     }
 
     // ========== FOCUS NAVIGATION ==========
-    
+
     Mod+H {
         focus-column-left
     }
@@ -221,7 +221,7 @@ binds {
     }
 
     // ========== WINDOW MOVEMENT ==========
-    
+
     Mod+Shift+H {
         move-column-left
     }
@@ -255,7 +255,7 @@ binds {
     }
 
     // ========== WORKSPACE SWITCHING ==========
-    
+
     Mod+1 {
         focus-workspace 1
     }
@@ -305,7 +305,7 @@ binds {
     }
 
     // ========== MOVE WINDOW TO WORKSPACE ==========
-    
+
     Mod+Shift+1 {
         move-column-to-workspace 1
     }
@@ -343,7 +343,7 @@ binds {
     }
 
     // ========== SYSTEM ACTIONS ==========
-    
+
     Mod+Shift+B {
         spawn "sh" "-c" "pkill waybar && waybar"
     }
@@ -389,7 +389,7 @@ binds {
     }
 
     // ========== FUNCTION KEYS ==========
-    
+
     XF86MonBrightnessUp {
         spawn "brightnessctl" "-q" "s" "+2%"
     }
@@ -427,7 +427,7 @@ binds {
     }
 
     // ========== MEDIA CONTROLS (F-keys) ==========
-    
+
     F12 {
         spawn "playerctl" "play-pause"
     }
@@ -441,7 +441,7 @@ binds {
     }
 
     // ========== WINDOW RESIZING ==========
-    
+
     Mod+Minus {
         set-column-width "-10%"
     }
@@ -483,7 +483,7 @@ spawn-at-startup "wl-paste" "--type" "text" "--watch" "cliphist" "store"
 
 spawn-at-startup "wl-paste" "--type" "image" "--watch" "cliphist" "store"
 
-spawn-at-startup "./wallpaper.sh"
+spawn-at-startup "/home/pragadeesh/.config/niri/wallpaper.sh"
 
 // Note: Custom scripts will need full paths
 // spawn-at-startup "/path/to/scrPath/resetxdgportal.sh"
