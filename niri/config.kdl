@@ -1,0 +1,507 @@
+
+// ================================
+// NIRI CONFIG — Converted from Hyprland
+// Complete conversion with all keybindings and startup commands
+// ================================
+
+// ================================
+// INPUT CONFIGURATION
+// ================================
+input {
+    keyboard {
+        xkb {
+            layout "us"
+        }
+    }
+
+    touchpad {
+        tap
+        natural-scroll
+    }
+
+    mouse {
+        accel-profile "flat"
+        accel-speed 0.0
+    }
+
+    focus-follows-mouse
+}
+
+// ================================
+// OUTPUT / MONITOR
+// ================================
+output "eDP-1" {
+    mode "1920x1080@60"
+    scale 1.0
+}
+
+// ================================
+// LAYOUT (no gaps, minimal borders - i3 style)
+// ================================
+layout {
+    gaps 0
+    
+    border {
+        width 1
+        active-color "#4c7899"
+        inactive-color "#333333"
+    }
+
+    focus-ring {
+        off
+    }
+
+    preset-column-widths {
+        proportion 0.33333
+        proportion 0.5
+        proportion 0.66667
+    }
+
+    default-column-width {
+        proportion 1.0
+    }
+}
+
+// ================================
+// PREFER NO ANIMATIONS (matching Hyprland config)
+// ================================
+prefer-no-csd
+
+animations {
+    off
+}
+
+// ================================
+// KEYBINDINGS — COMPLETE HYPRLAND CONVERSION
+// ================================
+binds {
+    // ========== APPLICATIONS ==========
+    
+    // Terminal
+    Mod+Return {
+        spawn "wezterm"
+    }
+
+    Mod+T {
+        spawn "wezterm"
+    }
+
+    // File manager
+    Mod+E {
+        spawn "thunar"
+    }
+
+    Mod+Shift+E {
+        spawn "thunar" "/"
+    }
+
+    // Code editor
+    Mod+C {
+        spawn "code"
+    }
+
+    // Calculator
+    Mod+V {
+        spawn "qalculate-gtk"
+    }
+
+    // Browser
+    Mod+B {
+        spawn "zen-browser"
+    }
+
+    // Clipboard manager
+    Mod+G {
+        spawn "sh" "-c" "cliphist list | rofi -dmenu -i -p 'Clipboard' | cliphist decode | wl-copy"
+    }
+
+    // ========== CONFIG EDITING ==========
+    
+    Mod+Shift+Z {
+        spawn "kitty" "-e" "nvim" "/home/pragadeesh/.config/hypr/hyprland.conf"
+    }
+
+    Mod+Shift+X {
+        spawn "kitty" "-e" "nvim" "/home/pragadeesh/.config/waybar/style.css"
+    }
+
+    Mod+Shift+Ctrl+C {
+        spawn "kitty" "-e" "nvim" "/home/pragadeesh/.config/waybar/config"
+    }
+
+    Mod+Shift+Ctrl+V {
+        spawn "kitty" "-e" "nvim" "/home/pragadeesh/.config/waybar/modules.json"
+    }
+
+    // ========== VOLUME CONTROLS ==========
+    
+    Alt+0 {
+        spawn "pactl" "set-sink-volume" "@DEFAULT_SINK@" "0%"
+    }
+
+    Ctrl+5 {
+        spawn "pactl" "set-sink-volume" "@DEFAULT_SINK@" "50%"
+    }
+
+    Ctrl+4 {
+        spawn "pactl" "set-sink-volume" "@DEFAULT_SINK@" "40%"
+    }
+
+    Ctrl+3 {
+        spawn "pactl" "set-sink-volume" "@DEFAULT_SINK@" "30%"
+    }
+
+    // ========== APP LAUNCHERS ==========
+    
+    Mod+D {
+        spawn "rofi" "-disable-history" "-drun-match-fields" "name" "-show" "drun"
+    }
+
+    Alt+Space {
+        spawn "rofi" "-disable-history" "-drun-match-fields" "name" "-show" "drun"
+    }
+
+    Mod+Space {
+        spawn "rofi" "-disable-history" "-drun-match-fields" "name" "-show" "drun"
+    }
+
+    // ========== WINDOW MANAGEMENT ==========
+    
+    // Close window
+    Mod+Q {
+        close-window
+    }
+
+    // Fullscreen
+    Mod+F {
+        fullscreen-window
+    }
+
+    Mod+Shift+F {
+        fullscreen-window
+    }
+
+    // Toggle floating (Niri doesn't have floating, but keep for compatibility)
+    Mod+R {
+        spawn "notify-send" "Niri" "Floating windows not supported in Niri"
+    }
+
+    // ========== FOCUS NAVIGATION ==========
+    
+    Mod+H {
+        focus-column-left
+    }
+
+    Mod+L {
+        focus-column-right
+    }
+
+    Mod+K {
+        focus-window-up
+    }
+
+    Mod+J {
+        focus-window-down
+    }
+
+    Mod+Left {
+        focus-column-left
+    }
+
+    Mod+Right {
+        focus-column-right
+    }
+
+    Mod+Up {
+        focus-window-up
+    }
+
+    Mod+Down {
+        focus-window-down
+    }
+
+    // ========== WINDOW MOVEMENT ==========
+    
+    Mod+Shift+H {
+        move-column-left
+    }
+
+    Mod+Shift+L {
+        move-column-right
+    }
+
+    Mod+Shift+K {
+        move-window-up
+    }
+
+    Mod+Shift+J {
+        move-window-down
+    }
+
+    Mod+Shift+Left {
+        move-column-left
+    }
+
+    Mod+Shift+Right {
+        move-column-right
+    }
+
+    Mod+Shift+Up {
+        move-window-up
+    }
+
+    Mod+Shift+Down {
+        move-window-down
+    }
+
+    // ========== WORKSPACE SWITCHING ==========
+    
+    Mod+1 {
+        focus-workspace 1
+    }
+
+    Mod+2 {
+        focus-workspace 2
+    }
+
+    Mod+3 {
+        focus-workspace 3
+    }
+
+    Mod+4 {
+        focus-workspace 4
+    }
+
+    Mod+5 {
+        focus-workspace 5
+    }
+
+    Mod+6 {
+        focus-workspace 6
+    }
+
+    Mod+7 {
+        focus-workspace 7
+    }
+
+    Mod+8 {
+        focus-workspace 8
+    }
+
+    Mod+9 {
+        focus-workspace 9
+    }
+
+    Mod+Ctrl+Left {
+        focus-workspace-down
+    }
+
+    Mod+Ctrl+Right {
+        focus-workspace-up
+    }
+
+    Alt+Tab {
+        focus-workspace-previous
+    }
+
+    // ========== MOVE WINDOW TO WORKSPACE ==========
+    
+    Mod+Shift+1 {
+        move-column-to-workspace 1
+    }
+
+    Mod+Shift+2 {
+        move-column-to-workspace 2
+    }
+
+    Mod+Shift+3 {
+        move-column-to-workspace 3
+    }
+
+    Mod+Shift+4 {
+        move-column-to-workspace 4
+    }
+
+    Mod+Shift+5 {
+        move-column-to-workspace 5
+    }
+
+    Mod+Shift+6 {
+        move-column-to-workspace 6
+    }
+
+    Mod+Shift+7 {
+        move-column-to-workspace 7
+    }
+
+    Mod+Shift+8 {
+        move-column-to-workspace 8
+    }
+
+    Mod+Shift+9 {
+        move-column-to-workspace 9
+    }
+
+    // ========== SYSTEM ACTIONS ==========
+    
+    Mod+Shift+B {
+        spawn "sh" "-c" "pkill waybar && waybar"
+    }
+
+    Mod+Shift+N {
+        spawn "hyprctl" "reload"
+    }
+
+    Mod+Shift+Q {
+        spawn "wlogout"
+    }
+
+    Mod+P {
+        spawn "hyprlock"
+    }
+
+    // Brightness controls
+    Mod+I {
+        spawn "brightnessctl" "-q" "s" "10%-"
+    }
+
+    Mod+O {
+        spawn "brightnessctl" "-q" "s" "+10%"
+    }
+
+    // Spotify
+    Mod+S {
+        spawn "spotify"
+    }
+
+    // Screenshot
+    Mod+Shift+S {
+        spawn "sh" "-c" "f=\"$HOME/Pictures/screenshot-$(date +%Y-%m-%d--%H-%M-%S).png\"; grim -g \"$(slurp)\" \"$f\" && wl-copy --type image/png < \"$f\" && notify-send \"📸 Screenshot Copied to Clipboard\""
+    }
+
+    Print {
+        spawn "sh" "-c" "grim - | wl-copy --type image/png"
+    }
+
+    // Reload Niri config
+    Mod+Shift+R {
+        spawn "niri" "msg" "action" "quit" "--skip-confirmation"
+    }
+
+    // ========== FUNCTION KEYS ==========
+    
+    XF86MonBrightnessUp {
+        spawn "brightnessctl" "-q" "s" "+2%"
+    }
+
+    XF86MonBrightnessDown {
+        spawn "brightnessctl" "-q" "s" "2%-"
+    }
+
+    XF86AudioMicMute {
+        spawn "pactl" "set-source-mute" "@DEFAULT_SOURCE@" "toggle"
+    }
+
+    XF86AudioPlay {
+        spawn "playerctl" "play-pause"
+    }
+
+    XF86AudioNext {
+        spawn "playerctl" "next"
+    }
+
+    XF86AudioPrev {
+        spawn "playerctl" "previous"
+    }
+
+    XF86AudioRaiseVolume {
+        spawn "pamixer" "-i" "2"
+    }
+
+    XF86AudioLowerVolume {
+        spawn "pamixer" "-d" "2"
+    }
+
+    XF86AudioMute {
+        spawn "pamixer" "-t"
+    }
+
+    // ========== MEDIA CONTROLS (F-keys) ==========
+    
+    F12 {
+        spawn "playerctl" "play-pause"
+    }
+
+    F3 {
+        spawn "playerctl" "next"
+    }
+
+    F2 {
+        spawn "playerctl" "previous"
+    }
+
+    // ========== WINDOW RESIZING ==========
+    
+    Mod+Minus {
+        set-column-width "-10%"
+    }
+
+    Mod+Equal {
+        set-column-width "+10%"
+    }
+
+    Mod+Shift+Minus {
+        set-window-height "-10%"
+    }
+
+    Mod+Shift+Equal {
+        set-window-height "+10%"
+    }
+}
+
+// ================================
+// STARTUP APPLICATIONS
+// ================================
+
+spawn-at-startup "dbus-update-activation-environment" "--systemd" "WAYLAND_DISPLAY" "XDG_CURRENT_DESKTOP"
+
+spawn-at-startup "dbus-update-activation-environment" "--systemd" "--all"
+
+spawn-at-startup "systemctl" "--user" "import-environment" "WAYLAND_DISPLAY" "XDG_CURRENT_DESKTOP"
+
+spawn-at-startup "blueman-applet"
+
+spawn-at-startup "udiskie" "--no-automount" "--smart-tray"
+
+spawn-at-startup "nm-applet" "--indicator"
+
+spawn-at-startup "dunst"
+
+spawn-at-startup "waybar"
+
+spawn-at-startup "wl-paste" "--type" "text" "--watch" "cliphist" "store"
+
+spawn-at-startup "wl-paste" "--type" "image" "--watch" "cliphist" "store"
+
+spawn-at-startup "./wallpaper.sh"
+
+// Note: Custom scripts will need full paths
+// spawn-at-startup "/path/to/scrPath/resetxdgportal.sh"
+// spawn-at-startup "/path/to/scrPath/polkitkdeauth.sh"
+// spawn-at-startup "/path/to/scrPath/batterynotify.sh"
+// spawn-at-startup "sh" "/home/pragadeesh/setup.sh" "/home/pragadeesh/crm"
+// spawn-at-startup "sh" "/home/pragadeesh/notify_30min.sh"
+
+// ================================
+// ENVIRONMENT (set these in your session/shell)
+// ================================
+// export QT_AUTO_SCREEN_SCALE_FACTOR=1
+// export QT_QPA_PLATFORM=wayland;xcb
+// export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
+// export QT_QPA_PLATFORMTHEME=qt6ct
+// export XDG_CURRENT_DESKTOP=niri
+// export XDG_SESSION_TYPE=wayland
+// export MOZ_ENABLE_WAYLAND=1
+// export GDK_SCALE=1
+// export GTK_THEME=Breeze-Dark
+// export XCURSOR_SIZE=20
