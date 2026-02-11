@@ -118,7 +118,7 @@ binds {
     // ========== CONFIG EDITING ==========
 
     Mod+Shift+Z {
-        spawn "kitty" "-e" "nvim" "/home/pragadeesh/.config/hypr/hyprland.conf"
+        spawn "kitty" "-e" "nvim" "/home/pragadeesh/.config/niri/config.kdl"
     }
 
     Mod+Shift+X {
@@ -484,6 +484,10 @@ spawn-at-startup "wl-paste" "--type" "text" "--watch" "cliphist" "store"
 spawn-at-startup "wl-paste" "--type" "image" "--watch" "cliphist" "store"
 
 spawn-at-startup "/home/pragadeesh/.config/niri/wallpaper.sh"
+
+spawn-at-startup "systemctl" "--user" "import-environment" "WAYLAND_DISPLAY" "XDG_RUNTIME_DIR"
+
+spawn-at-startup "systemctl" "--user" "restart" "nirinit.service"
 
 // Note: Custom scripts will need full paths
 // spawn-at-startup "/path/to/scrPath/resetxdgportal.sh"
