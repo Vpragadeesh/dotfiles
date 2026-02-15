@@ -11,6 +11,7 @@ input {
     keyboard {
         xkb {
             layout "us"
+            options "ctrl:swapcaps"
         }
     }
 
@@ -97,7 +98,7 @@ binds {
 
     // Code editor
     Mod+C {
-        spawn "code"
+        spawn "qute-browser"
     }
 
     // Calculator
@@ -108,6 +109,9 @@ binds {
     // Browser
     Mod+B {
         spawn "zen-browser"
+    }
+    Mod+A {
+        spawn "qute-browser"
     }
 
     // Clipboard manager
@@ -181,9 +185,9 @@ binds {
         fullscreen-window
     }
 
-    // Toggle floating (Niri doesn't have floating, but keep for compatibility)
+    // Toggle window maximize-to-edges (Super+R) — release full-size lock
     Mod+R {
-        spawn "notify-send" "Niri" "Floating windows not supported in Niri"
+        spawn "niri" "msg" "action" "maximize-window-to-edges"
     }
 
     // ========== FOCUS NAVIGATION ==========
@@ -357,7 +361,7 @@ binds {
     }
 
     Mod+P {
-        spawn "hyprlock"
+        spawn "hyprlock" "--config" "/home/pragadeesh/.config/hyprlock/hyprlock.conf"
     }
 
     // Brightness controls
