@@ -98,7 +98,7 @@ binds {
 
     // Code editor
     Mod+C {
-        spawn "qute-browser"
+        spawn "qutebrowser"
     }
 
     // Calculator
@@ -111,7 +111,7 @@ binds {
         spawn "zen-browser"
     }
     Mod+A {
-        spawn "qute-browser"
+        spawn "qutebrowser"
     }
 
     // Clipboard manager
