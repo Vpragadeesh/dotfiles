@@ -11,8 +11,9 @@ input {
     keyboard {
         xkb {
             layout "us"
-            options "ctrl:swapcaps"
+            // options "ctrl:swapcaps"
         }
+        numlock
     }
 
     touchpad {
@@ -26,6 +27,11 @@ input {
     }
 
     focus-follows-mouse
+}
+
+environment {
+    XCURSOR_THEME "Breeze"
+    XCURSOR_SIZE "24"
 }
 
 // ================================
@@ -361,7 +367,7 @@ binds {
     }
 
     Mod+P {
-        spawn "hyprlock" "--config" "/home/pragadeesh/.config/hyprlock/hyprlock.conf"
+        spawn "hyprlock" "--config" "/home/pragadeesh/.config/hypr/hyprlock.conf"
     }
 
     // Brightness controls
