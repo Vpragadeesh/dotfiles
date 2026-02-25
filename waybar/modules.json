@@ -1,19 +1,8 @@
 {
-  "hyprland/workspaces": {
+  "niri/workspaces": {
     "on-click": "activate",
-    "active-only": false,
     "all-outputs": true,
-    "on-scroll-up": "hyprctl dispatch workspace r-1",
-    "on-scroll-down": "hyprctl dispatch workspace r+1",
-    "format": "{}",
-    "format-icons": {
-      "urgent": "",
-      "active": "",
-      "default": ""
-    },
-    "persistent-workspaces": {
-      "*": 1
-    }
+    "format": "{index}"
   },
   "hyprland/window": {
     "format": "{class}",
@@ -187,7 +176,7 @@
     "interval": 1
   },
 "custom/os-age": {
-  "exec": "fish -c 'set b (head -1 /var/log/pacman.log | string match -r \"\\[.*?\\]\" | head -n1 | string trim -c \"[]\"); set now (date +%s); set born (date -d \"$b\" +%s); echo \"󰍹 \"(math \"($now-$born)/86400\")\" days\"'",
+  "exec": "bash -c 'b=$(head -1 /var/log/pacman.log | grep -oP \"\\[.*?\\]\" | head -n1 | tr -d \"[]\"); now=$(date +%s); born=$(date -d \"$b\" +%s 2>/dev/null || echo $now); echo \"󰍹 $(( (now-born)/86400 )) days\"'",
   "interval": 3600
 },
   "custom/clipboard": {

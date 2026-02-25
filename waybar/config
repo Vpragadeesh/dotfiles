@@ -12,7 +12,7 @@
         "modules-left": [
                 "custom/appmenu",
                 "custom/sep",
-                "hyprland/workspaces",
+                "niri/workspaces",
                 "custom/sep",
                 "hyprland/window",
                 "custom/sep",
