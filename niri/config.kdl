@@ -135,11 +135,11 @@ binds {
         spawn "kitty" "-e" "nvim" "/home/pragadeesh/.config/waybar/style.css"
     }
 
-    Mod+Shift+Ctrl+C {
+    Mod+Shift+C {
         spawn "kitty" "-e" "nvim" "/home/pragadeesh/.config/waybar/config"
     }
 
-    Mod+Shift+Ctrl+V {
+    Mod+Shift+V {
         spawn "kitty" "-e" "nvim" "/home/pragadeesh/.config/waybar/modules.json"
     }
 

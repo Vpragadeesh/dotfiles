@@ -33,7 +33,6 @@ tooltip label {
   color: #fff;
 }
 #disk,
-#custom-appmenu,
 #window,
 #custom-exit,
 #clock,
@@ -46,6 +45,12 @@ tooltip label {
 #backlight {
   padding: 6px 8px;
   color: #fff;
+}
+
+#custom-appmenu {
+  padding: 8px 10px;
+  color: #fff;
+  font-size: 16px;
 }
 /* -----------------------------------------------------
  * Workspaces
@@ -79,6 +84,6 @@ tooltip label {
 
 
 #custom-status {
-    padding: 6px 8px;
+    padding: 8px 10px;
     color: #fff;
 }

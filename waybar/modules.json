@@ -20,8 +20,8 @@
     "separate-outputs": true
   },
   "custom/appmenu": {
-    "format": " ",
-    "on-click": "rofi -disable-history -drun-match-fields name -show drun -theme-str '@import \"app.rasi\"'",
+    "format": "<span color=\"#1793D1\"> </span>",
+    "on-click": "",
     "on-click-right": "killall rofi",
     "tooltip": false
   },
@@ -108,10 +108,9 @@
       "critical": 50
     },
     "format": "<span color=\"#9ece6a\">{icon}</span>{capacity}% | {health}",
-    // "format": "<span color=\"#9ece6a\">{icon}</span>{health}%",
     "format-charging": "<span color=\"#9ece6a\"></span>{capacity}% {time}",
     "format-plugged": "{capacity}%",
-    "format-alt": "{icon} {time} {health}",
+    "format-alt": "{icon}{time}{health}",
     "format-icons": ["󰁺 ", "󰁼 ", "󰁿 ", "󰂁 ", "󰁹 "]
   },
   "pulseaudio": {
@@ -132,7 +131,7 @@
   },
  "mpris": {
  "format": "<span color='#FF9400'>{player_icon}</span>  {player} {status_icon}",
- "format-paused": "{player_icon}  {player} {status_icon}",
+ "format-paused": "{player_icon} {player} {status_icon}",
  "player-icons": {
    "default": "",
    "mpv": "🎬",
@@ -187,6 +186,10 @@
     "exec": "~/.config/waybar/status.sh",
     "interval": 1
   },
+"custom/os-age": {
+  "exec": "fish -c 'set b (head -1 /var/log/pacman.log | string match -r \"\\[.*?\\]\" | head -n1 | string trim -c \"[]\"); set now (date +%s); set born (date -d \"$b\" +%s); echo \"󰍹 \"(math \"($now-$born)/86400\")\" days\"'",
+  "interval": 3600
+},
   "custom/clipboard": {
     "format": "󰅌 ",
     "on-click": "cliphist list | rofi -dmenu | cliphist decode | wl-copy",

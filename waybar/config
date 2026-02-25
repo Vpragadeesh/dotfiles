@@ -1,6 +1,6 @@
 {
-        "layer":    "bottom",
-        "position": "bottom",
+        "layer":    "top",
+        "position": "top",
         "margin-top":    0,
         "margin-bottom": 0,
         "margin-left":  0,
@@ -24,7 +24,10 @@
                 "custom/sep",
                 "custom/gpu",
                 "custom/sep",
-                "custom/clipboard"
+                "custom/clipboard",
+                "custom/sep",
+                "custom/os-age"
+
         ],
         "modules-center":[
         "temperature",
