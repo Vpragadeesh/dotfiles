@@ -1,7 +1,26 @@
 ﻿oh-my-posh init fish --config /usr/share/oh-my-posh/themes/montys.omp.json | source
-# Auto-start X only on TTY1
+# Auto-start Niri only on TTY1 and prefer the integrated GPU
 if test -z "$DISPLAY"; and string match -q "/dev/tty1" (tty)
-    # exec start-hyprland
+    # detect first DRM card whose vendor is NOT NVIDIA (0x10de) and export it
+    set -l igpu ''
+    for d in /sys/class/drm/card*
+        if test -f "$d/device/vendor"
+            set -l v (string trim (cat $d/device/vendor))
+            if test "$v" != "0x10de"
+                set igpu (basename $d)
+                break
+            end
+        end
+    end
+
+    if test -n "$igpu"
+        set -x WLR_DRM_DEVICES /dev/dri/$igpu
+        echo "Starting niri on device /dev/dri/$igpu"
+    else
+        echo "Warning: could not detect non-NVIDIA DRM card — starting niri with default device"
+    end
+
+    exec dbus-run-session niri
     # export XDG_SESSION_TYPE=wayland
     # export XDG_CURRENT_DESKTOP=niri
     # export XDG_SESSION_DESKTOP=niri
@@ -49,11 +68,11 @@ alias rswap="sudo swapoff /dev/zram0 && sudo swapon /dev/zram0"
 alias :q="exit"
 alias co="code --disable-gpu . && exit"
 alias ..="cd .."
-alias s="yay -S --noconfirm "
+alias s="yay --noconfirm -S"
 alias g="g -i"
 alias r="yay -Rns"
 alias :x="exit"
-alias t="erd"
+alias t="erd ."
 alias nv="nvim"
 alias nvi="nvim"
 alias q="exit"
@@ -74,8 +93,10 @@ alias brd="bun run dev"
 alias u="uv pip install"
 alias crm="./crm.sh"
 alias sp="sudo pkill "
+alias run="npx react-native run-android --deviceId fijfn7danbibmvto"
 # alias torrent="cd ~/extra/torrent-downloader/ && source .venv/bin/activate.fish && python3 ex.py"
-alias torrent="cd ~/extra/torrent-downloader/fast-chunk-downloader/ && ./fastdown --magnet "
+alias ae="antigravity . && exit"
+alias torrent="cd ~/extra/torrent-downloader/ && ./fastdown --magnet "
 alias net="cd ~/extra/net/  && ./net"
 alias ble="sudo systemctl start bluetooth"
 # function
@@ -106,3 +127,11 @@ if not string match -q -- $PNPM_HOME $PATH
   set -gx PATH "$PNPM_HOME" $PATH
 end
 # pnpm end
+set -x PATH $PATH /home/pragadeesh/Android/Sdk/cmdline-tools/bin
+set -Ux fish_user_paths $fish_user_paths (go env GOPATH)/bin
+set -x ANDROID_HOME $HOME/Android/Sdk
+set -x PATH $PATH $ANDROID_HOME/emulator
+set -x PATH $PATH $ANDROID_HOME/platform-tools
+set -x PATH $PATH $ANDROID_HOME/cmdline-tools/latest/bin
+clear
+fastfetch
