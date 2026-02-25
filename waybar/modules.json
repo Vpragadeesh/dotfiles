@@ -4,8 +4,8 @@
     "all-outputs": true,
     "format": "{index}"
   },
-  "hyprland/window": {
-    "format": "{class}",
+  "niri/window": {
+    "format": "{app_id}",
     "separate-outputs": true
   },
   "custom/appmenu": {
