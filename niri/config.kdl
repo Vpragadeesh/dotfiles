@@ -90,7 +90,7 @@ binds {
     }
 
     Mod+T {
-        spawn "wezterm"
+        spawn "kitty"
     }
 
     // File manager
