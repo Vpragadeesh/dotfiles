@@ -20,7 +20,7 @@
     "tooltip": false
   },
   "custom/sep": {
-    "format": " | "
+    "format": "|"
   },
   "tray": {
     "icon-size": 20,
@@ -59,7 +59,7 @@
   },
   "memory": {
     "interval": 1,
-    "format": "<span color=\"#FBC02D\"></span>{used} G",
+    "format": "<span color=\"#FBC02D\">󰍛 </span>{used} G",
     "on-click": "kitty -e btop",
     "max-length": 10
   },
@@ -105,22 +105,22 @@
   "pulseaudio": {
     "format": "{icon} {volume}%",
     "format-bluetooth": "{icon} {volume}% {format_source}",
-    "format-bluetooth-muted": "   M",
-    "format-muted": " M",
+    "format-bluetooth-muted": "󰝟  M",
+    "format-muted": "󰝟 M",
     "format-source": "",
     "format-source-muted": "",
     "interval":1,
     "format-icons": {
-      "headphone": " ",
-      "hands-free": " ",
-      "headset": " ",
-      "default": [" ", " ", " "]
+      "headphone": "󰋋",
+      "hands-free": "󰋌",
+      "headset": "󰋎",
+      "default": ["󰕿", "󰖀", "󰕾"]
     },
     "on-click": "pactl set-sink-mute 0 toggle"
   },
  "mpris": {
- "format": "<span color='#FF9400'>{player_icon}</span>  {player} {status_icon}",
- "format-paused": "{player_icon} {player} {status_icon}",
+ "format": "<span color='#FF9400'>{player_icon}</span> {player} {status_icon} ",
+ "format-paused": "{player_icon} {player} {status_icon} ",
  "player-icons": {
    "default": "",
    "mpv": "🎬",
