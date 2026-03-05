@@ -59,7 +59,7 @@
   },
   "memory": {
     "interval": 1,
-    "format": "<span color=\"#FBC02D\">󰍛 </span>{used} G",
+    "format": "<span color=\"#FBC02D\">󰘚 </span>{used} G",
     "on-click": "kitty -e btop",
     "max-length": 10
   },
