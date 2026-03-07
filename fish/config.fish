@@ -43,7 +43,7 @@ set -x NEXT_DISABLE_DEV_SSR true
 zoxide init fish | source
 alias c="clear"
 alias e="exit"
-alias f="fastfetch"
+alias f="fastfetch --logo arcolinux"
 alias cf="c && f"
 alias np="nvim ./ex.py"
 alias n="nvim"
@@ -134,4 +134,6 @@ set -x PATH $PATH $ANDROID_HOME/emulator
 set -x PATH $PATH $ANDROID_HOME/platform-tools
 set -x PATH $PATH $ANDROID_HOME/cmdline-tools/latest/bin
 clear
-fastfetch
+fastfetch --logo arcolinux
+thefuck --alias | source
+thefuck --alias | source
