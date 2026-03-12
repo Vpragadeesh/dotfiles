@@ -87,7 +87,7 @@
     "format": " {temperatureC}°C  ",
     "format-critical": " {temperatureC}°C  ",
     "interval": 1,
-    "critical-threshold": 60,
+    "critical-threshold": 70,
     "tooltip": false
   },
   "battery": {

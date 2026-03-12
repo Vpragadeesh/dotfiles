@@ -25,6 +25,7 @@ if test -z "$DISPLAY"; and string match -q "/dev/tty1" (tty)
     # export XDG_CURRENT_DESKTOP=niri
     # export XDG_SESSION_DESKTOP=niri
     # exec niri
+    # start-hyprland
 end
 export GTK_THEME=Breeze-Dark
 set -x QT_QPA_PLATFORMTHEME qt5ct
