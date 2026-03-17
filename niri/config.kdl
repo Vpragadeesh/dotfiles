@@ -97,7 +97,7 @@ binds {
 
     // File manager
     Mod+E {
-        spawn "thunar"
+        spawn "nautilus"
     }
 
     Mod+Shift+E {
