@@ -20,7 +20,8 @@ local dashboard_header = (function()
     /'\_   _/`\
     \___)=(___/
 
-     L I N U X
+     LINUX
+     PRAGADEESH
     ]]
 
     local function trim(s)

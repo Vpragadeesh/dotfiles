@@ -377,4 +377,32 @@ vim.api.nvim_create_autocmd("FileType", {
     end,
 })
 
+-- ============================================================================
+-- FIX E21: Cannot make changes, 'modifiable' is off
+-- ============================================================================
+-- Force all buffers to be modifiable on enter
+local modifiable_group = vim.api.nvim_create_augroup("ForceModifiable", { clear = true })
+
+vim.api.nvim_create_autocmd("BufEnter", {
+    group = modifiable_group,
+    callback = function()
+        vim.bo.readonly = false
+        vim.bo.modifiable = true
+    end,
+})
+
+vim.api.nvim_create_autocmd("WinEnter", {
+    group = modifiable_group,
+    callback = function()
+        vim.bo.readonly = false
+        vim.bo.modifiable = true
+    end,
+})
+
+vim.api.nvim_create_user_command("FixReadonly", function()
+    vim.bo.readonly = false
+    vim.bo.modifiable = true
+    vim.notify("Buffer is now modifiable", vim.log.levels.INFO)
+end, {})
+
 return {}

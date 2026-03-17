@@ -192,6 +192,7 @@ Snacks is heavily mapped. Highlights:
 - Todo-comments: `<leader>st`, `]t`, `[t` — search / jump todos
 - Mini.*: many sub-mappings available in `mini` options (e.g., surround: `,sa`, `,sd`, move: `<M-h>` / `<M-l>` etc.)
 - Blink (completion keymap): `<C-space>`, `<C-s>`, `<C-e>`, `<C-y>`, `<C-k>`, `<C-p>`, `<C-n>`, `<Tab>`, `<S-Tab>`, `<C-d>`, `<C-b>`, `<C-f>` (see `blink.cmp` config in `lua/pragadeesh/plugins/blink.lua`)
+- Opencode: provides rapid file/template creation and editing utilities (currently disabled in config until the `opencode` CLI is installed; see `lua/pragadeesh/plugins/init.lua`).
 
 ---
 
