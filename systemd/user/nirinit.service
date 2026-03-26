@@ -1,0 +1,17 @@
+[Unit]
+Description=Nirinit Session Manager for Niri
+After=graphical-session.target
+
+[Service]
+Environment=WAYLAND_DISPLAY=wayland-1
+Environment=XDG_RUNTIME_DIR=/run/user/1000
+Environment=PATH=%t/nirinit-launchers:%h/.local/bin:/usr/local/bin:/usr/bin
+EnvironmentFile=-%t/nirinit.env
+ExecStartPre=%h/.local/bin/nirinit-export-env %t
+ExecStartPre=%h/.local/bin/nirinit-prepare-launchers
+ExecStart=%h/.cargo/bin/nirinit --save-interval 600
+Restart=on-failure
+RestartSec=2
+
+[Install]
+WantedBy=default.target

@@ -58,8 +58,8 @@ layout {
     }
 
     preset-column-widths {
-        proportion 0.25
-        proportion 0.5
+        proportion 0.33
+        proportion 0.50
         proportion 0.75
         proportion 1.0
     }
@@ -376,21 +376,6 @@ binds {
     Mod+P {
         spawn "hyprlock" "--config" "/home/pragadeesh/.config/hypr/hyprlock.conf"
     }
-
-    // Brightness controls
-    Mod+I {
-        spawn "brightnessctl" "-q" "s" "10%-"
-    }
-
-    Mod+O {
-        spawn "brightnessctl" "-q" "s" "+10%"
-    }
-
-    // Spotify
-    Mod+S {
-        spawn "spotify"
-    }
-
     // Screenshot
     Mod+Shift+S {
         spawn "sh" "-c" "f=\"$HOME/Pictures/screenshot-$(date +%Y-%m-%d--%H-%M-%S).png\"; grim -g \"$(slurp)\" \"$f\" && wl-copy --type image/png < \"$f\" && notify-send \"📸 Screenshot Copied to Clipboard\""
@@ -529,3 +514,16 @@ spawn-at-startup "systemctl" "--user" "restart" "nirinit.service"
 // export GDK_SCALE=1
 // export GTK_THEME=Breeze-Dark
 // export XCURSOR_SIZE=20
+
+window-rule {
+    match app-id="code-oss"
+    opacity 0.0
+}
+window-rule {
+    match app-id="code"
+    opacity 0.0
+}
+window-rule {
+    match app-id="zen-browser"
+    opacity 0.0
+}

@@ -1,0 +1,42 @@
+#!/usr/bin/env sh
+set -eu
+
+runtime_dir="${1:-${XDG_RUNTIME_DIR:-/run/user/$(id -u)}}"
+out_file="$runtime_dir/nirinit.env"
+
+tries=60
+i=0
+while [ "$i" -lt "$tries" ]; do
+    sock="${NIRI_SOCKET:-}"
+
+    # Ignore invalid inherited values and discover the real Niri socket.
+    if [ -z "$sock" ] || [ ! -S "$sock" ]; then
+        sock="$(ls -t "$runtime_dir"/niri.*.sock 2>/dev/null | head -n1 || true)"
+    fi
+
+    if [ -n "$sock" ] && [ -S "$sock" ]; then
+        printf 'NIRI_SOCKET=%s\nWAYLAND_DISPLAY=%s\nXDG_RUNTIME_DIR=%s\n' \
+            "$sock" "${WAYLAND_DISPLAY:-wayland-1}" "$runtime_dir" > "$out_file"
+
+        # Some apps launched by systemd user units still consult these session vars.
+        if [ -n "${DISPLAY:-}" ]; then
+            printf 'DISPLAY=%s\n' "$DISPLAY" >> "$out_file"
+        fi
+
+        if [ -n "${XDG_CURRENT_DESKTOP:-}" ]; then
+            printf 'XDG_CURRENT_DESKTOP=%s\n' "$XDG_CURRENT_DESKTOP" >> "$out_file"
+        fi
+
+        if [ -n "${DBUS_SESSION_BUS_ADDRESS:-}" ]; then
+            printf 'DBUS_SESSION_BUS_ADDRESS=%s\n' "$DBUS_SESSION_BUS_ADDRESS" >> "$out_file"
+        fi
+
+        exit 0
+    fi
+
+    i=$((i + 1))
+    sleep 0.5
+done
+
+echo "Failed to detect Niri socket in $runtime_dir" >&2
+exit 1
