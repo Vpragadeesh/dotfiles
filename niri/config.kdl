@@ -71,7 +71,7 @@ layout {
 // ================================
 // PREFER NO ANIMATIONS (matching Hyprland config)
 // ================================
-prefer-no-csd
+// prefer-no-csd
 
 animations {
     on
@@ -403,7 +403,6 @@ binds {
         spawn "sh" "-c" "grim - | wl-copy --type image/png"
     }
 
-    // Reload Niri config
     Mod+Shift+R {
         spawn "niri" "msg" "action" "quit" "--skip-confirmation"
     }
