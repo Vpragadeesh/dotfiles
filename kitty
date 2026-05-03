@@ -1,0 +1,12 @@
+# Launch tmux by default
+shell tmux
+
+# Cursor movement animation
+cursor_trail 3
+# background_opacity 0.7
+
+# Make Ctrl+Shift+T open a new kitty tab using the current working directory
+# This relies on the shell emitting OSC 7 (file://host/path). See
+# ~/.config/fish/conf.d/osc7.fish which emits OSC 7 from fish.
+# map ctrl+shift+t launch --type=tab --cwd=current
+hide_window_decorations yes
