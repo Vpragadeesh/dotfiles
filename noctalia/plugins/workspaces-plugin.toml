@@ -1,0 +1,37 @@
+# Workspaces Plugin Configuration
+# Manages workspace switching and display
+
+[workspaces]
+# Enable all output workspaces
+all_outputs = true
+
+# Number formatting
+format = "{index}"
+format_alt = "Workspace {index}"
+
+# Styling
+active_color = "#7aa2f7"
+inactive_color = "#444"
+hover_color = "#555"
+
+# Interactions
+on_click = "activate"
+on_scroll_up = "next_workspace"
+on_scroll_down = "previous_workspace"
+
+# Appearance
+icon_size = 16
+padding = 8
+margin = 4
+border_radius = 4
+
+# Animation
+animate_transitions = true
+transition_speed = 200
+
+# Workspace names (optional, can override config.toml)
+workspace_names = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
+
+# Behavior
+persistent_workspace_names = true
+show_empty_workspaces = true

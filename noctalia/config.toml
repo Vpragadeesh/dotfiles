@@ -1,0 +1,299 @@
+# Noctalia Configuration
+# Beautiful, minimal desktop shell for Wayland
+# All waybar features ported
+
+[shell]
+compositor = "auto"
+theme = "dark"
+animations = true
+blur = true
+
+# Panel Configuration (Top Bar)
+[[panels]]
+name = "top-bar"
+position = "top"
+anchor = "stretch"
+height = 32
+margin = 0
+padding = 0
+exclusive_zone = 32
+background_color = "#1a1a2e"
+opacity = 0.95
+blur_enabled = true
+blur_radius = 20
+
+# Left Section - Workspaces, Window Title, System
+[[panels.widgets]]
+type = "workspaces"
+position = "left"
+plugin = "workspaces-plugin"
+format = "{index}"
+all_outputs = true
+on_click = "activate"
+margin = { right = 2, left = 0 }
+
+[[panels.widgets]]
+type = "separator"
+position = "left"
+separator = "|"
+color = "#444"
+margin = { right = 2, left = 2 }
+
+[[panels.widgets]]
+type = "window-title"
+position = "left"
+plugin = "window-info"
+format = "{app_id}"
+max_length = 40
+margin = { right = 2, left = 2 }
+
+[[panels.widgets]]
+type = "separator"
+position = "left"
+separator = "|"
+color = "#444"
+margin = { right = 2, left = 2 }
+
+# Center Section - Time and Temperature
+[[panels.widgets]]
+type = "clock"
+position = "center"
+format = "{:%H:%M:%S %a, %d %b %y}"
+format_alt = "{:%Y-%m-%d %a}"
+color = "#6D8895"
+icon = "󰃭"
+interval = 1
+tooltip_format = "full_calendar"
+
+[[panels.widgets]]
+type = "temperature"
+position = "center"
+format = "{temperature}°C"
+icon = "🌡"
+critical_threshold = 70
+interval = 1
+margin = { left = 16, right = 16 }
+
+# Right Section - System Stats and More
+[[panels.widgets]]
+type = "audio"
+position = "right"
+plugin = "pulseaudio"
+format = "{volume}%"
+format_muted = "MUTED"
+icon = "󰕿"
+tooltip = true
+on_click = "toggle_mute"
+margin = { right = 2, left = 2 }
+
+[[panels.widgets]]
+type = "separator"
+position = "right"
+separator = "|"
+color = "#444"
+margin = { right = 2, left = 2 }
+
+[[panels.widgets]]
+type = "backlight"
+position = "right"
+format = "{percent}%"
+icon = "󰃞"
+on_scroll = true
+margin = { right = 2, left = 2 }
+
+[[panels.widgets]]
+type = "separator"
+position = "right"
+separator = "|"
+color = "#444"
+margin = { right = 2, left = 2 }
+
+[[panels.widgets]]
+type = "disk"
+position = "right"
+plugin = "disk-monitor"
+path = "/home/pragadeesh/"
+format = "💾 {used}"
+icon = "󰋊"
+interval = 2
+on_click = "open_disk_manager"
+margin = { right = 2, left = 2 }
+
+[[panels.widgets]]
+type = "separator"
+position = "right"
+separator = "|"
+color = "#444"
+margin = { right = 2, left = 2 }
+
+[[panels.widgets]]
+type = "cpu"
+position = "right"
+format = "{usage}%"
+icon = "󰻠"
+color = "#f7768e"
+interval = 1
+on_click = "open_system_monitor"
+margin = { right = 2, left = 2 }
+
+[[panels.widgets]]
+type = "separator"
+position = "right"
+separator = "|"
+color = "#444"
+margin = { right = 2, left = 2 }
+
+[[panels.widgets]]
+type = "memory"
+position = "right"
+format = "{used}G"
+icon = "󰘚"
+color = "#FBC02D"
+interval = 1
+on_click = "open_system_monitor"
+margin = { right = 2, left = 2 }
+
+[[panels.widgets]]
+type = "separator"
+position = "right"
+separator = "|"
+color = "#444"
+margin = { right = 2, left = 2 }
+
+[[panels.widgets]]
+type = "battery"
+position = "right"
+format = "{icon} {capacity}% | {health}"
+format_charging = "{icon} {capacity}% {time}"
+icon_empty = "󰁺"
+icon_low = "󰁼"
+icon_medium = "󰁿"
+icon_high = "󰂁"
+icon_full = "󰁹"
+color = "#9ece6a"
+critical_threshold = 20
+warning_threshold = 50
+interval = 1
+margin = { right = 2, left = 2 }
+
+[[panels.widgets]]
+type = "separator"
+position = "right"
+separator = "|"
+color = "#444"
+margin = { right = 2, left = 2 }
+
+[[panels.widgets]]
+type = "network"
+position = "right"
+plugin = "network-monitor"
+format_wifi = "  {essid}"
+format_ethernet = "󰈀"
+format_disconnected = "󰖪"
+color = "#99ffdd"
+tooltip_format = "Signal: {signal_strength}% | IP: {ipaddr}"
+on_click_right = "open_network_settings"
+interval = 1
+margin = { right = 2, left = 2 }
+
+[[panels.widgets]]
+type = "separator"
+position = "right"
+separator = "|"
+color = "#444"
+margin = { right = 2, left = 2 }
+
+[[panels.widgets]]
+type = "bluetooth"
+position = "right"
+format = " On"
+format_off = " Off"
+format_connected = " {device_alias}"
+icon = ""
+color = "#7aa2f7"
+on_click = "open_bluetooth_manager"
+margin = { right = 2, left = 2 }
+
+[[panels.widgets]]
+type = "separator"
+position = "right"
+separator = "|"
+color = "#444"
+margin = { right = 2, left = 2 }
+
+[[panels.widgets]]
+type = "mpris"
+position = "right"
+plugin = "media-player"
+format = "{player_icon} {player} {status_icon}"
+format_paused = "{player_icon} {player} ▶"
+status_playing = "⏸"
+status_paused = "▶"
+on_click = "toggle_playback"
+margin = { right = 2, left = 2 }
+
+[[panels.widgets]]
+type = "separator"
+position = "right"
+separator = "|"
+color = "#444"
+margin = { right = 2, left = 2 }
+
+[[panels.widgets]]
+type = "system-tray"
+position = "right"
+icon_size = 20
+spacing = 10
+margin = { right = 0, left = 2 }
+
+# Workspaces Configuration
+[workspaces]
+dynamic = true
+names = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
+number_per_monitor = 5
+
+# Theme/Appearance
+[theme]
+colorscheme = "dark"
+primary_color = "#1793D1"
+secondary_color = "#6D8895"
+background = "#1a1a2e"
+foreground = "#e0e0e0"
+accent = "#7aa2f7"
+
+# Fonts
+[fonts]
+ui_font = "JetBrains Mono"
+ui_font_size = 10
+mono_font = "JetBrains Mono"
+
+# Keybindings
+[keybindings]
+app_menu = "Super+Space"
+window_switcher = "Super+Tab"
+show_desktop = "Super+D"
+lock_screen = "Super+L"
+screenshot = "Print"
+screenshot_region = "Super+Print"
+
+# Plugins
+[plugins]
+enabled = [
+    "workspaces-plugin",
+    "window-info",
+    "pulseaudio",
+    "disk-monitor",
+    "network-monitor",
+    "media-player",
+    "system-monitor"
+]
+
+# Logging
+[logging]
+level = "info"
+file = "/tmp/noctalia.log"
+
+[window_switcher]
+default_scope = "Workspace"
+# or if it is under [switcher]
+# scope = "Workspace"

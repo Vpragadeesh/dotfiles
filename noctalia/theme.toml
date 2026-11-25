@@ -1,0 +1,114 @@
+# Noctalia Theme - Dark Minimal
+# Color scheme with full panel configuration
+
+[colors]
+# Primary palette
+primary = "#1793D1"
+secondary = "#6D8895"
+accent = "#7aa2f7"
+background = "#1a1a2e"
+surface = "#16213e"
+foreground = "#e0e0e0"
+text_muted = "#999"
+text_dimmed = "#666"
+border = "#444"
+
+# Status colors
+success = "#9ece6a"
+warning = "#FBC02D"
+critical = "#f7768e"
+info = "#7aa2f7"
+
+# Component specific
+active = "#7aa2f7"
+inactive = "#444"
+hover = "#555"
+focus = "#1793D1"
+
+# Network colors
+network_download = "#99ffdd"
+network_upload = "#ffcc66"
+network_ip = "#ccccff"
+
+# CPU/Memory
+cpu_color = "#f7768e"
+memory_color = "#FBC02D"
+temperature_color = "#7aa2f7"
+
+[typography]
+# Font families
+font_ui = "JetBrains Mono"
+font_mono = "JetBrains Mono"
+font_sans = "Inter"
+
+# Sizes
+size_ui = 10
+size_mono = 9
+size_large = 12
+size_small = 8
+
+# Weights
+weight_normal = 400
+weight_bold = 700
+weight_light = 300
+
+[spacing]
+# Panel dimensions
+panel_height = 32
+panel_margin = 0
+panel_padding = 8
+
+# Widget spacing
+widget_margin = 4
+widget_padding = 8
+separator_width = 1
+
+# Icon sizing
+icon_size = 16
+icon_padding = 4
+
+[borders]
+# Border radius
+radius_small = 2
+radius_medium = 4
+radius_large = 8
+
+# Border widths
+width_thin = 1
+width_medium = 2
+width_thick = 3
+
+[effects]
+# Blur settings
+blur_enabled = true
+blur_radius = 20
+
+# Transparency
+opacity_panel = 0.95
+opacity_tooltip = 0.98
+opacity_modal = 1.0
+
+# Animations
+animation_duration = 200
+animation_easing = "cubic-bezier(0.4, 0, 0.2, 1)"
+smooth_scroll = true
+transition_speed = 200
+
+[shadows]
+# Shadow configuration
+shadow_enabled = true
+shadow_color = "#000000"
+shadow_opacity = 0.3
+shadow_blur = 8
+shadow_offset_x = 0
+shadow_offset_y = 2
+
+[contrast]
+# High contrast mode
+high_contrast_mode = false
+minimum_contrast = 4.5
+
+# Text shadow for readability
+text_shadow_enabled = true
+text_shadow_color = "#000000"
+text_shadow_blur = 2

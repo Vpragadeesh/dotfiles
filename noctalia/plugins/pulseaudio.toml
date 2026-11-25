@@ -1,0 +1,49 @@
+# Pulseaudio/Audio Plugin Configuration
+# Controls volume and audio input/output
+
+[audio]
+# Display format
+format = "{volume}%"
+format_muted = "MUTED"
+format_bluetooth = "{volume}% {format_source}"
+format_bluetooth_muted = "󰝟 M"
+format_source = ""
+format_source_muted = ""
+
+# Icons
+icon_default_0 = "󰕿"
+icon_default_1 = "󰖀"
+icon_default_2 = "󰕾"
+icon_headphone = "󰋋"
+icon_hands_free = "󰋌"
+icon_headset = "󰋎"
+icon_speaker = "🔊"
+
+# Styling
+volume_color = "#e0e0e0"
+muted_color = "#666"
+background_color = "transparent"
+font_size = 10
+
+# Interactions
+on_click = "toggle_mute"
+on_scroll_up = "volume_up"
+on_scroll_down = "volume_down"
+on_right_click = "open_mixer"
+volume_step = 5
+
+# Update interval
+update_interval = 100
+
+# Appearance
+icon_size = 16
+padding = { left = 8, right = 8, top = 4, bottom = 4 }
+margin = { left = 8, right = 8 }
+border_radius = 4
+
+# Tooltip
+show_tooltip = true
+tooltip_format = "Volume: {volume}%\nDevice: {device_name}"
+
+# Smooth volume adjustment
+smooth_scroll = true

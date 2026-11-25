@@ -1,0 +1,50 @@
+# Network Monitor Plugin Configuration
+# Displays network connectivity and status
+
+[network]
+# Display formats
+format = " {bandwidthDownBytes}  {bandwidthUpBytes}  {ipaddr}  {essid}"
+format_wifi = "  {essid}"
+format_ethernet = "󰈀 "
+format_linked = "󰈀 {ifname} (No IP)"
+format_disconnected = "󰖪 "
+
+# Styling
+text_color = "#99ffdd"
+upload_color = "#ffcc66"
+download_color = "#99ffdd"
+ip_color = "#ccccff"
+ssid_color = "#ccccff"
+disconnected_color = "#666"
+background_color = "transparent"
+font_size = 10
+
+# Interactions
+on_click = "open_network_info"
+on_right_click = "open_network_manager"
+
+# Update interval (ms)
+update_interval = 1000
+
+# Appearance
+icon_size = 16
+max_length = 50
+padding = { left = 8, right = 8, top = 4, bottom = 4 }
+margin = { left = 8, right = 8 }
+border_radius = 4
+
+# Tooltip
+show_tooltip = true
+tooltip_format = """Signal: {signalStrength}% ({signaldBm}dBm)
+Frequency: {frequency}MHz
+Interface: {ifname}
+IP: {ipaddr}/{cidr}
+Gateway: {gwaddr}
+Netmask: {netmask}"""
+
+# Smooth bandwidth display
+smooth_updates = true
+bandwidth_precision = 2
+
+# Show connected devices
+show_device_count = false

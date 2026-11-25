@@ -1,0 +1,41 @@
+# Disk Monitor Plugin Configuration
+# Monitors disk usage and storage
+
+[disk]
+# Display format
+format = "💾 {used}"
+format_alt = "Disk: {used} / {total} ({percent}%)"
+
+# Paths to monitor
+paths = ["/home/pragadeesh/", "/", "/home"]
+
+# Styling
+text_color = "#e0e0e0"
+used_color = "#f7768e"
+free_color = "#9ece6a"
+background_color = "transparent"
+font_size = 10
+
+# Interactions
+on_click = "open_disk_manager"
+on_right_click = "open_file_manager"
+
+# Update interval (ms)
+update_interval = 2000
+
+# Appearance
+icon = "💾"
+icon_size = 16
+padding = { left = 8, right = 8, top = 4, bottom = 4 }
+margin = { left = 8, right = 8 }
+border_radius = 4
+
+# Tooltip
+show_tooltip = true
+tooltip_format = "Used: {used} / {total}\nFree: {free}\nPercent: {percent}%"
+
+# Alert thresholds
+warning_threshold = 80
+critical_threshold = 95
+warning_color = "#FBC02D"
+critical_color = "#f7768e"

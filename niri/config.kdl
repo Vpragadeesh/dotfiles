@@ -4,6 +4,14 @@
 // ================================
 
 // ================================
+// HARDWARE / GPU ISOLATION
+// ================================
+debug {
+    render-drm-device "/dev/dri/by-path/pci-0000:00:02.0-render"
+    ignore-drm-device "/dev/dri/by-path/pci-0000:01:00.0-card"
+    keep-laptop-panel-on-when-lid-is-closed
+}
+// ================================
 // INPUT CONFIGURATION
 // ================================
 input {
@@ -22,8 +30,8 @@ input {
     }
 
     mouse {
-        accel-profile "flat"
-        accel-speed 0.0
+        accel-profile "adaptive"
+        accel-speed 0.5
     }
 
     focus-follows-mouse
@@ -32,13 +40,14 @@ input {
 environment {
     XCURSOR_THEME "Breeze-Dark"
     XCURSOR_SIZE "24"
+    DBUS_SESSION_BUS_ADDRESS "unix:path=/run/user/1000/bus"
 }
 
 // ================================
 // OUTPUT / MONITOR
 // ================================
 output "eDP-1" {
-    mode "1920x1080@144"
+    mode "1920x1080@60"
     scale 1.0
 }
 
@@ -49,9 +58,12 @@ layout {
     gaps 0
 
     border {
-        width 1
-        active-color "#4c7899"
-        inactive-color "#333333"
+        width 0
+        // active-color "#7fc8ff"
+        // active-color "#00000000"
+        active-color "#00000000"
+        // inactive-color "#444444"
+        inactive-color "#00000000"
     }
 
     focus-ring {
@@ -59,7 +71,10 @@ layout {
     }
 
     preset-column-widths {
+        // proportion 0.33
         proportion 0.5
+        // proportion 0.67
+        // proportion 0.75
         proportion 1.0
     }
 
@@ -68,10 +83,61 @@ layout {
     }
 }
 
+
+// ================================
+// WINDOW RULES
+// ================================
+
+// Named workspace used by scratchpad.sh to park hidden pop-ups
+workspace "scratchpad"
+
+// Rounded corners for all windows
+window-rule {
+    geometry-corner-radius 0
+    clip-to-geometry true
+}
+
+// Visible border and shadow on floating pop-ups only (tiled windows stay borderless)
+window-rule {
+    match is-floating=true
+    shadow {
+        on
+    }
+    border {
+        on
+        width 2
+        active-color "#7fc8ff"
+        inactive-color "#444444"
+    }
+}
+
+window-rule {
+    match app-id="^kitty$"
+    open-maximized true
+}
+
+window-rule {
+    match app-id="wezterm"
+    open-maximized true
+}
+
+// Browser windows open maximized
+window-rule {
+    match app-id="zen"
+    open-maximized true
+}
+
+// Calculator opens as a centered floating pop-up
+window-rule {
+    match app-id="^qalculate-gtk$"
+    open-floating true
+    default-column-width { fixed 480; }
+    default-window-height { fixed 560; }
+}
 // ================================
 // PREFER NO ANIMATIONS (matching Hyprland config)
 // ================================
-// prefer-no-csd
+prefer-no-csd
 
 animations {
     on
@@ -85,7 +151,7 @@ binds {
 
     // Terminal
     Mod+Return {
-        spawn "kitty"
+        spawn "wezterm"
     }
 
     Mod+T {
@@ -110,7 +176,7 @@ binds {
     }
 
     Mod+W {
-        spawn "niri" "msg" "action" "cycle-column-width"
+        switch-preset-column-width
     }
 
     // Calculator
@@ -120,7 +186,7 @@ binds {
 
     // Browser
     Mod+B {
-        spawn "zen-browser"
+        spawn "zen"
     }
     Mod+A {
         spawn "firefox"
@@ -153,6 +219,9 @@ binds {
 
     Alt+0 {
         spawn "pactl" "set-sink-volume" "@DEFAULT_SINK@" "0%"
+    }
+    Ctrl+7 {
+        spawn "pactl" "set-sink-volume" "@DEFAULT_SINK@" "70%"
     }
 
     Ctrl+6 {
@@ -365,7 +434,7 @@ binds {
     // ========== SYSTEM ACTIONS ==========
 
     Mod+Shift+B {
-        spawn "sh" "-c" "pkill waybar && waybar"
+        spawn "sh" "-c" "pkill  noctalia && noctalia"
     }
 
     Mod+Shift+N {
@@ -381,13 +450,19 @@ binds {
     }
 
     // Brightness controls
-    Mod+I {
+    Mod+U {
         spawn "brightnessctl" "-q" "s" "10%-"
     }
 
-    Mod+O {
+    Mod+I {
         spawn "brightnessctl" "-q" "s" "+10%"
     }
+
+    // overview
+    Mod+O {
+    toggle-overview
+    }
+
 
     // Spotify
     Mod+S {
@@ -397,6 +472,7 @@ binds {
     // Screenshot
     Mod+Shift+S {
         spawn "sh" "-c" "f=\"$HOME/Pictures/screenshot-$(date +%Y-%m-%d--%H-%M-%S).png\"; grim -g \"$(slurp)\" \"$f\" && wl-copy --type image/png < \"$f\" && notify-send \"📸 Screenshot Copied to Clipboard\""
+        // spawn "sh" "-c" "f=\"$HOME/Pictures/screenshot-$(date +%Y-%m-%d--%H-%M-%S).png\"; grim -l 0 -g \"$(slurp)\" \"$f\" && wl-copy --type image/png < \"$f\" && notify-send \"📸 Screenshot Copied to Clipboard\""
     }
 
     Print {
@@ -435,6 +511,7 @@ binds {
 
     XF86AudioRaiseVolume {
         spawn "pamixer" "-i" "2"
+        // spawn "pamixer" "--allow-boost" "--set-limit" "150" "-i" "2"
     }
 
     XF86AudioLowerVolume {
@@ -476,15 +553,40 @@ binds {
     Mod+Shift+Equal {
         set-window-height "+10%"
     }
+
+    // ========== FLOATING POP-UPS & SCRATCHPAD ==========
+
+    // Toggle the focused window between floating pop-up and tiled
+    Mod+Shift+Space {
+        toggle-window-floating
+    }
+
+    // Switch focus between floating pop-ups and tiled windows
+    Mod+Ctrl+Space {
+        switch-focus-between-floating-and-tiling
+    }
+
+    // Hide or summon a persistent scratchpad pop-up on the current workspace
+    Mod+Grave {
+        spawn "/home/pragadeesh/.config/niri/scratchpad.sh"
+    }
 }
 
-// end of binds block above
+recent-windows {
+    binds {
+        // Switches forward through windows in the current workspace only
+        Mod+Tab { next-window scope="workspace"; }
+
+        // Switches backward through windows in the current workspace only
+        Mod+Shift+Tab { previous-window scope="workspace"; }
+    }
+}
 
 // ================================
 // STARTUP APPLICATIONS
 // ================================
 
-spawn-at-startup "/home/pragadeesh/.config/niri/wallpaper.sh"
+// spawn-at-startup "/home/pragadeesh/.config/niri/wallpaper.sh"
 
 spawn-at-startup "dbus-update-activation-environment" "--systemd" "WAYLAND_DISPLAY" "XDG_CURRENT_DESKTOP"
 
@@ -500,7 +602,7 @@ spawn-at-startup "nm-applet" "--indicator"
 
 spawn-at-startup "dunst"
 
-spawn-at-startup "waybar"
+spawn-at-startup "noctalia"
 
 spawn-at-startup "wl-paste" "--type" "text" "--watch" "cliphist" "store"
 
@@ -508,7 +610,11 @@ spawn-at-startup "wl-paste" "--type" "image" "--watch" "cliphist" "store"
 
 spawn-at-startup "systemctl" "--user" "import-environment" "WAYLAND_DISPLAY" "XDG_RUNTIME_DIR"
 
-spawn-at-startup "systemctl" "--user" "restart" "nirinit.service"
+spawn-at-startup "systemctl" "--user" "start" "nirinit.service"
+
+// spawn-at-startup "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.2"
+
+// spawn-at-startup "jamesdsp" "-t"
 
 
 // Note: Custom scripts will need full paths

@@ -1,0 +1,74 @@
+# System Monitor Plugin Configuration
+# Displays CPU, Memory, Temperature, Battery
+
+[system_monitor]
+# CPU Configuration
+cpu_format = "{usage}%"
+cpu_icon = "󰻠"
+cpu_color = "#f7768e"
+cpu_update_interval = 1000
+
+# Memory Configuration  
+memory_format = "{used}G"
+memory_icon = "󰘚"
+memory_color = "#FBC02D"
+memory_update_interval = 1000
+
+# Temperature Configuration
+temperature_format = "{temperature}°C"
+temperature_icon = "🌡"
+temperature_color = "#7aa2f7"
+temperature_critical_color = "#f7768e"
+temperature_update_interval = 1000
+temperature_critical_threshold = 70
+
+# Battery Configuration
+battery_format = "{icon} {capacity}% | {health}"
+battery_charging_format = "{icon} {capacity}% {time}"
+battery_icon_empty = "󰁺"
+battery_icon_low = "󰁼"
+battery_icon_medium = "󰁿"
+battery_icon_high = "󰂁"
+battery_icon_full = "󰁹"
+battery_color = "#9ece6a"
+battery_warning_color = "#FBC02D"
+battery_critical_color = "#f7768e"
+battery_warning_threshold = 50
+battery_critical_threshold = 20
+battery_update_interval = 1000
+
+# Backlight Configuration
+backlight_format = "{percent}%"
+backlight_icon = "󰃞"
+backlight_color = "#7aa2f7"
+backlight_update_interval = 500
+
+# Styling
+text_color = "#e0e0e0"
+background_color = "transparent"
+font_size = 10
+
+# Interactions
+cpu_on_click = "open_system_monitor"
+memory_on_click = "open_system_monitor"
+temperature_on_click = "open_system_monitor"
+battery_on_click = "battery_info"
+backlight_on_scroll = true
+backlight_scroll_step = 5
+
+# Appearance
+icon_size = 16
+padding = { left = 8, right = 8, top = 4, bottom = 4 }
+margin = { left = 8, right = 8 }
+border_radius = 4
+
+# Tooltip
+show_cpu_tooltip = true
+show_memory_tooltip = true
+show_temperature_tooltip = true
+show_battery_tooltip = true
+
+cpu_tooltip_format = "CPU Usage: {usage}%"
+memory_tooltip_format = "Memory: {used}G / {total}G ({percent}%)"
+temperature_tooltip_format = "Temperature: {temperature}°C"
+battery_tooltip_format = "Battery: {capacity}% | Health: {health}%"

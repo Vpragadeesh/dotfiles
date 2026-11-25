@@ -1,0 +1,42 @@
+# Window Information Plugin
+# Displays active window title and app ID
+
+[window_info]
+# Display format
+format = "{app_id}"
+format_alt = "{window_title}"
+max_length = 40
+truncate_mode = "end"
+
+# Styling
+text_color = "#e0e0e0"
+icon_color = "#7aa2f7"
+background_color = "transparent"
+font_size = 10
+
+# Interactions
+on_click = "focus_window"
+on_double_click = "maximize_window"
+on_right_click = "window_menu"
+
+# Separators and padding
+padding = { left = 8, right = 8, top = 4, bottom = 4 }
+margin = { left = 8, right = 8 }
+
+# Appearance
+show_icon = true
+icon_size = 16
+border_radius = 4
+
+# Animation
+animate_on_change = true
+animation_speed = 200
+
+# Update interval (in ms)
+update_interval = 100
+
+# Excluded window classes (optional)
+exclude_classes = [""]
+
+# Monitor-specific behavior
+separate_outputs = true

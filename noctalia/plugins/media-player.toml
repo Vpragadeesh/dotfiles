@@ -1,0 +1,56 @@
+# Media Player (MPRIS) Plugin Configuration
+# Controls and displays music/video playback
+
+[media_player]
+# Display format
+format = "{player_icon} {player} {status_icon}"
+format_paused = "{player_icon} {player} ▶"
+format_stopped = "{player_icon} {player} ⏹"
+
+# Status icons
+status_playing = "⏸"
+status_paused = "▶"
+status_stopped = "⏹"
+
+# Player icons
+player_icon_default = ""
+player_icon_spotify = " "
+player_icon_firefox = "🦊"
+player_icon_vlc = "🎬"
+player_icon_mpv = "🎬"
+player_icon_zen = "🦊"
+player_icon_chrome = "🌐"
+player_icon_chromium = "🌐"
+
+# Styling
+text_color = "#FF9400"
+playing_color = "#FF9400"
+paused_color = "#999"
+background_color = "transparent"
+font_size = 10
+
+# Interactions
+on_click = "play_pause"
+on_scroll_up = "next_track"
+on_scroll_down = "previous_track"
+on_right_click = "player_menu"
+
+# Update interval (ms)
+update_interval = 500
+
+# Appearance
+title_length = 25
+max_length = 60
+icon_size = 16
+padding = { left = 8, right = 8, top = 4, bottom = 4 }
+margin = { left = 8, right = 8 }
+border_radius = 4
+
+# Tooltip
+show_tooltip = true
+tooltip_format = "{title}\nBy: {artist}\nAlbum: {album}"
+
+# Display options
+show_player_name = true
+show_status = true
+smooth_transitions = true
